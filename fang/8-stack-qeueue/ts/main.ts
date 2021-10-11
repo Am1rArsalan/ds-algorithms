@@ -82,7 +82,24 @@ console.log(
 let openParenthesesRegex = /\(/;
 let closeParenthesesRegex = /\)/;
 
-function validateString(txt: string) {}
+//////
+function validateString(txt: string) {
+  let stack: { char: string; pos: number }[] = [];
+  for (let i = 0; i < txt.length; ++i) {
+    let char = txt[i];
+    if (char === "(") {
+      stack.push({ char, pos: i });
+    }
+
+    if (char === ")") {
+      let openingParenthesis = stack.pop();
+      if (!openingParenthesis) {
+        // remove this closing parenthesis from here ;
+        // go to next loop
+      }
+    }
+  }
+}
 
 console.log(validateString(`a)bc(d)`));
 console.log(validateString(`(ab(c)d`));
