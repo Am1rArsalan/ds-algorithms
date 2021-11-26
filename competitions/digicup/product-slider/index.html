@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa-IR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Slider - Digikala Cup</title>
+    <link rel="icon" href="./assets/images/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+
+    <!-- SCRIPTS -->
+    <script src="./data/index.js" defer></script>
+    <script src="./utils/number.js" defer></script>
+    <script src="./script.js" defer></script>
+    <!-- END SCRIPT -->
+
+    <link rel="stylesheet" href="./assets/css/productCard.css" />
+    <link rel="stylesheet" href="./assets/css/productSlider.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body dir="rtl">
+    <!-- Slider -->
+    <div class="product-slider">
+      <!-- Header -->
+      <div class="product-slider__header">
+        <button class="btn js-next-btn">
+          <img alt=">" src="./assets/images/next.png" />
+        </button>
+        <span>پیشنهادهای لحظه‌ای</span>
+        <button class="btn js-previous-btn">
+          <img alt="<" src="./assets/images/previous.png" />
+        </button>
+      </div>
+      <!-- Product Container -->
+      <div class="product-slider__content js-product-container">
+        <!-- Product Card -->
+        <div class="product-card js-product-card">
+          <a href="" class="product-card__link js-product-link"></a>
+          <img
+            class="product-card__image js-product-card-image"
+            src=""
+            alt=""
+          />
+          <h3 class="product-card__title js-product-card-title"></h3>
+          <div class="product-card__price">
+            <div
+              class="product-card__price-row js-product-card-discount-container"
+            >
+              <del
+                class="
+                  product-card__main-price
+                  js-product-card-discount-old-price
+                "
+              ></del>
+              <div
+                class="
+                  product-card__price-discount
+                  js-product-card-discount-percentage
+                "
+              ></div>
+            </div>
+            <div class="product-card__price-row">
+              <span
+                class="product-card__selling-price js-product-card-price"
+              ></span>
+              <span class="product-card__price-unit">تومان</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

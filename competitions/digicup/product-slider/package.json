@@ -1,0 +1,12 @@
+{
+  "name": "product-slider",
+  "license": "ISC",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^4.5.0"
+  }
+}

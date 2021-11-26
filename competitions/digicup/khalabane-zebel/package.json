@@ -1,0 +1,15 @@
+{
+  "name": "khalabane-zebel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^4.5.0"
+  }
+}
