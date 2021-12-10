@@ -30,25 +30,3 @@ function compareTwoString(S: string, T: string) {
 
 //console.log(compareTwoString("ax#c", "amir is g#x"));
 //console.log(compareTwoString("ax#c", "ag#c"));
-
-const rl = require("readline").createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-function ask(msg: string) {
-  return new Promise((resolve) => {
-    return rl.question(msg, resolve);
-  });
-}
-
-(async function main() {
-  let S = (await ask("Enter S : ")) as string;
-  let T = (await ask("Enter T : ")) as string;
-  if (compareTwoString(S as string, T as string)) {
-    console.log("locky");
-  } else {
-    console.log("not locky");
-  }
-  rl.close();
-})();
