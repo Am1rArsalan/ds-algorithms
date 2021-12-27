@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::io;
 
 fn get_input() -> String {
@@ -10,10 +11,8 @@ fn get_input() -> String {
 fn sum(up: &Vec<i32>, down: &Vec<i32>) -> i32 {
     let mut up = up.clone();
     let mut down = down.clone();
-
     let up: Vec<i32> = up.splice(1..4, []).collect();
     let down: Vec<i32> = down.splice(1..4, []).collect();
-
     let mut first = up.get(0).unwrap_or(&0) + down.get(0).unwrap_or(&1);
     first = match first {
         0..=9 => first,
