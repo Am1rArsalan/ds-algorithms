@@ -4,7 +4,6 @@ function generateKhayam(n: number): number[][] {
   /// it's not important
   if (n < 1 || n > 100) throw "Bad Input";
 
-  /// space o(n^2)
   let khayam = Array.from(
     { length: n },
     function mapFn(value: any, index: number) {
@@ -12,7 +11,6 @@ function generateKhayam(n: number): number[][] {
     }
   );
 
-  ///// time o(n^2)
   for (let i = 0; i < n; i++) {
     for (let j = 0; j <= i; j++) {
       if (i === 0 || j == 0) khayam[i][j] = 1;

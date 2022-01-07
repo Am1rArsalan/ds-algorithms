@@ -1,5 +1,3 @@
-// stack and qeueue
-
 let oReg = /\[|\(|\{/;
 let cReg = /\]|\)|\}/;
 

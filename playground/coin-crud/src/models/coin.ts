@@ -4,3 +4,6 @@ export type Coin = {
   amount: number;
   rate: number;
 };
+
+
+// TODO : implement Coin model class 

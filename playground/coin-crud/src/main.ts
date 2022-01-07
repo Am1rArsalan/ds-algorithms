@@ -86,3 +86,6 @@ app.delete("/wallets/:walletName", (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log("server is running on port " + PORT);
 });
+
+
+// TODO : add mongodb to for this apis
