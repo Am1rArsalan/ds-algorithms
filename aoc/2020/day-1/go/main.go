@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	entries := getEntry()
 	result := findTwoNumber(entries)
-	fmt.Println("rewsult is ??A", result)
+	fmt.Println("result is ??A", result)
 }
 
 func findTwoNumber(entry []int) int {
