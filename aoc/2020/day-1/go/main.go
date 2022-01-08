@@ -13,14 +13,14 @@ func findTwoNumber(entry []int) int {
 		for j := 0; j < len(entry); j++ {
 			result := entry[i] + entry[j]
 			if result == 2020 {
-				return multiplyTwoNuimber(entry[i], entry[j])
+				return multiplyTwoNumber(entry[i], entry[j])
 			}
 		}
 	}
 	return -1
 }
 
-func multiplyTwoNuimber(a int, b int) int {
+func multiplyTwoNumber(a int, b int) int {
 	return a * b
 }
 
