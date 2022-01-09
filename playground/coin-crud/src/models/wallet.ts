@@ -1,5 +1,6 @@
 import { Coin } from "./coin";
 
+// TODO :should be an interface not type
 export type WalletType = {
   key: string;
   name: string;
