@@ -1,4 +1,4 @@
-import { isValid, isValidTags, validateString } from "../main";
+import { isValid, isValidTags } from "./main";
 
 describe("test the problem", () => {
   // this problem will check that the
