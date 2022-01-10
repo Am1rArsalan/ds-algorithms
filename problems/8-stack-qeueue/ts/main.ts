@@ -7,7 +7,7 @@ let mapParenthesis = new Map<string, string>([
   ["[", "]"],
 ]);
 
-function isValid(str: string) {
+export function isValid(str: string) {
   str = str.trim();
   if (str?.length === 0) {
     return true;
@@ -31,17 +31,11 @@ function isValid(str: string) {
   return stack.length === 0;
 }
 
-console.log(isValid("[({})]"));
-console.log(isValid("[]{}()"));
-console.log(isValid("{()[]}"));
-console.log(isValid("{()[}]"));
-console.log(isValid("{()[]"));
-
 let openingTagRegex = /<[a-zA-Z]+(>|.*?[^?]>)/;
 let closingTagRegex = /<\/.+?>/;
 let HtmlTagsRegex = /<(“[^”]*”|'[^’]*’|[^'”>])*>/g;
 
-function isValidTags(tags: string) {
+export function isValidTags(tags: string) {
   let tgs = tags.match(HtmlTagsRegex) || [];
   if (tgs.length === 0) return true;
   let stack = [];
@@ -65,23 +59,10 @@ function isValidTags(tags: string) {
   return stack.length === 0;
 }
 
-console.log("validate the HTMLTAGS");
-console.log(isValidTags(`<div>f1</div><b><strong>f2</strong></b>`));
-console.log(
-  isValidTags(
-    `<div>f1</div><b><span> span text content</span><p>csajcnasc <b>csacascas</b></p> <strong>f2</strong></b>`
-  )
-);
-
-console.log(
-  isValidTags(
-    `<div>f1</div><b><span> span text content</span><p>csajcnasc <b>csacascas</b></p> <strong>f2</strong></b><div>`
-  )
-);
 let openParenthesesRegex = /\(/;
 let closeParenthesesRegex = /\)/;
 
-function validateString(txt: string) {
+export function validateString(txt: string) {
   let stack: { char: string; pos: number }[] = [];
   let cloneText = txt;
   for (let i = 0; i < cloneText.length; ++i) {
@@ -97,7 +78,6 @@ function validateString(txt: string) {
           .split("")
           .filter((char: string, index: number) => index === i)
           .join("");
-
         continue;
       }
     }
