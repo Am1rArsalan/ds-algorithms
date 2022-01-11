@@ -11,7 +11,7 @@
 console.log("amir is her");
 
 // x * y
-function solution(entry: number[]) {
+export function solution(entry: number[]) {
   let maxArea = 0;
   for (let j = 0; j < entry.length; ++j) {
     for (let i = j + 1; i < entry.length; ++i) {
@@ -24,14 +24,6 @@ function solution(entry: number[]) {
 
   return maxArea;
 }
-
-console.log(solution([1, 2, 3, 4, 6, 8, 5]));
-console.log(solution([1, 2, 2]));
-console.log(solution([1, 2, 3]));
-console.log(solution([1, 2]));
-console.log(solution([]));
-console.log(solution([1]));
-console.log(solution([7, 1, 2, 3, 9]));
 
 function opSolution(entry: number[]) {
   let maxArea = 0;
