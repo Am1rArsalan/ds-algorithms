@@ -5,12 +5,6 @@
 // forms  a container that will hold the greatest amount of water
 // return  the area of the water that would hold
 
-// [1,2,3,4,6 ,8,5]
-//  0 1 2 3 4 5 6
-
-console.log("amir is her");
-
-// x * y
 export function solution(entry: number[]) {
   let maxArea = 0;
   for (let j = 0; j < entry.length; ++j) {
