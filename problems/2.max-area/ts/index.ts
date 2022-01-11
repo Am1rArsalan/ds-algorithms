@@ -19,7 +19,7 @@ export function solution(entry: number[]) {
   return maxArea;
 }
 
-function opSolution(entry: number[]) {
+export function opSolution(entry: number[]) {
   let maxArea = 0;
   let I = 0,
     J = entry.length - 1;
@@ -40,7 +40,7 @@ function opSolution(entry: number[]) {
   return maxArea;
 }
 
-function opSolution2(entry: number[]) {
+export function opSolution2(entry: number[]) {
   let maxArea = 0;
   let I = 0,
     J = entry.length - 1;
@@ -59,40 +59,4 @@ function opSolution2(entry: number[]) {
   }
 
   return maxArea;
-}
-
-console.log(
-  "/////////////////////////////optimized solutions////////////////////"
-);
-console.log(opSolution([1, 2, 3, 4, 6, 8, 5]));
-console.log(opSolution([1, 2, 2]));
-console.log(opSolution([1, 2, 3]));
-console.log(opSolution([1, 2]));
-console.log(opSolution([]));
-console.log(opSolution([1]));
-console.log(opSolution([7, 1, 2, 3, 9]));
-
-////// playground
-type TRes = {
-  respCode: number;
-  respValue: string[];
-};
-
-interface IResponse {
-  cb?: () => TRes;
-  serilize: () => void;
-}
-
-abstract class Funny {
-  abstract tellMeaJoke(): void;
-}
-
-class Test extends Funny implements IResponse {
-  serilize() {
-    ///...
-  }
-
-  tellMeaJoke() {
-    ///...
-  }
 }
