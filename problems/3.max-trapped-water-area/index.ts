@@ -2,7 +2,7 @@
 // Where the Width of each bar is One ,
 // Return how much rain water can be trapped
 
-function solution(heights: number[]) {
+export function solution(heights: number[]) {
   let total = 0;
   for (
     let currentPointer = 0;
@@ -41,7 +41,7 @@ function solution(heights: number[]) {
 
 //[0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2];
 
-function opSolution(heights: number[]) {
+export function opSolution(heights: number[]) {
   let total = 0;
   let L = 0,
     R = heights.length - 1,
@@ -69,7 +69,7 @@ function opSolution(heights: number[]) {
   return total;
 }
 
-function calTrappedWater(heights: number[]) {
+export function calTrappedWater(heights: number[]) {
   let total = 0;
   let L = 0,
     R = heights.length - 1,
@@ -101,7 +101,7 @@ console.log(
 console.log(opSolution([0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]));
 
 //////// this is not a good code
-function opSolution2(heights: number[]) {
+export function opSolution2(heights: number[]) {
   let total = 0;
   let L = 0,
     R = heights.length - 1,

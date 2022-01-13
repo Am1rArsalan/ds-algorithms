@@ -101,7 +101,7 @@ class LinkedList<T> {
 
       console.log(temp?.value);
     } else {
-      console.log("NOOOO HEAD");
+      console.log("NO HEAD");
     }
   }
 

@@ -9,7 +9,7 @@
 //  example-2  : axeqq#a  axeqW#a
 //  solution-2 : axeqa  axeqa => res true ;
 
-function generateString(str: string): string {
+export function generateString(str: string): string {
   let resultArray: string[] = [];
   for (let i = 0; i < str.length; ++i) {
     if (str[i] !== "#") {
@@ -21,12 +21,9 @@ function generateString(str: string): string {
   return resultArray.join("");
 }
 
-function compareTwoString(S: string, T: string) {
+export function compareTwoString(S: string, T: string) {
   let SRes: string = generateString(S);
   let TRes: string = generateString(T);
 
   return SRes === TRes;
 }
-
-//console.log(compareTwoString("ax#c", "amir is g#x"));
-//console.log(compareTwoString("ax#c", "ag#c"));

@@ -2,7 +2,7 @@
 //longest substring without repeating
 //characters
 
-function solution(str: string) {
+export function solution(str: string) {
   // o(n^2)
   let resultArr = [];
   for (let j = 0; j < str.length; ++j) {
@@ -29,7 +29,7 @@ function solution(str: string) {
 }
 
 // find the longest length of the substring
-function optimizedSolution(str: string) {
+export function optimizedSolution(str: string) {
   let L = 0;
   let R = 0;
   let max = 0;
@@ -53,7 +53,7 @@ function optimizedSolution(str: string) {
 }
 
 // find the longest length of the substring
-function optimizedSolution2(str: string) {
+export function optimizedSolution2(str: string) {
   let L = 0;
   let R = 0;
   let max = 0;
@@ -72,7 +72,7 @@ function optimizedSolution2(str: string) {
   return max;
 }
 
-function findMaxSumOfTwoSeq(arr: number[]) {
+export function findMaxSumOfTwoSeq(arr: number[]) {
   let leftPointer = 0;
   let rightPointer = 1;
   let sum = 0;
