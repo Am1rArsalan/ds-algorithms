@@ -41,20 +41,22 @@ export function reshapeChildren(
   parent: CommentType
 ): CommentType[] {
   let children: CommentType[] = [];
-  let parentId = parent.id;
 
-  if (parent) {
-    for (let i = 0; i < items.length; ++i) {
-      let child = items[i];
-      if (child.parentId === parentId) {
-        children = reshapeChildren(items, child);
-        if (parent?.children && parent?.children?.length > 0) {
-          parent.children.push(child);
-        } else {
-          parent.children = [child];
-        }
-        items.splice(i, 1);
+  // reshapeChildren => p= 2 // child => 2.1 2.1.1
+  // reshapeChildren => p= 2.1 // child = 2.1.1 // children = 2.1.1
+  // reshapeChildren => p= 2.1.1 => children=[] ;
+  // child = 2.1
+  for (let i = 0; i < items.length; ++i) {
+    const child = items[i];
+    console.log("what is child", child);
+    if (child.parentId === parent.id) {
+      children = reshapeChildren(items, child);
+      if (parent?.children && parent?.children?.length > 0) {
+        parent.children.push(child);
+      } else {
+        parent.children = [child];
       }
+      let removed = items.splice(i, 1);
     }
   }
 
@@ -63,8 +65,10 @@ export function reshapeChildren(
 
 export function findAndReshape(comments: CommentType[]) {
   for (let i = 0; i < comments.length; ++i) {
-    reshapeChildren(comments, comments[i]);
+    let children = reshapeChildren(comments, comments[i]);
+    console.log(JSON.stringify(children, null, 2));
   }
+
   console.log(JSON.stringify(comments, null, 2));
   return comments;
 }

@@ -1,5 +1,38 @@
 import { CommentType } from "./main";
 
+export const reshapedSmallComments = [
+  {
+    id: "1",
+    content: "This is a comment",
+    children: [],
+  },
+  {
+    id: "2",
+    content: "This is a comment",
+    children: [
+      {
+        id: "2.1",
+        content: "This is a comment",
+        parentId: "2",
+        children: [
+          {
+            id: "2.1.1",
+            content: "This is a comment",
+            parentId: "2.1",
+            children: [],
+          },
+        ],
+      },
+      {
+        id: "2.2",
+        content: "This is a comment",
+        parentId: "2",
+        children: [],
+      },
+    ],
+  },
+] as CommentType[];
+
 export const smallComments = [
   {
     id: "1",
@@ -21,6 +54,12 @@ export const smallComments = [
     id: "2.1.1",
     content: "This is a comment",
     parentId: "2.1",
+    children: [],
+  },
+  {
+    id: "2.2",
+    content: "This is a comment",
+    parentId: "2",
     children: [],
   },
 ] as CommentType[];
