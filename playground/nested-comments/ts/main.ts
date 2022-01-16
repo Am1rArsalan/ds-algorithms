@@ -1,4 +1,8 @@
-type CommentType = any;
+type CommentType = {
+  id: string;
+  content: string;
+  children: CommentType[];
+};
 
 export const reshapeComments = (items: any[]) => {
   let feedbacks = [...items];
@@ -20,5 +24,6 @@ export const reshapeComments = (items: any[]) => {
   feedbacks = feedbacks.filter(
     (item: CommentType) => !shouldBeRemove.includes(item.id)
   );
-  return [{ allComment: feedbacks, hasNext: false }];
+
+  return feedbacks;
 };
