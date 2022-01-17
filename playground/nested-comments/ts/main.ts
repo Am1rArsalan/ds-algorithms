@@ -31,8 +31,12 @@ export function reshapeChildren(
 }
 
 export function findAndReshape(comments: CommentType[]) {
+  if (comments.length <= 1) {
+    return comments;
+  }
+
   for (let i = 0; i < comments.length; ++i) {
-    let children = reshapeChildren(comments, comments[i]);
+    reshapeChildren(comments, comments[i]);
   }
 
   return comments;
