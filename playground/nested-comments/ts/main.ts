@@ -1,6 +1,5 @@
 export type CommentType = {
   id: string;
-  content: string;
   children?: CommentType[];
   parentId?: string;
 };
@@ -24,7 +23,7 @@ export function reshapeComments(items: any[]) {
         } else {
           parent.children = [child];
         }
-        comments.splice(j, 1);
+        //comments.splice(j, 1);
       }
     }
   }
@@ -38,26 +37,25 @@ export function reshapeComments(items: any[]) {
 
 export function reshapeChildren(
   items: CommentType[],
-  parent: CommentType
+  parent: CommentType,
+  depth: number = 6
 ): CommentType[] {
   let children: CommentType[] = [];
 
-  // reshapeChildren => p= 2 // child => 2.1 2.1.1
-  // reshapeChildren => p= 2.1 // child = 2.1.1 // children = 2.1.1
-  // reshapeChildren => p= 2.1.1 => children=[] ;
-  // child = 2.1
-  for (let i = 0; i < items.length; ++i) {
-    const child = items[i];
-    console.log("what is child", child);
-    if (child.parentId === parent.id) {
-      children = reshapeChildren(items, child);
-      if (parent?.children && parent?.children?.length > 0) {
-        parent.children.push(child);
-      } else {
-        parent.children = [child];
+  while (depth > 0) {
+    for (let i = 1; i < items.length; ++i) {
+      let child = items[i];
+      if (child.parentId === parent.id) {
+        child = items.splice(i, 1)[0];
+        children = reshapeChildren(items, child);
+        if (parent?.children && parent?.children?.length > 0) {
+          parent.children.push(child);
+        } else {
+          parent.children = [child];
+        }
       }
-      let removed = items.splice(i, 1);
     }
+    --depth;
   }
 
   return children;
@@ -66,9 +64,7 @@ export function reshapeChildren(
 export function findAndReshape(comments: CommentType[]) {
   for (let i = 0; i < comments.length; ++i) {
     let children = reshapeChildren(comments, comments[i]);
-    console.log(JSON.stringify(children, null, 2));
   }
-
   console.log(JSON.stringify(comments, null, 2));
   return comments;
 }
