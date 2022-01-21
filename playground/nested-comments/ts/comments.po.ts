@@ -1,4 +1,4 @@
-import { CommentType, FeedbackType } from "./main";
+import { CommentType, FeedbackType } from "./index";
 
 export const reshapedSmallComments = [
   {
@@ -99,13 +99,11 @@ export const comments = [
     parentId: "2.1.1.1",
     children: [],
   },
-
   {
     id: "2.1.1.1.1.1",
     parentId: "2.1.1.1.1",
     children: [],
   },
-
   {
     id: "2.1.1.1.1.1.1",
     parentId: "2.1.1.1.1.1",
@@ -173,12 +171,12 @@ export const reshapedComments = [
         ],
       },
       {
-        id: "2.3",
+        id: "2.2",
         children: [],
         parentId: "2",
       },
       {
-        id: "2.2",
+        id: "2.3",
         children: [],
         parentId: "2",
       },

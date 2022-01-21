@@ -6,22 +6,21 @@ import {
   feedbacks,
   reshapedFeedbacks,
 } from "./comments.po";
-import { findAndReshape, findAndReshapeFeedbacks } from "./main";
+import { findAndReshape, findAndReshapeFeedbacks } from "./index";
 
 describe("test", () => {
-  xit("reshape comments first solution", () => {
+  it("reshape comments first solution", () => {
     const result = findAndReshape(comments);
     expect(result).toEqual(reshapedComments);
   });
 
-  xit("reshape comments second solution with array of 3 elements", () => {
+  it("reshape comments second solution with array of 3 elements", () => {
     const result = findAndReshape(smallComments);
     expect(result).toEqual(reshapedSmallComments);
   });
 
   it("reshape feedbacks ", () => {
     const result = findAndReshapeFeedbacks(feedbacks);
-    console.log(JSON.stringify(result, null, 2));
     expect(result).toEqual(reshapedFeedbacks);
   });
 });
