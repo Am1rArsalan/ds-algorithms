@@ -56,7 +56,7 @@ export function calSolution2(arr: number[], targetValue: number): TSolution {
 // currently working on this !!!!
 type TNewSolution<T> = [T, T, T] | null;
 
-function calSolutionForThreeIndexes(
+export function calSolutionForThreeIndexes(
   arr: number[],
   T: number
 ): TNewSolution<number> {
@@ -72,15 +72,4 @@ function calSolutionForThreeIndexes(
   return null;
 }
 
-const value = calSolutionForThreeIndexes([1, 2, 3, 4, 6, 9], 11);
-console.log(value);
-// calculate 3 nbumber be the Goal
-
-////// tests
-console.log("solution 2 ....");
-console.log(calSolution2([1, 2, 3, 4, 6, 9], 11));
-console.log(calSolution2([1, 2, 3, 4, 5], 25));
-console.log(calSolution2([1, 6], 7));
-console.log(calSolution2([1, 6], 11));
-console.log(calSolution2([5], 5));
-console.log(calSolution2([], 5));
+//calSolutionForThreeIndexes([1, 2, 3, 4, 6, 9], 11);
