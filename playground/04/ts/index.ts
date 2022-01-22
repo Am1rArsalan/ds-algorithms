@@ -3,34 +3,6 @@ type ListNode = {
   next: ListNode | null;
 };
 
-export const list: ListNode = {
-  val: 1,
-  next: {
-    val: 2,
-    next: {
-      val: 3,
-      next: {
-        next: null,
-        val: 4,
-      },
-    },
-  },
-};
-
-export const list2: ListNode = {
-  val: 2,
-  next: {
-    val: 3,
-    next: {
-      val: 4,
-      next: {
-        next: null,
-        val: 5,
-      },
-    },
-  },
-};
-
 export function makeNumber(numbers: number[]): number {
   let result = numbers.reduce(
     (acc: number, curr: number, currentIndex: number) => {
@@ -52,10 +24,68 @@ export function addTwoNumbers(l1: ListNode | null, l2: ListNode | null) {
 
   do {
     l1Result.push(l1.val);
-    l2Result.push(l2.val);
     l1 = l1.next;
-    l2 = l2.next;
   } while (l1 !== null);
 
+  do {
+    l2Result.push(l2.val);
+    l2 = l2.next;
+  } while (l2 !== null);
+
   return makeNumber(l1Result) + makeNumber(l2Result);
+}
+
+function generateNext(val: number) {
+  return {
+    val,
+    next: null,
+  };
+}
+
+export function makeListNode(arr: number[]): ListNode | null {
+  if (arr.length === 0) {
+    return null;
+  }
+  let node: ListNode | null = generateNext(arr[0]);
+  let temp = node;
+
+  for (let i = 1; i < arr.length; ++i) {
+    temp.next = generateNext(arr[i]);
+    temp = temp.next;
+  }
+
+  return node;
+}
+
+export function sumSingleList(list: ListNode | null): number {
+  let result = 0;
+  let P = 0;
+  if (list === null) {
+    return null;
+  }
+
+  do {
+    if (list.val === 0) {
+    } else {
+      result += list.val * 10 ** P;
+    }
+    list = list.next;
+    ++P;
+  } while (list !== null);
+
+  return result;
+}
+
+export function addTwoList(l1: ListNode | null, l2: ListNode | null) {
+  let l1Result = sumSingleList(l1);
+  let l2Result = sumSingleList(l2);
+
+  let R = l1Result + l2Result;
+  let stringResult = R.toString();
+  let final = stringResult
+    .split("")
+    .reverse()
+    .map((item: string) => parseInt(item));
+
+  return makeListNode(final);
 }
