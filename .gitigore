@@ -2,3 +2,4 @@
 **/target
 **/.vim
 ./**/**/node_modules
+.vim/
