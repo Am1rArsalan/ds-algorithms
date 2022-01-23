@@ -58,34 +58,34 @@ export function makeListNode(arr: number[]): ListNode | null {
 }
 
 export function sumSingleList(list: ListNode | null): number {
-  let result = 0;
   let P = 0;
   if (list === null) {
     return null;
   }
+  let listResult = [];
 
   do {
-    if (list.val === 0) {
-    } else {
-      result += list.val * 10 ** P;
-    }
+    listResult.push(list.val);
     list = list.next;
     ++P;
   } while (list !== null);
 
-  return result;
+  return +listResult.reverse().join("");
 }
 
 export function addTwoList(l1: ListNode | null, l2: ListNode | null) {
   let l1Result = sumSingleList(l1);
   let l2Result = sumSingleList(l2);
 
+  console.log(l1Result, l2Result);
   let R = l1Result + l2Result;
   let stringResult = R.toString();
   let final = stringResult
     .split("")
     .reverse()
     .map((item: string) => parseInt(item));
+
+  console.log(R, final);
 
   return makeListNode(final);
 }
