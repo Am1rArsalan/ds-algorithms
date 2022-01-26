@@ -73,19 +73,60 @@ export function sumSingleList(list: ListNode | null): number {
   return +listResult.reverse().join("");
 }
 
+function reverseList(list: ListNode | null) {
+  let prev = null;
+  let temp = list;
+  let next = null;
+
+  for (; temp; ) {
+    prev = temp;
+    next = temp.next;
+    temp.next = prev;
+    temp = next;
+  }
+
+  return prev;
+}
+
+export function getListLength(list: ListNode | null) {
+  let temp = list;
+  let result = 0;
+  while (temp) {
+    temp = temp.next;
+    result += 1;
+  }
+
+  return result;
+}
+
 export function addTwoList(l1: ListNode | null, l2: ListNode | null) {
-  let l1Result = sumSingleList(l1);
-  let l2Result = sumSingleList(l2);
+  let iterateRate = 0;
+  if (getListLength(l1) > getListLength(l2)) {
+    iterateRate = getListLength(l1);
+  } else {
+    iterateRate = getListLength(l2);
+  }
 
-  console.log(l1Result, l2Result);
-  let R = l1Result + l2Result;
-  let stringResult = R.toString();
-  let final = stringResult
-    .split("")
-    .reverse()
-    .map((item: string) => parseInt(item));
+  let list = generateNext(Number(l1.val) + Number(l2.val));
+  let newList = list;
 
-  console.log(R, final);
+  for (let i = 1; i < iterateRate; ++i) {
+    let L1 = l1?.val > 0 ? l1.val : 0;
+    let L2 = l2?.val > 0 ? l2.val : 0;
+    if (!newList) {
+      newList = generateNext(L1 + L2);
+    } else {
+      newList.next = generateNext(L1 + L2);
+      newList = newList.next;
+    }
+    if (l1) {
+      l1 = l1.next;
+    }
 
-  return makeListNode(final);
+    if (l2) {
+      l2 = l2.next;
+    }
+  }
+
+  return list;
 }
