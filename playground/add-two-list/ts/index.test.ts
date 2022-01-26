@@ -3,7 +3,7 @@ import {
   getListLength,
   addTwoNumbers,
   addTwoList,
-  makeListNode,
+  makeList,
 } from "./index";
 
 describe("leet code problem ", () => {
@@ -12,74 +12,39 @@ describe("leet code problem ", () => {
   });
 
   test("test add two node function", () => {
+    expect(addTwoNumbers(makeList([1, 2, 3]), makeList([2, 3, 4]))).toBe(
+      432 + 321
+    );
     expect(
-      addTwoNumbers(makeListNode([1, 2, 3]), makeListNode([2, 3, 4]))
-    ).toBe(432 + 321);
-    expect(
-      addTwoNumbers(
-        makeListNode([9, 9, 9, 9, 9, 9, 9]),
-        makeListNode([9, 9, 9, 9])
-      )
+      addTwoNumbers(makeList([9, 9, 9, 9, 9, 9, 9]), makeList([9, 9, 9, 9]))
     ).toEqual(10009998);
   });
 
   test("test list length", () => {
-    expect(getListLength(makeListNode([1, 2, 3]))).toEqual(3);
+    expect(getListLength(makeList([1, 2, 3]))).toEqual(3);
   });
 
   test("test add two list and make new list with short lists", () => {
-    console.log(
-      "result",
-      JSON.stringify(
-        addTwoList(
-          makeListNode([9, 9, 9, 9, 9, 9, 9]),
-          makeListNode([9, 9, 9, 9])
-        ),
-        null,
-        2
-      )
+    expect(addTwoList(makeList([1, 2, 3]), makeList([2, 3, 4]))).toEqual(
+      makeList([3, 5, 7])
     );
 
-    console.log(
-      "result should be",
-      JSON.stringify(makeListNode([8, 9, 9, 9, 0, 0, 0, 1]), null, 2)
-    );
     expect(
-      addTwoList(makeListNode([1, 2, 3]), makeListNode([2, 3, 4]))
-    ).toEqual(makeListNode([3, 5, 7]));
-
-    expect(
-      addTwoList(
-        makeListNode([9, 9, 9, 9, 9, 9, 9]),
-        makeListNode([9, 9, 9, 9])
-      )
-    ).toEqual(makeListNode([8, 9, 9, 9, 0, 0, 0, 1]));
+      addTwoList(makeList([9, 9, 9, 9, 9, 9, 9]), makeList([9, 9, 9, 9]))
+    ).toEqual(makeList([8, 9, 9, 9, 0, 0, 0, 1]));
   });
 
   test("test add two list and make new list with log lists", () => {
-    //console.log(
-    //JSON.stringify(
-    //addTwoList(
-    //makeListNode([
-    //1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    //0, 0, 0, 0, 0, 0, 0, 1,
-    //]),
-    //makeListNode([5, 6, 4])
-    //),
-    //null,
-    //2
-    //)
-    //);
     expect(
       addTwoList(
-        makeListNode([
+        makeList([
           1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
           0, 0, 0, 0, 0, 0, 0, 1,
         ]),
-        makeListNode([5, 6, 4])
+        makeList([5, 6, 4])
       )
     ).toEqual(
-      makeListNode([
+      makeList([
         6, 6, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 1,
       ])

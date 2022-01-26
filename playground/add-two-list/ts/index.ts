@@ -42,7 +42,7 @@ function generateNext(val: number) {
   };
 }
 
-export function makeListNode(arr: number[]): ListNode | null {
+export function makeList(arr: number[]): ListNode | null {
   if (arr.length === 0) {
     return null;
   }
@@ -57,37 +57,6 @@ export function makeListNode(arr: number[]): ListNode | null {
   return node;
 }
 
-export function sumSingleList(list: ListNode | null): number {
-  let P = 0;
-  if (list === null) {
-    return null;
-  }
-  let listResult = [];
-
-  do {
-    listResult.push(list.val);
-    list = list.next;
-    ++P;
-  } while (list !== null);
-
-  return +listResult.reverse().join("");
-}
-
-function reverseList(list: ListNode | null) {
-  let prev = null;
-  let temp = list;
-  let next = null;
-
-  for (; temp; ) {
-    prev = temp;
-    next = temp.next;
-    temp.next = prev;
-    temp = next;
-  }
-
-  return prev;
-}
-
 export function getListLength(list: ListNode | null) {
   let temp = list;
   let result = 0;
@@ -99,34 +68,29 @@ export function getListLength(list: ListNode | null) {
   return result;
 }
 
+function makeNumberFromList(list: ListNode | null) {
+  let temp = list;
+  let result = "";
+
+  for (let currentIndex = 0; temp; ++currentIndex) {
+    result += temp.val;
+    temp = temp.next;
+  }
+
+  return result.split("").reverse().join("");
+}
+
 export function addTwoList(l1: ListNode | null, l2: ListNode | null) {
-  let iterateRate = 0;
-  if (getListLength(l1) > getListLength(l2)) {
-    iterateRate = getListLength(l1);
-  } else {
-    iterateRate = getListLength(l2);
-  }
+  let l1Result = makeNumberFromList(l1);
+  let l2Result = makeNumberFromList(l2);
 
-  let list = generateNext(Number(l1.val) + Number(l2.val));
-  let newList = list;
+  let result = BigInt(l1Result) + BigInt(l2Result);
 
-  for (let i = 1; i < iterateRate; ++i) {
-    let L1 = l1?.val > 0 ? l1.val : 0;
-    let L2 = l2?.val > 0 ? l2.val : 0;
-    if (!newList) {
-      newList = generateNext(L1 + L2);
-    } else {
-      newList.next = generateNext(L1 + L2);
-      newList = newList.next;
-    }
-    if (l1) {
-      l1 = l1.next;
-    }
-
-    if (l2) {
-      l2 = l2.next;
-    }
-  }
-
-  return list;
+  return makeList(
+    result
+      .toString()
+      .split("")
+      .reverse()
+      .map((item) => +item)
+  );
 }
