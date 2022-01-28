@@ -19,15 +19,17 @@ fn make_number_from_list(list: Option<Box<ListNode>>) -> usize {
             let mut result = "".to_owned();
             result = format!("{}{}", result, cloned_list.val);
             let mut iter_cloned_list = cloned_list.next;
+
             while let Some(iter_cloned_value) = iter_cloned_list {
                 result = format!("{}{}", iter_cloned_value.val, result);
                 iter_cloned_list = iter_cloned_value.next;
             }
 
-            println!("result number in string mode {} ", result);
-            let result: usize = result.parse().unwrap();
-
-            result
+            println!("what is the string result baby , {:?}", result);
+            match result.parse::<usize>() {
+                Ok(value) => value,
+                Err(_) => 0,
+            }
         }
     }
 }
@@ -64,7 +66,10 @@ fn add_two_list(
         .to_string()
         .split("")
         .flat_map(|x| x.parse::<usize>())
-        .collect();
+        .collect::<Vec<usize>>()
+        .into_iter()
+        .rev()
+        .collect::<Vec<usize>>();
 
     make_list_from_array(list_number)
 }
@@ -82,6 +87,16 @@ fn main() {
     match add_two_list(
         make_list_from_array(vec![1, 2, 3]),
         make_list_from_array(vec![2, 3, 4]),
+    ) {
+        Some(value) => {
+            print_list(value);
+        }
+        None => println!("fucked up"),
+    }
+
+    match add_two_list(
+        make_list_from_array(vec![9]),
+        make_list_from_array(vec![1, 9, 9, 9, 9, 9, 9, 9, 9, 9]),
     ) {
         Some(value) => {
             print_list(value);
