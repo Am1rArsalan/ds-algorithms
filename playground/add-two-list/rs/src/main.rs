@@ -59,24 +59,17 @@ fn add_two_list(
     list_two: Option<Box<ListNode>>,
 ) -> Option<Box<ListNode>> {
     let result = make_number_from_list(list_one) + make_number_from_list(list_two);
-    println!("1*************** result number {}", result);
 
     let list_number: Vec<usize> = result
         .to_string()
         .split("")
-        .map(|x| x.parse::<usize>().unwrap())
+        .flat_map(|x| x.parse::<usize>())
         .collect();
-
-    //let x = list_number;
-
-    println!("2*************** result number ");
 
     make_list_from_array(list_number)
 }
 
 fn print_list(list: Box<ListNode>) {
-    // print list with given head
-
     let mut iter_list = Some(list.clone());
 
     while let Some(iter_list_value) = iter_list {
@@ -94,5 +87,22 @@ fn main() {
             print_list(value);
         }
         None => println!("fucked up"),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::add_two_list;
+    use crate::make_list_from_array;
+
+    #[test]
+    fn add_two_list_test() {
+        assert_eq!(
+            add_two_list(
+                make_list_from_array(vec![1, 2, 3]),
+                make_list_from_array(vec![2, 3, 4]),
+            ),
+            make_list_from_array(vec![7, 5, 3])
+        );
     }
 }
