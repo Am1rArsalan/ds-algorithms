@@ -1,17 +1,20 @@
-#[derive(Debug, std::clone::Clone)]
+use std::num::NonZeroUsize;
+use std::str::FromStr;
+
+#[derive(Debug, PartialEq, std::clone::Clone)]
 struct ListNode {
-    pub val: usize,
+    pub val: f32,
     pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
     #[inline]
-    pub fn new(val: usize) -> Self {
+    pub fn new(val: f32) -> Self {
         Self { val, next: None }
     }
 }
 
-fn make_number_from_list(list: Option<Box<ListNode>>) -> usize {
+fn make_number_from_list(list: Option<Box<ListNode>>) -> f32 {
     match list {
         None => 0,
         Some(temp) => {
@@ -25,16 +28,23 @@ fn make_number_from_list(list: Option<Box<ListNode>>) -> usize {
                 iter_cloned_list = iter_cloned_value.next;
             }
 
-            println!("what is the string result baby , {:?}", result);
-            match result.parse::<usize>() {
+            println!(
+                "string version of the result number ,{:?}",
+                NonZeroUsize::from_str(&result)
+            );
+
+            match result.parse::<f32>() {
                 Ok(value) => value,
-                Err(_) => 0,
+                Err(error) => {
+                    println!("what is the error ? {:?}", error);
+                    0
+                }
             }
         }
     }
 }
 
-fn make_list_from_array(list_array: Vec<usize>) -> Option<Box<ListNode>> {
+fn make_list_from_array(list_array: Vec<f32>) -> Option<Box<ListNode>> {
     if list_array.len() <= 0 {
         return None;
     }
@@ -62,14 +72,14 @@ fn add_two_list(
 ) -> Option<Box<ListNode>> {
     let result = make_number_from_list(list_one) + make_number_from_list(list_two);
 
-    let list_number: Vec<usize> = result
+    let list_number: Vec<f32> = result
         .to_string()
         .split("")
-        .flat_map(|x| x.parse::<usize>())
-        .collect::<Vec<usize>>()
+        .flat_map(|x| x.parse::<f32>())
+        .collect::<Vec<f32>>()
         .into_iter()
         .rev()
-        .collect::<Vec<usize>>();
+        .collect::<Vec<f32>>();
 
     make_list_from_array(list_number)
 }
@@ -84,40 +94,78 @@ fn print_list(list: Box<ListNode>) {
 }
 
 fn main() {
-    match add_two_list(
-        make_list_from_array(vec![1, 2, 3]),
-        make_list_from_array(vec![2, 3, 4]),
-    ) {
-        Some(value) => {
-            print_list(value);
-        }
-        None => println!("fucked up"),
-    }
+    println!("hello world");
+    /*    match add_two_list(*/
+    /*make_list_from_array(vec![1, 2, 3]),*/
+    /*make_list_from_array(vec![2, 3, 4]),*/
+    /*) {*/
+    /*Some(value) => {*/
+    /*print_list(value);*/
+    /*}*/
+    /*None => println!("fucked up"),*/
+    /*}*/
 
-    match add_two_list(
-        make_list_from_array(vec![9]),
-        make_list_from_array(vec![1, 9, 9, 9, 9, 9, 9, 9, 9, 9]),
-    ) {
-        Some(value) => {
-            print_list(value);
-        }
-        None => println!("fucked up"),
-    }
+    /*match add_two_list(*/
+    /*make_list_from_array(vec![9]),*/
+    /*make_list_from_array(vec![1, 9, 9, 9, 9, 9, 9, 9, 9, 9]),*/
+    /*) {*/
+    /*Some(value) => {*/
+    /*print_list(value);*/
+    /*}*/
+    /*None => println!("fucked up"),*/
+    /*}*/
 }
 
-#[cfg(test)]
+//#[cfg(test)]
 mod tests {
     use crate::add_two_list;
     use crate::make_list_from_array;
+    use crate::print_list;
+
+    //#[test]
+    //fn add_two_list_test() {
+    //assert_eq!(
+    //add_two_list(
+    //make_list_from_array(vec![1, 2, 3]),
+    //make_list_from_array(vec![2, 3, 4]),
+    //),
+    //make_list_from_array(vec![3, 5, 7]),
+    //);
+
+    //assert_eq!(
+    //add_two_list(
+    //make_list_from_array(vec![9, 9, 9, 9, 9, 9, 9]),
+    //make_list_from_array(vec![9, 9, 9, 9])
+    //),
+    //make_list_from_array(vec![8, 9, 9, 9, 0, 0, 0, 1]),
+    //);
+    //}
 
     #[test]
-    fn add_two_list_test() {
+    fn add_two_long_list() {
+        print_list(
+            add_two_list(
+                make_list_from_array(vec![
+                    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 1,
+                ]),
+                make_list_from_array(vec![5, 6, 4]),
+            )
+            .unwrap(),
+        );
+
         assert_eq!(
             add_two_list(
-                make_list_from_array(vec![1, 2, 3]),
-                make_list_from_array(vec![2, 3, 4]),
+                make_list_from_array(vec![
+                    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 1,
+                ]),
+                make_list_from_array(vec![5, 6, 4]),
             ),
-            make_list_from_array(vec![7, 5, 3])
+            make_list_from_array(vec![
+                6, 6, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0, 0, 1
+            ])
         );
     }
 }
