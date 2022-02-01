@@ -3,18 +3,18 @@ use std::str::FromStr;
 
 #[derive(Debug, PartialEq, std::clone::Clone)]
 struct ListNode {
-    pub val: f32,
+    pub val: i32,
     pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
     #[inline]
-    pub fn new(val: f32) -> Self {
+    pub fn new(val: i32) -> Self {
         Self { val, next: None }
     }
 }
 
-fn make_number_from_list(list: Option<Box<ListNode>>) -> f32 {
+fn make_number_from_list(list: Option<Box<ListNode>>) -> i32 {
     match list {
         None => 0,
         Some(temp) => {
@@ -33,7 +33,7 @@ fn make_number_from_list(list: Option<Box<ListNode>>) -> f32 {
                 NonZeroUsize::from_str(&result)
             );
 
-            match result.parse::<f32>() {
+            match result.parse::<i32>() {
                 Ok(value) => value,
                 Err(error) => {
                     println!("what is the error ? {:?}", error);
@@ -44,7 +44,7 @@ fn make_number_from_list(list: Option<Box<ListNode>>) -> f32 {
     }
 }
 
-fn make_list_from_array(list_array: Vec<f32>) -> Option<Box<ListNode>> {
+fn make_list_from_array(list_array: Vec<i32>) -> Option<Box<ListNode>> {
     if list_array.len() <= 0 {
         return None;
     }
@@ -72,14 +72,14 @@ fn add_two_list(
 ) -> Option<Box<ListNode>> {
     let result = make_number_from_list(list_one) + make_number_from_list(list_two);
 
-    let list_number: Vec<f32> = result
+    let list_number: Vec<i32> = result
         .to_string()
         .split("")
-        .flat_map(|x| x.parse::<f32>())
-        .collect::<Vec<f32>>()
+        .flat_map(|x| x.parse::<i32>())
+        .collect::<Vec<i32>>()
         .into_iter()
         .rev()
-        .collect::<Vec<f32>>();
+        .collect::<Vec<i32>>();
 
     make_list_from_array(list_number)
 }
