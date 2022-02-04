@@ -5,9 +5,6 @@ import (
 	"math"
 )
 
-// problem number one .
-//give an array of integers and return the indeces of the
-//two numbers that add up to the given target
 func main() {
 	fmt.Println("doing problem 1 in golang")
 	fmt.Println(findNumbers([]int{1, 2, 3, 4, 6, 9}, 11))
