@@ -1,7 +1,14 @@
-type TSolution = [number, number] | null;
-let testArray: number[] = [1, 2, 3, 7, 9];
+type TSolution = number[] | null;
 
 export function calSolution(arr: number[], targetValue: number): TSolution {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  if (arr.length === 1) {
+    return arr[0] === targetValue ? [0] : null;
+  }
+
   for (let j = 0; j < arr?.length; ++j) {
     let BT = targetValue - arr[j];
     for (let i = 0; i < arr?.length; ++i) {
@@ -39,9 +46,15 @@ export function calSolution4(arr: number[], targetValue: number): TSolution {
   return null;
 }
 
-const valuex = calSolution4([1, 2, 3, 4, 6, 9], 11);
-
 export function calSolution2(arr: number[], targetValue: number): TSolution {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  if (arr.length === 1) {
+    return arr[0] === targetValue ? [0] : null;
+  }
+
   let numArrMap = new Map();
   for (let i = 0; i < arr?.length; ++i) {
     if (numArrMap.get(arr[i]) >= 0) {
@@ -53,7 +66,7 @@ export function calSolution2(arr: number[], targetValue: number): TSolution {
   return null;
 }
 
-// currently working on this !!!!
+///////////////// currently working on this
 type TNewSolution<T> = [T, T, T] | null;
 
 export function calSolutionForThreeIndexes(
