@@ -1,7 +1,3 @@
-// Given An array of integers representing an elevation map
-// Where the Width of each bar is One ,
-// Return how much rain water can be trapped
-
 export function solution(heights: number[]) {
   let total = 0;
   for (
@@ -27,9 +23,6 @@ export function solution(heights: number[]) {
     const currentWater =
       Math.min.apply(null, [maxLeft, maxRight]) - heights[currentPointer];
 
-    console.log(
-      `currentPointer  ${currentPointer}  height of currentPointer  ${heights[currentPointer]} , maxRight ${maxRight} maxLeft  ${maxLeft}  currentWater ${currentWater}`
-    );
     if (currentWater >= 0) {
       total += currentWater;
     }
@@ -38,8 +31,6 @@ export function solution(heights: number[]) {
 }
 ///// test cases
 //console.log(solution([0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]));
-
-//[0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2];
 
 export function opSolution(heights: number[]) {
   let total = 0;
@@ -95,12 +86,8 @@ export function calTrappedWater(heights: number[]) {
   return total;
 }
 
-console.log(
-  "/////////////////////////////optimized solutions////////////////////"
-);
-console.log(opSolution([0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]));
+// console.log(opSolution([0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]));
 
-//////// this is not a good code
 export function opSolution2(heights: number[]) {
   let total = 0;
   let L = 0,
@@ -137,10 +124,4 @@ export function opSolution2(heights: number[]) {
   return total;
 }
 
-console.log("opSolution2 .//////////////////////");
-console.log(opSolution([0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]));
-
-// test cases
-///// find the minimum
-
-//// playground
+//console.log(opSolution([0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]));
