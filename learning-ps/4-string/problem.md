@@ -6,4 +6,4 @@ counts as a backspace
 example : axeqq#a asexq#a
 axeqa === asexa result : false
 example-2 : axeqq#a axeqW#a
-solution-2 : axeqa axeqa => res true ;
+solution-2 : axeqa axeqa => res true
