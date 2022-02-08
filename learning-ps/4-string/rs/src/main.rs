@@ -24,3 +24,24 @@ fn main() {
 
     println!("{}", compare_two_strings(word_one, word_two));
 }
+
+//#[cfg(test)]
+mod tests {
+    use crate::compare_two_strings;
+    use crate::generate_string;
+
+    #[test]
+    fn generate_string_test() {
+        assert_eq!(generate_string("a#c"), "c");
+        assert_eq!(generate_string("axeqq#a"), "axeqa");
+        assert_eq!(generate_string("asexq#a"), "asexa");
+        assert_eq!(generate_string("axeqq#a"), "axeqa");
+        assert_eq!(generate_string("axeqW#a"), "axeqa");
+    }
+
+    #[test]
+    fn compare_two_strings_test() {
+        assert_eq!(compare_two_strings("axeqq#a", "asexq#a"), false);
+        assert_eq!(compare_two_strings("axeqq#a", "axeqW#a"), true);
+    }
+}
