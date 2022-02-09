@@ -1,7 +1,3 @@
-//Given a string find the length of the
-//longest substring without repeating
-//characters
-
 export function solution(str: string) {
   // o(n^2)
   let resultArr = [];
@@ -28,7 +24,27 @@ export function solution(str: string) {
   return res.length;
 }
 
-// find the longest length of the substring
+//  decreasing the space complexity
+export function solution2(str: string) {
+  let max = 0;
+
+  for (let i = 0; i < str.length; ++i) {
+    let firstChar = str[i];
+    let stack = [firstChar];
+    for (let j = 0; j < str.length; ++j) {
+      if (stack.findIndex((item) => item === str[j]) === -1) {
+        stack.push(str[j]);
+      } else {
+        max = stack.join("").length > max ? stack.join("").length : max;
+        break;
+      }
+    }
+  }
+
+  return max;
+}
+
+// find the longest length of the substring (using sliding window)
 export function optimizedSolution(str: string) {
   let L = 0;
   let R = 0;
@@ -91,13 +107,3 @@ export function findMaxSumOfTwoSeq(arr: number[]) {
 
   return max;
 }
-
-(function main() {
-  console.log(solution("abccabb"));
-  console.log(solution("abcbdaac"));
-  console.log("first test case:   ", optimizedSolution("abccabb"));
-  console.log("second test:   ", optimizedSolution("abcbdaac"));
-  console.log("first test case:   ", optimizedSolution2("abccabb"));
-  console.log("second test:   ", optimizedSolution2("abcbdaac"));
-  console.log("sliding window", findMaxSumOfTwoSeq([1, 3, 7, 9, 2, 4]));
-})();
