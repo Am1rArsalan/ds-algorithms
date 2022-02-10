@@ -8,23 +8,23 @@ import {
 
 describe("problem 5", () => {
   test("solution", () => {
-    expect(solution("abccabb"));
-    expect(solution("abcbdaac"));
+    expect(solution("abccabb")).toEqual(3);
+    expect(solution("abcbdaac")).toEqual(4);
   });
 
   test("solution 2", () => {
-    expect(solution2("abccabb"));
-    expect(solution2("abcbdaac"));
+    expect(solution2("abccabb")).toEqual(3);
+    expect(solution2("abcbdaac")).toEqual(4);
   });
 
   test("optimized solution", () => {
-    expect(optimizedSolution("abccabb"));
-    expect(optimizedSolution("abcbdaac"));
+    expect(optimizedSolution("abccabb")).toEqual(3);
+    expect(optimizedSolution("abcbdaac")).toEqual(4);
   });
 
   test("optimized solution 2", () => {
-    expect(optimizedSolution2("abccabb"));
-    expect(optimizedSolution2("abcbdaac"));
+    expect(optimizedSolution2("abccabb")).toEqual(3);
+    expect(optimizedSolution2("abcbdaac")).toEqual(4);
   });
 
   test("sliding window", () => {
