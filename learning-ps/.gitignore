@@ -2,3 +2,5 @@
 package-lock.json
 **/target
 **/Cargo.lock
+**/.vimspector.json
+**/dist/**
