@@ -61,7 +61,10 @@ fn find_longest_substring_sliding_window_solution(_str: &str) -> usize {
 }
 
 fn main() {
-    println!("hello world");
+    println!(
+        "what {:?}",
+        find_longest_substring_sliding_window_solution("abcbdaac")
+    );
 }
 
 //#[cfg(test)]
@@ -78,7 +81,6 @@ mod tests {
     #[test]
     fn find_longest_substring_sliding_window_solution_test() {
         assert_eq!(find_longest_substring_sliding_window_solution("abccabb"), 3);
-        // TODO : check this test case
         assert_eq!(
             find_longest_substring_sliding_window_solution("abcbdaac"),
             4
