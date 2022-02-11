@@ -3,7 +3,7 @@ type NodeType<T> = {
   next: NodeType<T> | null;
 };
 
-class LinkedList<T> {
+export class LinkedList<T> {
   private head: NodeType<T> | null = null;
 
   public getHead() {
@@ -13,6 +13,21 @@ class LinkedList<T> {
 
   public setHead(node: NodeType<any>) {
     this.head = node;
+  }
+
+  private checkHead() {
+    if (this.head) {
+      return;
+    }
+
+    throw Error("NO HEAD");
+  }
+
+  private generateNode(value: T) {
+    return {
+      value,
+      next: null,
+    };
   }
 
   push(value: T) {
@@ -30,36 +45,6 @@ class LinkedList<T> {
     temp = temp.next;
 
     return temp;
-  }
-
-  addCycle(cycleIndex: number) {
-    let temp = this.head;
-    let cycleNode = this.head;
-    let i = 0;
-    while (cycleNode && i < cycleIndex) {
-      cycleNode = cycleNode.next;
-      ++i;
-    }
-
-    while (temp?.next) {
-      temp = temp?.next;
-    }
-    if (temp) temp.next = cycleNode;
-  }
-
-  checkHead() {
-    if (this.head) {
-      return;
-    }
-
-    throw "NO HEAD";
-  }
-
-  generateNode(value: T) {
-    return {
-      value,
-      next: null,
-    };
   }
 
   pop() {
@@ -158,6 +143,21 @@ class LinkedList<T> {
     }
   }
 
+  addCycle(cycleIndex: number) {
+    let temp = this.head;
+    let cycleNode = this.head;
+    let i = 0;
+    while (cycleNode && i < cycleIndex) {
+      cycleNode = cycleNode.next;
+      ++i;
+    }
+
+    while (temp?.next) {
+      temp = temp?.next;
+    }
+    if (temp) temp.next = cycleNode;
+  }
+
   detectCycle() {
     let temp = this.head;
     let seenNodes = new Set<NodeType<T>>();
@@ -173,6 +173,7 @@ class LinkedList<T> {
       prev = temp;
       temp = temp.next;
     }
+
     return null;
   }
 
@@ -216,7 +217,7 @@ class LinkedList<T> {
   }
 }
 
-function detectListCycleInList(list: LinkedList<number>) {
+export function detectListCycleInList(list: LinkedList<number>) {
   let head = list.getHead();
   let seenNodes = new Set<NodeType<number>>();
   let temp = head;
@@ -236,7 +237,7 @@ function detectListCycleInList(list: LinkedList<number>) {
 }
 
 // zero base
-function reversePartOfList(
+export function reversePartOfList(
   list: LinkedList<number>,
   startIndex: number,
   endIndex: number
@@ -270,47 +271,3 @@ function reversePartOfList(
     list.setHead(p as NodeType<number>);
   }
 }
-
-(function main() {
-  let linkedList = new LinkedList<number>();
-  linkedList.push(1);
-  linkedList.push(2);
-  linkedList.push(3);
-  linkedList.push(4);
-  linkedList.push(5);
-  linkedList.push(6);
-  linkedList.push(7);
-  linkedList.renderList();
-  console.log("head", linkedList.getHead());
-  // zero base
-  linkedList.addCycle(1);
-  //linkedList.renderList();
-  linkedList.findCycle();
-  let cycledNode = linkedList.detectCycle();
-  LinkedList.renderGivenHead(cycledNode);
-  linkedList.addCycle(2);
-  console.log(linkedList.detectCycleWithRabbit());
-  //linkedList.renderList();
-  //linkedList.reversePartOfList(2, 5);
-
-  //linkedList.reversePartOfList(2, 5);
-  //linkedList.renderList();
-
-  //linkedList.reversePartOfList(1, 5);
-  //linkedList.renderList();
-
-  //linkedList.reversePartOfList(1, 5);
-  //linkedList.renderList();
-
-  console.log("*** testing the function api ***");
-
-  //reversePartOfList(linkedList, 1, 4);
-  //linkedList.renderList();
-  //reversePartOfList(linkedList, 1, 4);
-  //linkedList.renderList();
-
-  //reversePartOfList(linkedList, 0, 4);
-  //linkedList.renderList();
-  //reversePartOfList(linkedList, 0, 4);
-  //linkedList.renderList();
-})();
