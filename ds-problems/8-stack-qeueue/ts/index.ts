@@ -1,5 +1,4 @@
 let oReg = /\[|\(|\{/;
-let cReg = /\]|\)|\}/;
 
 let mapParenthesis = new Map<string, string>([
   ["(", ")"],
@@ -31,6 +30,8 @@ export function isValid(str: string) {
   return stack.length === 0;
 }
 
+/////////////////////////////////// problem 2
+
 let openingTagRegex = /<[a-zA-Z]+(>|.*?[^?]>)/;
 let closingTagRegex = /<\/.+?>/;
 let HtmlTagsRegex = /<(“[^”]*”|'[^’]*’|[^'”>])*>/g;
@@ -59,44 +60,14 @@ export function isValidTags(tags: string) {
   return stack.length === 0;
 }
 
-// TODO :  add test case for this problem
+/////////////////////////////////// problem 3
+///////////// TODO :  add test case for this problem
 let openParenthesesRegex = /\(/;
 let closeParenthesesRegex = /\)/;
 
 export function validateString(txt: string) {
-  let stack: { char: string; pos: number }[] = [];
-  let cloneText = txt;
-  for (let i = 0; i < cloneText.length; ++i) {
-    let char = txt[i];
-    if (char === "(") {
-      stack.push({ char, pos: i });
-    }
-
-    if (char === ")") {
-      let openingParenthesis = stack.pop();
-      if (!openingParenthesis) {
-        txt
-          .split("")
-          .filter((char: string, index: number) => index === i)
-          .join("");
-        continue;
-      }
-    }
-  }
-
-  if (stack.length > 0) {
-    for (let i = 0; i < stack.length; ++i) {
-      let { pos } = stack[i];
-      txt
-        .split("")
-        .filter((char: string, index: number) => pos === index)
-        .join("");
-    }
-  }
-
-  return txt;
+  //
 }
 
-console.log(validateString(`a)bc(d)`));
-console.log(validateString(`(ab(c)d`));
-console.log(validateString(`))((`));
+
+/////////////////////
