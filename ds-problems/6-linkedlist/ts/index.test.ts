@@ -11,10 +11,10 @@ import {
   partiallyReversedList,
   partiallyReversedList2,
 } from "./list.po";
-import { inspect } from "util";
 
 describe("linked list tests", () => {
   let linkedList: LinkedList<number>;
+
   beforeEach(() => {
     linkedList = new LinkedList<number>();
     linkedList.push(1);
