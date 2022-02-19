@@ -1,8 +1,22 @@
-import { LinkedList, reversePartOfList, detectListCycleInList } from "./index";
+import {
+  LinkedList,
+  reversePartOfList,
+  detectListCycleInList,
+  NodeType,
+} from "./index";
+import {
+  listAfterAddingOneItem,
+  initialList,
+  reversedList,
+  partiallyReversedList,
+  partiallyReversedList2,
+} from "./list.po";
+import { inspect } from "util";
 
 describe("linked list tests", () => {
-  let linkedList = new LinkedList<number>();
+  let linkedList: LinkedList<number>;
   beforeEach(() => {
+    linkedList = new LinkedList<number>();
     linkedList.push(1);
     linkedList.push(2);
     linkedList.push(3);
@@ -13,74 +27,82 @@ describe("linked list tests", () => {
   });
 
   test("add node to end of the list", () => {
-    //
+    expect(linkedList.getHead()).toEqual(initialList);
+    expect(linkedList.getListLength()).toBe(7);
+    linkedList.push(8);
+    expect(linkedList.getHead()).toEqual(listAfterAddingOneItem);
+    expect(linkedList.getListLength()).toBe(8);
+    expect(linkedList.pop().value).toBe(8);
   });
 
-  test("get tail element of the list", () => {
-    //
+  test("Get tail element of the list", () => {
+    const deletedNode = linkedList.pop();
+    expect(deletedNode).toEqual({ value: 7, next: null });
+    expect(linkedList.getListLength()).toBe(6);
   });
 
   test("reverse list", () => {
-    let list = linkedList.getHead();
+    expect(linkedList.reverse()).toEqual(reversedList);
   });
 
   test("reverse a part of linked list with given indexes [class api]", () => {
-    //
+    linkedList.reversePartOfList(1, 7);
+    expect(linkedList.getHead()).toEqual(reversedList);
+
+    linkedList.reversePartOfList(1, 7);
+    expect(linkedList.getHead()).toEqual(initialList);
+
+    linkedList.reversePartOfList(2, 5);
+    expect(linkedList.getHead()).toEqual(partiallyReversedList);
+
+    linkedList.reversePartOfList(2, 5);
+    expect(linkedList.getHead()).toEqual(initialList);
+
+    linkedList.reversePartOfList(1, 5);
+    expect(linkedList.getHead()).toEqual(partiallyReversedList2);
+    linkedList.reversePartOfList(1, 5);
+    expect(linkedList.getHead()).toEqual(initialList);
   });
 
   test("reverse a part of linked list with given indexes [function api]", () => {
-    linkedList.reversePartOfList(2, 5);
-    expect(2).toBe(2);
-    linkedList.reversePartOfList(2, 5);
-    expect(2).toBe(2);
-    linkedList.reversePartOfList(1, 5);
-    expect(2).toBe(2);
-    linkedList.reversePartOfList(1, 5);
-    expect(2).toBe(2);
-    //reversePartOfList(linkedList, 1, 4);
-    //linkedList.renderList();
-    //reversePartOfList(linkedList, 1, 4);
-    //linkedList.renderList();
-    //reversePartOfList(linkedList, 0, 4);
-    //linkedList.renderList();
-    //reversePartOfList(linkedList, 0, 4);
-    //linkedList.renderList();
+    reversePartOfList(linkedList, 0, 6);
+    expect(linkedList.getHead()).toEqual(reversedList);
+
+    reversePartOfList(linkedList, 0, 6);
+    expect(linkedList.getHead()).toEqual(initialList);
+
+    reversePartOfList(linkedList, 1, 4);
+    expect(linkedList.getHead()).toEqual(partiallyReversedList);
+
+    reversePartOfList(linkedList, 1, 4);
+    expect(linkedList.getHead()).toEqual(initialList);
+
+    reversePartOfList(linkedList, 0, 4);
+    expect(linkedList.getHead()).toEqual(partiallyReversedList2);
+    reversePartOfList(linkedList, 0, 4);
+    expect(linkedList.getHead()).toEqual(initialList);
+  });
+
+  test("add cycle and find cycle's first node", () => {
+    expect(linkedList.getListLength()).toEqual(7);
+    linkedList.addCycle(1);
+    const foundedNode = linkedList.findCycleNode() as NodeType<number>;
+    expect(foundedNode.value).toEqual(2);
   });
 
   test("detect and resolve the cycle inside of the list [class api]", () => {
-    linkedList.detectCycle();
-    let head = linkedList.getHead();
-    // test
+    linkedList.addCycle(3);
+    const foundedCycleNode = linkedList.findCycleNode() as NodeType<number>;
+    expect(foundedCycleNode.value).toEqual(4);
+    linkedList.detectAndResolveCycle();
+    expect(linkedList.getHead()).toEqual(initialList);
   });
 
   test("detect and resolve the cycle inside of the list [function api]", () => {
-    //
-  });
-
-  test("detect and resolve the cycle inside of the list [function api]", () => {
-    //
-  });
-
-  test("add cycle to the list", () => {
-    let head = linkedList.getHead();
-    linkedList.addCycle(1);
-    expect(2).toBe(2);
-  });
-
-  test("add cycle to the list second test case", () => {
-    let head = linkedList.getHead();
-    linkedList.addCycle(2);
-    expect(2).toBe(2);
-  });
-
-  test("find the cycle node ", () => {
-    let cycledNode = linkedList.findCycle();
-  });
-
-  test("detectCycleWithRabbit ", () => {
-    let cycledNode = linkedList.getHead();
-    linkedList.detectCycleWithRabbit();
+    linkedList.addCycle(3);
+    const foundedCycleNode = linkedList.findCycleNode() as NodeType<number>;
+    expect(foundedCycleNode.value).toEqual(4);
+    detectListCycleInList(linkedList);
+    expect(linkedList.getHead()).toEqual(initialList);
   });
 });
-
-console.log("*** testing the function api ***");

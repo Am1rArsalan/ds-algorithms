@@ -1,14 +1,19 @@
-type NodeType<T> = {
+export type NodeType<T> = {
   value: T;
   next: NodeType<T> | null;
 };
 
 export class LinkedList<T> {
+  private length: number = 0;
   private head: NodeType<T> | null = null;
 
   public getHead() {
     this.checkHead();
     return this.head;
+  }
+
+  public getListLength() {
+    return this.length;
   }
 
   public setHead(node: NodeType<any>) {
@@ -31,6 +36,7 @@ export class LinkedList<T> {
   }
 
   push(value: T) {
+    this.length++;
     if (!this.head) {
       this.head = this.generateNode(value);
       return this.head;
@@ -49,6 +55,7 @@ export class LinkedList<T> {
 
   pop() {
     this.checkHead();
+    this.length > 0 && this.length--;
     let temp = this.head;
     for (; temp?.next?.next !== null; ) {
       if (temp?.next?.next) temp = temp?.next;
@@ -158,7 +165,7 @@ export class LinkedList<T> {
     if (temp) temp.next = cycleNode;
   }
 
-  detectCycle() {
+  detectAndResolveCycle() {
     let temp = this.head;
     let seenNodes = new Set<NodeType<T>>();
     let prev = null;
@@ -177,16 +184,17 @@ export class LinkedList<T> {
     return null;
   }
 
-  findCycle() {
+  findCycleNode() {
     let seenNodes = new Set<NodeType<T>>();
     let currentNode = this.head;
-    while (seenNodes.has(currentNode as NodeType<T>) && currentNode) {
+    while (!seenNodes.has(currentNode as NodeType<T>) && currentNode) {
       if (currentNode.next === null) {
         return null;
       }
       seenNodes.add(currentNode);
       currentNode = currentNode.next;
     }
+
     return currentNode;
   }
 
