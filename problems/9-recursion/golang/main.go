@@ -31,6 +31,11 @@ func quickSort(arr []int, left, right int) {
 	}
 }
 
+func returnKthLargestElement(arr []int, k int) int {
+	quickSort(arr, 0, len(arr)-1)
+	return arr[len(arr)-k]
+}
+
 func main() {
 	arr := []int{7, 1, 3, 5, 2, 6, 4}
 	quickSort(arr, 0, len(arr)-1)

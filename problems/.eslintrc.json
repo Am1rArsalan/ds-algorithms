@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "plugins": ["unused-imports"],
+  "overrides": [
+    {
+      "files": ["**/**/*.ts"],
+      "rules": {
+		"unused-imports/no-unused-imports": "error"
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ]
+}

@@ -18,3 +18,17 @@ func TestQuickSort(t *testing.T) {
 			" actual string (%v)", expectedResult, arr)
 	}
 }
+
+func TestReturnKthElementInSortedArray(t *testing.T) {
+	arr := []int{7, 1, 3, 5, 2, 6, 4}
+	result := returnKthLargestElement(arr, 2)
+	expectedResult := 6
+
+	if expectedResult != result {
+		t.Errorf("Expected (%v) is not same as"+
+			" actual string (%v)", expectedResult, result)
+	} else {
+		t.Logf("Expected (%v) is same as"+
+			" actual string (%v)", expectedResult, result)
+	}
+}

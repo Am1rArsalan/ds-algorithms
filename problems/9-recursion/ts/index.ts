@@ -1,3 +1,4 @@
+// problem 1
 export function swap(arr: number[], i: number, j: number) {
     let temp = arr[i];
     arr[i] = arr[j];
@@ -28,12 +29,8 @@ export function quickSort(arr: number[], left: number , right: number) {
     } 
 }
 
-(function run(){
-    const arr = [7,1,3,5,2,6,4]; 
-    quickSort(arr, 0 ,arr.length - 1) ; 
-    console.log("sorted array is " , arr) ; 
-}())
-
-
-//[1,3,2,4,7,6,5]; 
-//       p
+// problem 2 
+export function returnKthLargestElement(arr:number[],k:number) { 
+    quickSort(arr,0,arr.length - 1) ; 
+    return arr[arr.length - k]; 
+} 
