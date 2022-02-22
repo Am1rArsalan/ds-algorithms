@@ -9,14 +9,14 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es2015",
-    "module": "esnext",
+    "module": "CommonJS",
     "strict": true,
     "noImplicitAny": true,
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "skipDefaultLibCheck": true,
+    "skipDefaultLibCheck": true 
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules"]
 }
