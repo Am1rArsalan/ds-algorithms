@@ -1,108 +1,109 @@
 import {
-  LinkedList,
-  reversePartOfList,
-  detectListCycleInList,
-  NodeType,
-} from "./index";
+    LinkedList,
+    reversePartOfList,
+    detectListCycleInList,
+    NodeType,
+} from './index';
 import {
-  listAfterAddingOneItem,
-  initialList,
-  reversedList,
-  partiallyReversedList,
-  partiallyReversedList2,
-} from "./list.po";
+    listAfterAddingOneItem,
+    initialList,
+    reversedList,
+    partiallyReversedList,
+    partiallyReversedList2,
+} from './list.po';
+import { describe, assert, it, beforeEach } from 'vitest';
 
-describe("linked list tests", () => {
-  let linkedList: LinkedList<number>;
+describe('linked list tests', () => {
+    let linkedList: LinkedList<number>;
 
-  beforeEach(() => {
-    linkedList = new LinkedList<number>();
-    linkedList.push(1);
-    linkedList.push(2);
-    linkedList.push(3);
-    linkedList.push(4);
-    linkedList.push(5);
-    linkedList.push(6);
-    linkedList.push(7);
-  });
+    beforeEach(() => {
+        linkedList = new LinkedList<number>();
+        linkedList.push(1);
+        linkedList.push(2);
+        linkedList.push(3);
+        linkedList.push(4);
+        linkedList.push(5);
+        linkedList.push(6);
+        linkedList.push(7);
+    });
 
-  test("add node to end of the list", () => {
-    expect(linkedList.getHead()).toEqual(initialList);
-    expect(linkedList.getListLength()).toBe(7);
-    linkedList.push(8);
-    expect(linkedList.getHead()).toEqual(listAfterAddingOneItem);
-    expect(linkedList.getListLength()).toBe(8);
-    expect(linkedList.pop().value).toBe(8);
-  });
+    it('add node to end of the list', () => {
+        assert.deepEqual(linkedList.getHead(), initialList);
+        assert.equal(linkedList.getListLength(), 7);
+        linkedList.push(8);
+        assert.deepEqual(linkedList.getHead(), listAfterAddingOneItem);
+        assert.equal(linkedList.getListLength(), 8);
+        assert.equal(linkedList.pop().value, 8);
+    });
 
-  test("Get tail element of the list", () => {
-    const deletedNode = linkedList.pop();
-    expect(deletedNode).toEqual({ value: 7, next: null });
-    expect(linkedList.getListLength()).toBe(6);
-  });
+    it('Get tail element of the list', () => {
+        const deletedNode = linkedList.pop();
+        assert.deepEqual(deletedNode, { value: 7, next: null });
+        assert.equal(linkedList.getListLength(), 6);
+    });
 
-  test("reverse list", () => {
-    expect(linkedList.reverse()).toEqual(reversedList);
-  });
+    it('reverse list', () => {
+        assert.deepEqual(linkedList.reverse(), reversedList);
+    });
 
-  test("reverse a part of linked list with given indexes [class api]", () => {
-    linkedList.reversePartOfList(1, 7);
-    expect(linkedList.getHead()).toEqual(reversedList);
+    it('reverse a part of linked list with given indexes [class api]', () => {
+        linkedList.reversePartOfList(1, 7);
+        assert.deepEqual(linkedList.getHead(), reversedList);
 
-    linkedList.reversePartOfList(1, 7);
-    expect(linkedList.getHead()).toEqual(initialList);
+        linkedList.reversePartOfList(1, 7);
+        assert.deepEqual(linkedList.getHead(), initialList);
 
-    linkedList.reversePartOfList(2, 5);
-    expect(linkedList.getHead()).toEqual(partiallyReversedList);
+        linkedList.reversePartOfList(2, 5);
+        assert.deepEqual(linkedList.getHead(), partiallyReversedList);
 
-    linkedList.reversePartOfList(2, 5);
-    expect(linkedList.getHead()).toEqual(initialList);
+        linkedList.reversePartOfList(2, 5);
+        assert.deepEqual(linkedList.getHead(), initialList);
 
-    linkedList.reversePartOfList(1, 5);
-    expect(linkedList.getHead()).toEqual(partiallyReversedList2);
-    linkedList.reversePartOfList(1, 5);
-    expect(linkedList.getHead()).toEqual(initialList);
-  });
+        linkedList.reversePartOfList(1, 5);
+        assert.deepEqual(linkedList.getHead(), partiallyReversedList2);
+        linkedList.reversePartOfList(1, 5);
+        assert.deepEqual(linkedList.getHead(), initialList);
+    });
 
-  test("reverse a part of linked list with given indexes [function api]", () => {
-    reversePartOfList(linkedList, 0, 6);
-    expect(linkedList.getHead()).toEqual(reversedList);
+    it('reverse a part of linked list with given indexes [function api]', () => {
+        reversePartOfList(linkedList, 0, 6);
+        assert.deepEqual(linkedList.getHead(), reversedList);
 
-    reversePartOfList(linkedList, 0, 6);
-    expect(linkedList.getHead()).toEqual(initialList);
+        reversePartOfList(linkedList, 0, 6);
+        assert.deepEqual(linkedList.getHead(), initialList);
 
-    reversePartOfList(linkedList, 1, 4);
-    expect(linkedList.getHead()).toEqual(partiallyReversedList);
+        reversePartOfList(linkedList, 1, 4);
+        assert.deepEqual(linkedList.getHead(), partiallyReversedList);
 
-    reversePartOfList(linkedList, 1, 4);
-    expect(linkedList.getHead()).toEqual(initialList);
+        reversePartOfList(linkedList, 1, 4);
+        assert.deepEqual(linkedList.getHead(), initialList);
 
-    reversePartOfList(linkedList, 0, 4);
-    expect(linkedList.getHead()).toEqual(partiallyReversedList2);
-    reversePartOfList(linkedList, 0, 4);
-    expect(linkedList.getHead()).toEqual(initialList);
-  });
+        reversePartOfList(linkedList, 0, 4);
+        assert.deepEqual(linkedList.getHead(), partiallyReversedList2);
+        reversePartOfList(linkedList, 0, 4);
+        assert.deepEqual(linkedList.getHead(), initialList);
+    });
 
-  test("add cycle and find cycle's first node", () => {
-    expect(linkedList.getListLength()).toEqual(7);
-    linkedList.addCycle(1);
-    const foundedNode = linkedList.findCycleNode() as NodeType<number>;
-    expect(foundedNode.value).toEqual(2);
-  });
+    it("add cycle and find cycle's first node", () => {
+        assert.equal(linkedList.getListLength(), 7);
+        linkedList.addCycle(1);
+        const foundedNode = linkedList.findCycleNode() as NodeType<number>;
+        assert.equal(foundedNode.value, 2);
+    });
 
-  test("detect and resolve the cycle inside of the list [class api]", () => {
-    linkedList.addCycle(3);
-    const foundedCycleNode = linkedList.findCycleNode() as NodeType<number>;
-    expect(foundedCycleNode.value).toEqual(4);
-    linkedList.detectAndResolveCycle();
-    expect(linkedList.getHead()).toEqual(initialList);
-  });
+    it('detect and resolve the cycle inside of the list [class api]', () => {
+        linkedList.addCycle(3);
+        const foundedCycleNode = linkedList.findCycleNode() as NodeType<number>;
+        assert.equal(foundedCycleNode.value, 4);
+        linkedList.detectAndResolveCycle();
+        assert.deepEqual(linkedList.getHead(), initialList);
+    });
 
-  test("detect and resolve the cycle inside of the list [function api]", () => {
-    linkedList.addCycle(3);
-    const foundedCycleNode = linkedList.findCycleNode() as NodeType<number>;
-    expect(foundedCycleNode.value).toEqual(4);
-    detectListCycleInList(linkedList);
-    expect(linkedList.getHead()).toEqual(initialList);
-  });
+    it('detect and resolve the cycle inside of the list [function api]', () => {
+        linkedList.addCycle(3);
+        const foundedCycleNode = linkedList.findCycleNode() as NodeType<number>;
+        assert.equal(foundedCycleNode.value, 4);
+        detectListCycleInList(linkedList);
+        assert.deepEqual(linkedList.getHead(), initialList);
+    });
 });

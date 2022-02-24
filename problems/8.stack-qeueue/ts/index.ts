@@ -66,7 +66,7 @@ let openParenthesesRegex = /\(/;
 let closeParenthesesRegex = /\)/;
 
 export function validateString(txt: string) {
-  //
+  return "fjskalf";
 }
 
 /////////////////////
