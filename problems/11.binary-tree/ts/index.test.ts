@@ -1,4 +1,8 @@
-import { findMaxDepth, findLevelOrderValues } from './index';
+import {
+    findMaxDepth,
+    findLevelOrderValues,
+    findLevelOrderValuesVisibleFromRight,
+} from './index';
 import { BinaryTree } from './BinaryTree';
 import { NodeImpl } from './NodeImpl';
 import { Node } from './Node';
@@ -102,5 +106,32 @@ describe('binary tree: problem#2', () => {
             [5],
             [8],
         ]);
+    });
+});
+
+describe('binary tree: problem#3', () => {
+    let binaryTree: BinaryTree<number>;
+    let root: Node<number>;
+    beforeEach(() => {
+        binaryTree = new BinaryTree<number>(new NodeImpl(1));
+        root = binaryTree.getRoot() as Node<number>;
+        root.pushRightLeaf(3).pushRightLeaf(6);
+        const generatedNode = root.pushLeftLeaf(2);
+        generatedNode.pushRightLeaf(5);
+        generatedNode.pushLeftLeaf(4).pushRightLeaf(7).pushLeftLeaf(8);
+    });
+
+    it('[best test case] find maximum depth of a given binary tree (class api)', () => {
+        assert.deepEqual(
+            binaryTree.findLevelOrderValuesVisibleFromRight(),
+            [1, 3, 6, 7, 8]
+        );
+    });
+
+    it('[best test case] find maximum depth of a given binary tree (function api)', () => {
+        assert.deepEqual(
+            findLevelOrderValuesVisibleFromRight<number>({ ...root }),
+            [1, 3, 6, 7, 8]
+        );
     });
 });

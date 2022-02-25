@@ -50,4 +50,29 @@ export class BinaryTree<T> {
 
         return result;
     }
+
+    public findLevelOrderValuesVisibleFromRight(): T[] {
+        let result: T[][] = [];
+        let temp = this.root;
+
+        if (!temp) return result.flat();
+
+        let queue = [[temp]];
+
+        while (queue.length > 0) {
+            let current = queue.shift() as Node<T>[];
+            let level: Node<T>[] = [];
+            result.push(
+                current.map((node) => {
+                    node.left && level.push(node.left);
+                    node.right && level.push(node.right);
+                    return node.value;
+                })
+            );
+
+            if (level.length > 0) queue = [level];
+        }
+
+        return result.map((item: T[]) => [item[item.length - 1]]).flat();
+    }
 }

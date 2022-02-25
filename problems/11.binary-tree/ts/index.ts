@@ -34,3 +34,29 @@ export function findLevelOrderValues<T>(root: Node<T> | null): T[][] {
 
     return result;
 }
+
+export function findLevelOrderValuesVisibleFromRight<T>(
+    root: Node<T> | null
+): T[] {
+    let result: T[][] = [];
+    if (!root) return result.flat();
+
+    let queue = [[root]];
+
+    while (queue.length > 0) {
+        let current = queue.shift() as Node<T>[];
+        let level: Node<T>[] = [];
+
+        result.push(
+            current.map((node) => {
+                node.left && level.push(node.left);
+                node.right && level.push(node.right);
+                return node.value;
+            })
+        );
+
+        if (level.length > 0) queue.push(level);
+    }
+
+    return result.map((item: T[]) => [item[item.length - 1]]).flat();
+}
