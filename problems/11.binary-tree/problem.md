@@ -11,3 +11,6 @@ traversal of the node's values as an array.
 3.Given a binary tree and imagine you're standing
 to the right of the tree, return an array of the values
 of the nodes you can see ordered from top to bottom .
+
+4.Given a complete binary tree, count the number of
+nodes

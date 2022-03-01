@@ -15,6 +15,11 @@ export class BinaryTree<T> {
         this.root = root;
     }
 
+    public insert(value: T) {
+        (this.root as Node<T>).insert(value);
+        return this;
+    }
+
     public findMaxDepth(node: Node<T> | null, max = 0): number {
         if (!node) return max;
 
