@@ -14,3 +14,5 @@ of the nodes you can see ordered from top to bottom .
 
 4.Given a complete binary tree, count the number of
 nodes
+
+4.Given a tree detect that is binary search tree or not;
