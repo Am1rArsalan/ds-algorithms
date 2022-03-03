@@ -135,58 +135,36 @@ export function countNodesOfCompleteTree<T>(root: Node<T> | null) {
     return result + left + 1;
 }
 
-export function compareLeftSide<T>(node: Node<T> | null, value?: T): boolean {
-    if (!node || value === undefined) {
+export function depthFirstSearch<T extends number>(
+    node: Node<T>,
+    min: T,
+    max: T
+) {
+    if (!node) {
         return true;
     }
 
-    if (value > node.value) {
+    if (node.value > max || node.value < min) {
         return false;
     }
 
-    if (node.right) return compareLeftSide<T>(node.right, value);
-    if (node.left) return compareLeftSide<T>(node.left, value);
-
-    return true;
-}
-
-export function compareRightSide<T>(node: Node<T> | null, value?: T): boolean {
-    if (!node || value === undefined) {
-        return true;
-    }
-
-    if (value < node.value) {
-        return false;
-    }
-
-    if (node.right) return compareRightSide<T>(node.right, value);
-    if (node.left) return compareRightSide<T>(node.left, value);
-
-    return true;
-}
-
-export function detectBinarySearchTree<T>(root: Node<T>) {
-    let queue = [[root]];
-
-    while (queue.length > 0) {
-        let current = queue.shift() as Node<T>[];
-        let level: Node<T>[] = [];
-
-        while (current.length) {
-            let node = current.shift() as Node<T> | null;
-            if (!compareRightSide(node?.right as Node<T> | null, node?.value)) {
-                return false;
-            }
-
-            if (!compareLeftSide(node?.left as Node<T> | null, node?.value)) {
-                return false;
-            }
-            node && node.right && level.push(node.right);
-            node && node.left && level.push(node.left);
+    if (node.right) {
+        if (!depthFirstSearch(node.right, node.value, max)) {
+            return false;
         }
+    }
 
-        level.length > 0 && queue.push(level);
+    if (node.left) {
+        if (!depthFirstSearch(node.left, min, node.value)) {
+            return false;
+        }
     }
 
     return true;
+}
+
+export function isValidBinarySearch(root: Node<number> | null) {
+    if (!root) return root;
+
+    return depthFirstSearch<number>(root, -Infinity, +Infinity);
 }
