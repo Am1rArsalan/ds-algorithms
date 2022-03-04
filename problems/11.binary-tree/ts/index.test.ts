@@ -221,7 +221,7 @@ describe('binary tree: problem#4', () => {
         generatedNode.pushLeftLeaf(16);
         generatedNode.pushRightLeaf(25);
 
-        assert.equal(isValidBinarySearch<number>({ ...root }), true);
+        assert.equal(isValidBinarySearch({ ...root }), true);
     });
 
     it('should check whether the tree is bst or not', () => {
@@ -234,6 +234,6 @@ describe('binary tree: problem#4', () => {
         generatedNode.pushLeftLeaf(10);
         generatedNode.pushRightLeaf(22);
 
-        assert.equal(isValidBinarySearch<number>({ ...root }), false);
+        assert.equal(isValidBinarySearch({ ...root }), false);
     });
 });
