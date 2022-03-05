@@ -4,6 +4,7 @@ export interface PriorityQueue {
     getSize: () => number;
     peek: () => number;
     remove: (index: number) => void;
+    isEmpty: () => boolean;
 }
 
 export class PriorityQueueImpl implements PriorityQueue {
@@ -19,11 +20,12 @@ export class PriorityQueueImpl implements PriorityQueue {
         this.heapifyUp(this.heap.length - 1);
     }
 
-    public remove(index: number) {
-        this.heap = this.heap.filter(
-            (item: number, idx: number) => idx !== index
-        );
+    public isEmpty() {
+        return this.heap.length === 0;
+    }
 
+    public remove(index: number) {
+        this.heap = this.heap.filter((_, idx: number) => idx !== index);
         this.heapifyDown(index);
     }
 
@@ -36,7 +38,7 @@ export class PriorityQueueImpl implements PriorityQueue {
     }
 
     public peek() {
-        if (this.heap.length === 0) {
+        if (this.isEmpty()) {
             throw new Error('Heap is empty');
         }
 
@@ -53,34 +55,49 @@ export class PriorityQueueImpl implements PriorityQueue {
         }
     }
 
+    private parent(index: number) {
+        return Math.floor((index - 1) / 2);
+    }
+
+    private left(index: number) {
+        return index * 2 + 1;
+    }
+
+    private right(index: number) {
+        return index * 2 + 2;
+    }
+
+    private swap(index: number, itemToSwapIndex: number) {
+        let temp = this.heap[index];
+        this.heap[index] = this.heap[itemToSwapIndex];
+        this.heap[itemToSwapIndex] = temp;
+    }
+
     private heapifyUp(index: number) {
-        if (index === 0) return;
+        if (this.isEmpty()) return;
 
-        const parentIndex = Math.floor((index - 1) / 2);
+        const parentIndex = this.parent(index);
 
-        if (!this.competitor(this.heap[parentIndex], this.heap[index])) {
-            let temp = this.heap[index];
-            this.heap[index] = this.heap[parentIndex];
-            this.heap[parentIndex] = temp;
+        if (!this.compare(parentIndex, index)) {
+            this.swap(index, parentIndex);
             this.heapifyUp(parentIndex);
         }
     }
 
+    private compare(i: number, j: number) {
+        return this.competitor(this.heap[i], this.heap[j]);
+    }
+
     private heapifyDown(index: number) {
-        const leftIndex = index * 2 + 1;
-        const rightIndex = index * 2 + 2;
-        const left = this.heap[leftIndex];
-        const right = this.heap[rightIndex];
+        const targetChildIndex = this.compare(
+            this.left(index),
+            this.right(index)
+        )
+            ? this.left(index)
+            : this.right(index);
 
-        // min or max
-        const targetChildIndex = this.competitor(left, right)
-            ? leftIndex
-            : rightIndex;
-
-        if (this.competitor(this.heap[targetChildIndex], this.heap[index])) {
-            let temp = this.heap[index];
-            this.heap[index] = this.heap[targetChildIndex];
-            this.heap[targetChildIndex] = temp;
+        if (this.compare(targetChildIndex, index)) {
+            this.swap(index, targetChildIndex);
             this.heapifyDown(targetChildIndex);
         }
     }
