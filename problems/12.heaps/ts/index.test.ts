@@ -3,7 +3,7 @@ import { MaxHeap } from './MaxHeap';
 import { MinHeap } from './MinHeap';
 
 describe('heaps and priority queues', () => {
-    it('making max heap by getting initial initial incorrect max heap', () => {
+    it('making max heap by getting initial incorrect max heap', () => {
         const heap = new MaxHeap([]);
         const heap2 = new MaxHeap([25, 40, 15, 20, 10, 50, 35]);
 
