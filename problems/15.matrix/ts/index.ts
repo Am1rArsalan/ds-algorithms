@@ -1,3 +1,10 @@
+const directions = [
+    [-1, 0],
+    [0, +1],
+    [+1, 0],
+    [0, -1],
+];
+
 export function dfs<T>(
     arr: T[][],
     row: number,
@@ -12,31 +19,22 @@ export function dfs<T>(
     result.push(arr[row][col]);
     seen[row][col] = true;
 
-    // top
-    if (arr[row - 1] && arr[row - 1][col] && !seen[row - 1][col]) {
-        dfs(arr, row - 1, col, seen, result);
-    }
-
-    //right
-    if (arr[row] && arr[row][col + 1] && !seen[row][col + 1]) {
-        dfs(arr, row, col + 1, seen, result);
-    }
-
-    // bottom
-    if (arr[row + 1] && arr[row + 1][col] && !seen[row + 1][col]) {
-        dfs(arr, row + 1, col, seen, result);
-    }
-
-    // left
-    if (arr[row] && arr[row][col - 1] && !seen[row][col - 1]) {
-        dfs(arr, row, col - 1, seen, result);
+    for (let i = 0; i < directions.length; ++i) {
+        const direction = directions[i];
+        if (
+            arr[row + direction[0]] &&
+            arr[row + direction[0]][col + direction[1]] &&
+            !seen[row + direction[0]][col + direction[1]]
+        ) {
+            dfs(arr, row + direction[0], col + direction[1], seen, result);
+        }
     }
 }
 
 export function traverseTwoDimensionalArray<T extends number>(arr: T[][]) {
     const seenItems: boolean[][] = Array.from(
         { length: arr.length },
-        (item, index) => {
+        (_, index) => {
             return Array.from<boolean>({ length: arr[index].length }).fill(
                 false
             );
