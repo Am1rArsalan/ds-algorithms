@@ -7,6 +7,11 @@ describe('2 dimensional arrays', () => {
             return Array.from({ length: 5 }, (_, j) => i + j + 1 + 4 * i);
         });
 
-        assert.equal(traverseTwoDimensionalArray(testCase).size, 20);
+        const sortedResult = traverseTwoDimensionalArray(testCase).sort(
+            (a, b) => (a > b ? 1 : -1)
+        );
+
+        assert.equal(sortedResult.length, 20);
+        assert.deepEqual(sortedResult, testCase.flat());
     });
 });

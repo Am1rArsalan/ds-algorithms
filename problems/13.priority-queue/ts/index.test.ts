@@ -1,7 +1,7 @@
 import { describe, it, assert } from 'vitest';
 import { PriorityQueueImpl } from './PriorityQueue';
 
-describe('priority queue', () => {
+describe.skip('priority queue', () => {
     it('making a max heap via', () => {
         const pq = new PriorityQueueImpl([], (a: number, b: number) => a > b);
         const pq2 = new PriorityQueueImpl(
