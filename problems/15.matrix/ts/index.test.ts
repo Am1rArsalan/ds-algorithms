@@ -1,5 +1,5 @@
 import { describe, it, assert } from 'vitest';
-import { bfsTraverse, dfsTraverse } from './index';
+import { bfsTraverse, dfsTraverse, countIslands } from './index';
 
 describe('2 dimensional arrays', () => {
     it('traverse 2 dimensional arrays ( dfs )', () => {
@@ -23,5 +23,41 @@ describe('2 dimensional arrays', () => {
         );
         assert.equal(result.length, 20);
         assert.deepEqual(result, testCase.flat());
+    });
+
+    it('island problem', () => {
+        assert.equal(
+            countIslands([
+                [1, 1, 1, 1, 0],
+                [1, 1, 0, 1, 0],
+                [1, 1, 0, 0, 1],
+                [0, 0, 0, 1, 1],
+            ]),
+            2
+        );
+
+        assert.equal(
+            countIslands([
+                [0, 1, 0, 1, 0],
+                [1, 0, 1, 0, 1],
+                [0, 1, 1, 1, 0],
+                [1, 0, 1, 0, 1],
+            ]),
+            7
+        );
+
+        assert.equal(
+            countIslands([
+                [1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1],
+            ]),
+            1
+        );
+
+        assert.equal(countIslands([]), 0);
+        assert.equal(countIslands([[1]]), 1);
+        assert.equal(countIslands([[0]]), 0);
     });
 });

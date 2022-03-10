@@ -1,22 +1,22 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "CommonJS",
-    "strict": true,
-    "noImplicitAny": true,
-    "lib": ["esnext", "dom"],
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "skipDefaultLibCheck": true 
-  },
-  "exclude": ["node_modules"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "CommonJS",
+        "strict": true,
+        "noImplicitAny": true,
+        "lib": ["ES2015", "esnext", "dom"],
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "skipDefaultLibCheck": true
+    },
+    "exclude": ["node_modules"]
 }
