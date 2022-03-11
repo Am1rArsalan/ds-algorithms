@@ -1,5 +1,10 @@
 import { describe, it, assert } from 'vitest';
-import { bfsTraverse, dfsTraverse, countIslands } from './index';
+import {
+    bfsTraverse,
+    dfsTraverse,
+    countIslands,
+    timeTakeToRotten,
+} from './index';
 
 describe('2 dimensional arrays', () => {
     it('traverse 2 dimensional arrays ( dfs )', () => {
@@ -59,5 +64,37 @@ describe('2 dimensional arrays', () => {
         assert.equal(countIslands([]), 0);
         assert.equal(countIslands([[1]]), 1);
         assert.equal(countIslands([[0]]), 0);
+    });
+
+    it('rotten orange problem', () => {
+        assert.equal(
+            timeTakeToRotten([
+                [0, 2, 1, 2, 2],
+                [1, 1, 0, 2, 1],
+                [1, 1, 1, 2, 2],
+                [0, 2, 0, 2, 0],
+            ]),
+            2
+        );
+
+        assert.equal(
+            timeTakeToRotten([
+                [1, 1, 0, 0, 0],
+                [2, 1, 0, 0, 0],
+                [0, 0, 0, 1, 2],
+                [0, 1, 0, 0, 1],
+            ]),
+            -1
+        );
+
+        assert.equal(
+            timeTakeToRotten([
+                [2, 1, 1, 0, 0],
+                [1, 1, 1, 0, 0],
+                [0, 1, 1, 1, 1],
+                [0, 1, 0, 0, 1],
+            ]),
+            7
+        );
     });
 });

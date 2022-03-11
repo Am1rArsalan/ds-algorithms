@@ -1,6 +1,7 @@
 **/node_modules
 package-lock.json
 **/target
+**/.vim
 **/Cargo.lock
 **/.vimspector.json
 **/dist/**
