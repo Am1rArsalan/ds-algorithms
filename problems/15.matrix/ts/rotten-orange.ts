@@ -25,17 +25,15 @@ export function findRottenOranges(matrix: number[][]) {
 
         for (let i = 0; i < directions.length; i++) {
             let direction = directions[i];
-            let tempRow = row + direction[0];
-            let tempCol = col + direction[1];
             if (
-                matrix[tempRow] &&
-                matrix[tempRow][tempCol] !== undefined &&
-                !seen[tempRow][tempCol]
+                matrix[row + direction[0]] &&
+                matrix[row + direction[0]][col + direction[1]] !== undefined &&
+                !seen[row + direction[0]][col + direction[1]]
             ) {
-                queue.push([tempRow, tempCol]);
-                seen[tempRow][tempCol] = true;
-                matrix[tempRow][tempCol] === 2 &&
-                    result.push([tempRow, tempCol]);
+                queue.push([row + direction[0], col + direction[1]]);
+                seen[row + direction[0]][col + direction[1]] = true;
+                matrix[row + direction[0]][col + direction[1]] === 2 &&
+                    result.push([row + direction[0], col + direction[1]]);
             }
         }
     }
@@ -60,19 +58,16 @@ function countNumberOfFreshOranges(matrix: number[][]) {
         let coordinate = queue.shift() as [number, number];
         let row = coordinate[0];
         let col = coordinate[1];
-
         for (let i = 0; i < directions.length; i++) {
             let direction = directions[i];
-            let tempRow = row + direction[0];
-            let tempCol = col + direction[1];
             if (
-                matrix[tempRow] &&
-                matrix[tempRow][tempCol] !== undefined &&
-                !seen[tempRow][tempCol]
+                matrix[row + direction[0]] &&
+                matrix[row + direction[0]][col + direction[1]] !== undefined &&
+                !seen[row + direction[0]][col + direction[1]]
             ) {
-                queue.push([tempRow, tempCol]);
-                seen[tempRow][tempCol] = true;
-                if (matrix[tempRow][tempCol] === 1) {
+                queue.push([row + direction[0], col + direction[1]]);
+                seen[row + direction[0]][col + direction[1]] = true;
+                if (matrix[row + direction[0]][col + direction[1]] === 1) {
                     result += 1;
                 }
             }
@@ -84,35 +79,30 @@ function countNumberOfFreshOranges(matrix: number[][]) {
 
 export function timeTakeToRotten(matrix: number[][]) {
     let queue = findRottenOranges(matrix);
-    let queueLength = queue.length;
     let minutes = 0;
-    let numberOfFreshOranges = countNumberOfFreshOranges(matrix);
-
+    let numberOfFreshOranges = countNumberOfFreshOranges(matrix); //
+    let queueLength = queue.length;
     while (queue.length > 0) {
-        queueLength--;
+        queueLength -= 1;
         let coordinate = queue.shift() as [number, number];
         let row = coordinate[0];
         let col = coordinate[1];
-
-        if (queueLength === 0) {
-            queueLength = queue.length;
-            minutes += 1;
-        }
-
         for (let i = 0; i < directions.length; i++) {
             let direction = directions[i];
-            let tempRow = row + direction[0];
-            let tempCol = col + direction[1];
-
             if (
-                matrix[tempRow] &&
-                matrix[tempRow][tempCol] !== undefined &&
-                matrix[tempRow][tempCol] === 1
+                matrix[row + direction[0]] &&
+                matrix[row + direction[0]][col + direction[1]] !== undefined &&
+                matrix[row + direction[0]][col + direction[1]] === 1
             ) {
                 numberOfFreshOranges -= 1;
-                matrix[tempRow][tempCol] = 2;
-                queue.push([tempRow, tempCol]);
+                matrix[row + direction[0]][col + direction[1]] = 2;
+                queue.push([row + direction[0], col + direction[1]]);
             }
+        }
+
+        if (queueLength === 0 && queue.length > 0) {
+            queueLength = queue.length;
+            minutes += 1;
         }
     }
 
