@@ -19,3 +19,11 @@
      How many minutes must pass until all oranges are
      rotten
 
+
+###problem-3 :
+    Given a 2d array containing -1( walls ) , 0's 
+    (gates),and INF's (empty room). Fill each empty 
+    room with the number of steps to the nearest 
+    gate.if it's impossible to reach to a gate, leave
+    INF as the value.INF is equal to 2147483647
+
