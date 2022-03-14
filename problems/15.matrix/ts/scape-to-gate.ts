@@ -57,7 +57,6 @@ export function scapeToGate(matrix: number[][]) {
         calculateStepsToGate(matrix, initialRow, initialCol, 0);
 
     while (queue.length > 0) {
-        // o(CONSTANT
         let coordinate = queue.shift() as [number, number];
         let row = coordinate[0];
         let col = coordinate[1];
@@ -81,6 +80,5 @@ export function scapeToGate(matrix: number[][]) {
         }
     }
 
-    console.log('final matrix is', matrix);
     return matrix;
 }
