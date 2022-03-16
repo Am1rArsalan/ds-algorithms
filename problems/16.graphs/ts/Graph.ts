@@ -1,14 +1,12 @@
-import { Vertex } from './VertexImpl';
-
 export interface Graph<T> {
-    vertices: Vertex<T>[];
+    vertices: T[];
     edges: number[][];
-    addVertex(vertex: Vertex<T>): void;
-    addEdge(v: Vertex<T>, w: Vertex<T>): void;
+    addVertex(vertex: T): void;
+    addEdge(v: T, w: T): void;
 }
 
 export class GraphImpl<T extends number> implements Graph<T> {
-    vertices: Vertex<T>[];
+    vertices: T[];
     edges: number[][];
 
     constructor() {
@@ -16,57 +14,56 @@ export class GraphImpl<T extends number> implements Graph<T> {
         this.edges = [];
     }
 
-    public addVertex(vertex: Vertex<T>): void {
+    public addVertex(vertex: T): void {
         this.vertices.push(vertex);
-        this.edges[vertex.value] = [];
+        this.edges[vertex] = [];
     }
 
-    public addEdge(v: Vertex<T>, w: Vertex<T>): void {
-        this.edges[v.value].push(w.value);
-        this.edges[w.value].push(v.value);
+    public addEdge(v: T, w: T): void {
+        this.edges[v].push(w);
+        this.edges[w].push(v);
     }
 
-    public traverse(): number[] {
+    public dfsTraverse(
+        vertex: T,
+        adjList: T[][],
+        result: T[],
+        seen: Map<T, boolean>
+    ) {
+        if (vertex === undefined || seen.get(vertex)) return result;
+        result.push(vertex);
+
+        seen.set(vertex, true);
+        let connections = adjList[vertex];
+
+        for (let i = 0; i < connections.length; i++) {
+            let connection = connections[i];
+            if (!seen.get(connection)) {
+                this.dfsTraverse(connection, adjList, result, seen);
+            }
+        }
+    }
+
+    public bfsTraverse(): number[] {
         let adjList = this.edges;
-        console.log('adjList', adjList);
-        const directions = [
-            [-1, 0],
-            [0, +1],
-            [+1, 0],
-            [0, -1],
-        ];
-        if (adjList.length === 0) return [0];
-        let seen = Array.from({ length: adjList.length }, (_, index) =>
-            Array<boolean>(adjList[index].length).fill(false)
-        );
-        console.log(seen);
-        seen[0][0] = true;
-        let result = [adjList[0][0]];
-        let queue = [[0, 0]];
+        let queue = [0];
+        let seen = new Map<number, boolean>();
+        const result = [];
 
         while (queue.length > 0) {
-            let coordinate = queue.shift() as [number, number];
-            let row = coordinate[0];
-            let col = coordinate[1];
+            let vertex = queue.shift() as number;
+            seen.set(vertex, true);
+            result.push(vertex);
+            let connections = adjList[vertex];
 
-            for (let i = 0; i < directions.length; ++i) {
-                let direction = directions[i];
-                let _row = row + direction[0];
-                let _col = col + direction[1];
-
-                if (
-                    adjList[_row] &&
-                    adjList[_row][_col] !== undefined &&
-                    !seen[_row][_col]
-                ) {
-                    result.push(adjList[_row][_col]);
-                    queue.push([_row, _col]);
-                    seen[_row][_col] = true;
+            for (let i = 0; i < connections.length; i++) {
+                let node = connections[i];
+                if (!seen.get(node)) {
+                    queue.push(node);
                 }
             }
         }
 
-        console.log('result is ', result);
         return result;
     }
 }
