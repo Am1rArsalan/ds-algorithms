@@ -44,3 +44,34 @@ export function bfsTraverse<T extends number>(edges: T[][]) {
 
     return result;
 }
+
+export function calculateNumberOfMinutes(
+    managers: number[],
+    informTime: number[]
+) {
+    let result = 0;
+    let queue = [0];
+    let queueLength = queue.length;
+    let times = [];
+
+    while (queue.length > 0) {
+        const vertex = queue.shift() as number;
+        --queueLength;
+        const connections = managers.filter((item) => item == vertex) || [];
+
+        for (let i = 0; i < connections.length; ++i) {
+            const connection = connections[i] as number;
+            queue.push(connection);
+            times.push(connection);
+        }
+
+        if (queueLength === 0) {
+            queueLength = queue.length;
+            const timeForLevel = Math.max.apply(null, times);
+            result += timeForLevel;
+            times = [];
+        }
+    }
+
+    return result;
+}
