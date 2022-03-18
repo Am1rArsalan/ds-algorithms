@@ -19,5 +19,8 @@
   inform all the subordinates. Return total total number of minutes 
   it takes to inform all the employees of the news.
 
-  
-
+#problem-4
+  There are a total of n courses to take, labeled from 0 to n - 1. 
+  Some courses have prerequisite courses. This is expressed as pair 
+  i.e. [1,0] which indicates you must take course 0 before taking  
+  course 1. 
