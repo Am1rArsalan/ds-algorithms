@@ -4,7 +4,6 @@ import (
 	"fmt"
 )
 
-
 func main() {
 	area := solution([]int{2, 2, 3, 4, 6, 8, 5})
 	fmt.Println(area)

@@ -1,8 +1,8 @@
 export interface Graph<T> {
     vertices: T[];
     edges: number[][];
-    addVertex(vertex: T): void;
-    addEdge(v: T, w: T): void;
+    addVertex(vertex: T): Graph<T>;
+    addEdge(v: T, w: T): Graph<T>;
 }
 
 export class GraphImpl<T extends number> implements Graph<T> {
@@ -14,14 +14,17 @@ export class GraphImpl<T extends number> implements Graph<T> {
         this.edges = [];
     }
 
-    public addVertex(vertex: T): void {
+    public addVertex(vertex: T) {
         this.vertices.push(vertex);
         this.edges[vertex] = [];
+
+        return this;
     }
 
-    public addEdge(v: T, w: T): void {
+    public addEdge(v: T, w: T) {
         this.edges[v].push(w);
         this.edges[w].push(v);
+        return this;
     }
 
     public dfsTraverse(

@@ -6,23 +6,26 @@ describe('bfs traverse in the graph', () => {
     let graph = new GraphImpl<number>();
 
     beforeEach(() => {
-        graph.addVertex(0);
-        graph.addVertex(1);
-        graph.addVertex(2);
-        graph.addVertex(3);
-        graph.addVertex(4);
-        graph.addVertex(5);
-        graph.addVertex(6);
-        graph.addVertex(7);
-        graph.addVertex(8);
-        graph.addEdge(0, 1);
-        graph.addEdge(0, 3);
-        graph.addEdge(3, 2);
-        graph.addEdge(2, 8);
-        graph.addEdge(3, 4);
-        graph.addEdge(3, 5);
-        graph.addEdge(4, 6);
-        graph.addEdge(6, 7);
+        graph
+            .addVertex(0)
+            .addVertex(1)
+            .addVertex(2)
+            .addVertex(3)
+            .addVertex(4)
+            .addVertex(5)
+            .addVertex(6)
+            .addVertex(7)
+            .addVertex(8);
+
+        graph
+            .addEdge(0, 1)
+            .addEdge(0, 3)
+            .addEdge(3, 2)
+            .addEdge(2, 8)
+            .addEdge(3, 4)
+            .addEdge(3, 5)
+            .addEdge(4, 6)
+            .addEdge(6, 7);
     });
 
     it('bfs traversal in graph [class api]', () => {

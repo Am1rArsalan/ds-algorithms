@@ -1,6 +1,5 @@
-# ds-algorithems
+# data structures and algorithems
 
-
-advent of code 
+famous problems 
 playground 
-problem solving famous problems 
+advent of code 
