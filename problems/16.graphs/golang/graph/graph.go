@@ -14,6 +14,7 @@ func NewGraph() Graph {
 	}
 }
 
+//FIXME
 func (g Graph) addVertex(vertex int) Graph {
 	g.vertices = append(g.vertices, vertex)
 
