@@ -2,7 +2,7 @@
    bfs traverse in the graph
 
 #problem-2 
-   bfs traverse in the graph
+   dfs traverse in the graph
 
 #problem-3
   A company has n employees with unique IDs from 0 to n-1.
@@ -24,3 +24,13 @@
   Some courses have prerequisite courses. This is expressed as pair 
   i.e. [1,0] which indicates you must take course 0 before taking  
   course 1. 
+
+#problem-5
+  There are N label nodes labelled 1 to N.
+  Given a times array,containing edges represented by array 
+  [u,v,w] where u is the source node, v is the target node 
+  and w is the time taken to travel from the source node to 
+  the target node 
+  send a signal from node k, return how long it takes for  
+  all nodes to receive a signal, return -1 if it's impossible. 
+
