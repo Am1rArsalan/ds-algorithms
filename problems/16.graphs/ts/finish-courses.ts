@@ -33,7 +33,7 @@ export function detectCycle(vertex: number, adjList: number[][]) {
     return isCycle;
 }
 
-export function canFinishCourse(
+export function canFinishCourses(
     numberOfCourses: number,
     prerequisites: number[][]
 ) {
@@ -46,4 +46,44 @@ export function canFinishCourse(
     }
 
     return true;
+}
+
+// solving problem with Topological sort
+
+export function canFinishCourses2(
+    numberOfCourses: number,
+    prerequisites: number[][]
+) {
+    const adjList = Array.from({ length: numberOfCourses }, () =>
+        Array<number>()
+    );
+    const inDegrees = Array.from({ length: numberOfCourses }, () => 0);
+    for (let i = 0; i < prerequisites.length; ++i) {
+        const pair = prerequisites[i];
+        inDegrees[pair[0]]++;
+        adjList[pair[1]].push(pair[0]);
+    }
+    const stack = [];
+    for (let i = 0; i < inDegrees.length; ++i) {
+        if (inDegrees[i] == 0) {
+            stack.push(i);
+        }
+    }
+
+    let count = 0;
+    while (stack.length > 0) {
+        count++;
+        const current = stack.pop() as number;
+        const connections = adjList[current];
+
+        for (let i = 0; i < connections.length; ++i) {
+            const connection = connections[i];
+
+            inDegrees[connection]--;
+            if (inDegrees[connection] === 0) {
+                stack.push(connection);
+            }
+        }
+    }
+    return count === numberOfCourses;
 }

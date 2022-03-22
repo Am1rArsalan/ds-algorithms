@@ -5,4 +5,4 @@ export {
 } from './cal-minutes';
 export { dfsTraverse } from './dfs-graph';
 export { bfsTraverse } from './bfs-graph';
-export { canFinishCourse } from './finish-courses';
+export { canFinishCourses, canFinishCourses2 } from './finish-courses';
