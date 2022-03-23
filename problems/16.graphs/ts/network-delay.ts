@@ -20,10 +20,7 @@ export function networkDelay(times: number[][], k: number, n: number) {
 
         for (let i = 0; i < connections.length; i++) {
             const [connection, weight] = connections[i];
-            if (
-                connection !== undefined &&
-                weight + delays[current] < delays[connection]
-            ) {
+            if (weight + delays[current] < delays[connection]) {
                 delays[connection] = weight + delays[current];
                 heap.insert(connection);
             }
