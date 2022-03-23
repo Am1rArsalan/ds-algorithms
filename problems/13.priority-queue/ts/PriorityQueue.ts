@@ -4,6 +4,7 @@ export interface PriorityQueue {
     getSize: () => number;
     peek: () => number;
     remove: (index: number) => void;
+    pop: () => number | undefined;
     isEmpty: () => boolean;
 }
 
@@ -25,8 +26,16 @@ export class PriorityQueueImpl implements PriorityQueue {
     }
 
     public remove(index: number) {
+        this.heap[index];
         this.heap = this.heap.filter((_, idx: number) => idx !== index);
         this.heapifyDown(index);
+    }
+
+    public pop(): number | undefined {
+        if (this.isEmpty()) return;
+        const removed = this.heap[this.heap.length - 1];
+        this.remove(this.heap.length - 1);
+        return removed;
     }
 
     public getHeap() {
@@ -74,12 +83,12 @@ export class PriorityQueueImpl implements PriorityQueue {
     }
 
     private heapifyUp(index: number) {
+        if (index === 0) return;
         if (this.isEmpty()) return;
-
         const parentIndex = this.parent(index);
 
         if (!this.compare(parentIndex, index)) {
-            this.swap(index, parentIndex);
+            this.swap(parentIndex, index);
             this.heapifyUp(parentIndex);
         }
     }

@@ -33,6 +33,7 @@ export class MinHeap {
     }
 
     private heapifyUp(index: number) {
+        if (index === 0) return;
         let parentIndex = Math.floor((index - 1) / 2); // 0
 
         if (this.heap[parentIndex] > this.heap[index]) {
