@@ -30,7 +30,7 @@
   Given a times array,containing edges represented by array 
   [u,v,w] where u is the source node, v is the target node 
   and w is the time taken to travel from the source node to 
-  the target node 
+  the target node.
   send a signal from node k, return how long it takes for  
   all nodes to receive a signal, return -1 if it's impossible. 
 
