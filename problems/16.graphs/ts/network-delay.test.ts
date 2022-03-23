@@ -1,10 +1,10 @@
-import { timeToReceiveSignal } from './';
+import { networkDelay } from './';
 import { describe, it, assert } from 'vitest';
 
 describe('using topological sort', () => {
     it('best test case', () => {
         assert.equal(
-            timeToReceiveSignal(
+            networkDelay(
                 [
                     [1, 2, 9],
                     [1, 4, 2],
@@ -22,13 +22,13 @@ describe('using topological sort', () => {
         );
     });
 
-    it.skip('should return -1 ( un connected graph )', () => {
-        assert.equal(timeToReceiveSignal([[2, 3, 4]], 2, 3), -1);
+    it('should return -1 ( un connected graph )', () => {
+        assert.equal(networkDelay([[2, 3, 4]], 2, 3), -1);
     });
 
-    it.skip('should return -1', () => {
+    it('should return -1', () => {
         assert.equal(
-            timeToReceiveSignal(
+            networkDelay(
                 [
                     [3, 1, 3],
                     [1, 2, 8],
