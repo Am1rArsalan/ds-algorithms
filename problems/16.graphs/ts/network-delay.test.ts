@@ -1,7 +1,7 @@
 import { networkDelay } from './';
 import { describe, it, assert } from 'vitest';
 
-describe('using topological sort', () => {
+describe('calculate network delay', () => {
     it('best test case', () => {
         assert.equal(
             networkDelay(
