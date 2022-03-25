@@ -1,2 +1,8 @@
 export { findTrappedArea, findTrappedArea2 } from './find-trapped-area';
-export { costToFinalStep } from './final-step-cost';
+export {
+    costToFinalStep,
+    costToFinalStep2,
+    findMinimumCost,
+    findMinimumCost2,
+    findMinimumCost3,
+} from './final-step-cost';
