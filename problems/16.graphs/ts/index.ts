@@ -6,4 +6,4 @@ export {
 export { dfsTraverse } from './dfs-graph';
 export { bfsTraverse } from './bfs-graph';
 export { canFinishCourses, canFinishCourses2 } from './finish-courses';
-export { networkDelay } from './network-delay';
+export { networkDelay, networkDelay2 } from './network-delay';
