@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestFindSumTargetIndexes(t *testing.T) {
+func TestFindMaxArea(t *testing.T) {
 	result := findMaxArea([]int{1, 2, 3, 4, 6, 8, 5})
 	expectedResult := 12
 
