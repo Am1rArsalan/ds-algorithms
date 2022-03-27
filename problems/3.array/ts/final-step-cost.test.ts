@@ -15,18 +15,11 @@ describe('cost to final step', () => {
 
     it('finding cost without memoizing (top down)', () => {
         const result = costToFinalStep2([20, 15, 30, 5]);
-
-        assert.equal(result, 20);
-    });
-
-    it('finding cost with recursive solution (bottom up)', () => {
-        const result = findMinimumCost([20, 15, 30, 5]);
         assert.equal(result, 20);
     });
 
     it('finding cost with iterative solution (bottom up)', () => {
         const result = findMinimumCost2([20, 15, 30, 5]);
-
         assert.equal(result, 20);
     });
 

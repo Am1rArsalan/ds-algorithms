@@ -1,31 +1,3 @@
-//  bottom up
-export function findMinimumCost(costs: number[]) {
-    const memoizedCosts = new Map<number, number>();
-    memoizedCosts.set(0, costs[0]);
-    memoizedCosts.set(1, costs[1]);
-    return findMin(costs, 0, memoizedCosts);
-}
-
-function findMin(
-    costs: number[],
-    i: number,
-    memoizedCosts: Map<number, number>
-): number {
-    if (i >= costs.length) return 0;
-    if (i === 0 || i === 1) return costs[i];
-    if (memoizedCosts.has(i)) return memoizedCosts.get(i) as number;
-
-    memoizedCosts.set(
-        i,
-        Math.min.apply(null, [
-            findMin(costs, i - 1, memoizedCosts),
-            findMin(costs, i - 2, memoizedCosts),
-        ])
-    );
-
-    return memoizedCosts.get(i) as number;
-}
-
 // bottom up ( iterative )
 export function findMinimumCost2(costs: number[]) {
     const memoizedCosts = new Map<number, number>();
