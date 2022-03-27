@@ -1,9 +1,5 @@
-import {
-    LinkedList,
-    reversePartOfList,
-    detectListCycleInList,
-    NodeType,
-} from './index';
+import { NodeType, detectListCycleInList, reversePartOfList } from './index';
+import { LinkedListImpl } from './LinkedList';
 import {
     listAfterAddingOneItem,
     initialList,
@@ -14,10 +10,10 @@ import {
 import { describe, assert, it, beforeEach } from 'vitest';
 
 describe('linked list tests', () => {
-    let linkedList: LinkedList<number>;
+    let linkedList: LinkedListImpl<number>;
 
     beforeEach(() => {
-        linkedList = new LinkedList<number>();
+        linkedList = new LinkedListImpl<number>();
         linkedList.push(1);
         linkedList.push(2);
         linkedList.push(3);
