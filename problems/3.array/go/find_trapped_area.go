@@ -3,40 +3,33 @@ package main
 import "math"
 
 func findTrappedArea(arr []int) int {
-	p1 := 0
-	p2 := 1
-	current := p1
 	total := 0
+	for current := 0; current < len(arr); current++ {
+		maxRight := 0
+		maxLeft := 0
+		L := current
+		R := current
 
-	for p1 < p2 {
-		if current == p2 {
-			p1 += 1
-			current = p1
-			if p2 < len(arr) {
-				p2 += 1
+		for R < len(arr) {
+			if arr[R] > maxRight {
+				maxRight = arr[R]
 			}
+			R++
 		}
 
-		if arr[p2] == 0 {
-			if p2 < len(arr) {
-				p2 += 1
-				continue
+		for L >= 0 {
+			if arr[L] > maxLeft {
+				maxLeft = arr[L]
 			}
+			L--
 		}
 
-		if p1 == p2 {
-			break
+		currentTrappedWater := int(math.Min(float64(maxLeft), float64(maxRight))) - arr[current]
+
+		if currentTrappedWater > 0 {
+			total += int(currentTrappedWater)
 		}
 
-		yMax := math.Min(float64(arr[p1]), float64(arr[p2]))
-		xMax := p2 - p1 - 1
-		area := int(yMax) * xMax
-
-		if area-arr[current] > 0 { // 0
-			total += area - arr[current]
-		}
-
-		current += 1
 	}
 
 	return total

@@ -10,7 +10,7 @@ func TestFindTrappedArea(t *testing.T) {
 	expectedResult := 8
 
 	if !reflect.DeepEqual(result, expectedResult) {
-		t.Errorf("**first test case ** Expected (%v) is not same as"+
-			"actual (%v)", result, expectedResult)
+		t.Errorf("**first test case ** received (%v) but expected"+
+			"(%v)", result, expectedResult)
 	}
 }
