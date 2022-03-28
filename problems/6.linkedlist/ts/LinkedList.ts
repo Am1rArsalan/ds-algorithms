@@ -29,7 +29,7 @@ export class LinkedListImpl<T> implements LinkedList<T> {
         return this.length;
     }
 
-    public setHead(node: NodeType<any>) {
+    public setHead(node: NodeType<T>) {
         this.head = node;
     }
 
