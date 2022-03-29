@@ -92,32 +92,42 @@ func (list *LinkedList) ReversePartOfList(start, end int) {
 	if end >= list.Length {
 		return
 	}
-	current := list.head
-	prev := list.head
-	counter := 0
+	current := list.head       
+	var startNode *Node = nil 
+	counter := 0             
 
 	for counter < start {
-		prev = current
+		startNode = current
 		current = current.Next
 		counter += 1
 	}
 
 	var next *Node = nil
-	var newPrev *Node = nil
+	var prev *Node = nil
 	tail := current
 
 	for counter <= end {
 		next = current.Next
-		current.Next = newPrev
-		newPrev = current
+		current.Next = prev
+		prev = current
 		current = next
 		counter += 1
 	}
 
-	fmt.Println("what is perv value inside of reverse part of list", prev)
-	prev.Next = newPrev
-	tail.Next = current
-	list.head = prev
+	fmt.Println("what is startNode value inside of reverse part of list",
+		startNode)
+
+	if startNode != nil {
+		startNode.Next = prev
+	}
+
+	if tail != nil {
+		tail.Next = current
+	}
+
+    if start == 0 { 
+        list.head = prev
+    }
 }
 
 func (list *LinkedList) AddCycle(cycleIndex int) {
