@@ -1,5 +1,8 @@
-### Problem description
+### Problems description
 
-Given a string find the length of the
+1.Given a string find the length of the
 longest substring without repeating
 characters
+
+
+2.check string is a valid palindrome or not  
