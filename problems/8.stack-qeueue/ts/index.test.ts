@@ -1,15 +1,15 @@
 import { isValid, isValidTags, validateString } from './index';
 import { describe, assert, it } from 'vitest';
 
-describe.skip('stack and queue problems', () => {
+describe('stack and queue problems', () => {
     it('problem one', () => {
         assert.equal(isValid('{([])}'), true);
         assert.equal(isValid('{([]'), false);
         assert.equal(isValid('{[(])}'), false);
-        assert.equal(isValid('{[]()}'), false);
+        assert.equal(isValid('{[]()}'), true);
     });
 
-    it('problem two', () => {
+    it.skip('problem two', () => {
         assert.equal(isValidTags(`<div>amir is here</div>`), true);
         assert.equal(
             isValidTags(
@@ -37,7 +37,7 @@ describe.skip('stack and queue problems', () => {
         );
     });
 
-    it('problem three', () => {
+    it.skip('problem three', () => {
         assert.equal(validateString(`a)bc(d)`), 'abcd');
         assert.equal(validateString(`(ab(c)d`), 'abcd');
         assert.equal(validateString(`))((`), '');
