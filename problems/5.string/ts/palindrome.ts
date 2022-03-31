@@ -1,7 +1,5 @@
 export function isValidPalindrome(text: string) {
-    text = text
-        .replaceAll(/[^a-zA-Z\d]/g, '')
-        .replaceAll(/[A-Z]/g, (char) => char.toLowerCase());
+    text = text.replaceAll(/[^a-zA-Z\d]/g, '').toLowerCase();
 
     let left = 0;
     let right = text.length - 1;
@@ -21,9 +19,7 @@ export function isValidPalindrome(text: string) {
 }
 
 export function isValidPalindrome2(text: string) {
-    text = text
-        .replaceAll(/[^a-zA-Z\d]/g, '')
-        .replaceAll(/[A-Z]/g, (char) => char.toLowerCase());
+    text = text.replaceAll(/[^a-zA-Z\d]/g, '').toLowerCase();
     let isPalindrome = true;
     let right = Math.floor(text.length / 2);
     let left = text.length % 2 != 0 ? right : right - 1;
@@ -42,9 +38,7 @@ export function isValidPalindrome2(text: string) {
 }
 
 export function isValidPalindrome3(text: string) {
-    text = text
-        .replaceAll(/[^a-zA-Z\d]/g, '')
-        .replaceAll(/[A-Z]/g, (char) => char.toLowerCase());
+    text = text.replaceAll(/[^a-zA-Z\d]/g, '').toLowerCase();
 
     let right = Math.floor(text.length / 2);
     let left = text.length % 2 != 0 ? right : right - 1;
