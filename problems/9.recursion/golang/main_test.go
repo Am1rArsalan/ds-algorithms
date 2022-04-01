@@ -13,9 +13,6 @@ func TestQuickSort(t *testing.T) {
 	if !reflect.DeepEqual(arr, expectedResult) {
 		t.Errorf("Expected (%v) is not same as"+
 			" actual string (%v)", expectedResult, arr)
-	} else {
-		t.Logf("Expected String(%v) is same as"+
-			" actual string (%v)", expectedResult, arr)
 	}
 }
 
@@ -26,9 +23,6 @@ func TestReturnKthElementInSortedArray(t *testing.T) {
 
 	if expectedResult != result {
 		t.Errorf("Expected (%v) is not same as"+
-			" actual string (%v)", expectedResult, result)
-	} else {
-		t.Logf("Expected (%v) is same as"+
 			" actual string (%v)", expectedResult, result)
 	}
 }
