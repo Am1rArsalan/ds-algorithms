@@ -4,32 +4,47 @@ import "reflect"
 
 func partition(arr []int, left, right int) int {
 	pivotValue := arr[right]
-	lesserIndex := left - 1
+	partionIndex := left - 1
 	swapFn := reflect.Swapper(arr)
 
 	for j := left; j < right; j++ {
 		if pivotValue > arr[j] {
-			lesserIndex++
-			swapFn(lesserIndex, j)
+			partionIndex++
+			swapFn(partionIndex, j)
 		}
 	}
 
-	swapFn(lesserIndex+1, right)
+	swapFn(partionIndex+1, right)
 
-	return lesserIndex + 1
+	return partionIndex + 1
 }
 
-func quickSort(arr []int, left, right int) {
+func quickSort(arr []int, left, right int) { // o(2^N)
 	if left >= right {
 		return
 	}
 
-	pivot := partition(arr, left, right)
-	quickSort(arr, left, pivot-1)
-	quickSort(arr, pivot+1, right)
+	partionIndex := partition(arr, left, right)
+
+	quickSort(arr, left, partionIndex-1)
+	quickSort(arr, partionIndex+1, right)
+}
+
+func quickSelect(arr []int, left, right, indexToFind int) int {
+	if left >= right {
+		return arr[indexToFind]
+	}
+
+	partitionIndex := partition(arr, left, right)
+	if indexToFind == partitionIndex {
+		return arr[partitionIndex]
+	} else if indexToFind < partitionIndex {
+		return quickSelect(arr, left, partitionIndex-1, indexToFind)
+	} else {
+		return quickSelect(arr, partitionIndex+1, right, indexToFind)
+	}
 }
 
 func returnKthLargestElement(arr []int, k int) int {
-	quickSort(arr, 0, len(arr)-1)
-	return arr[len(arr)-k]
+	return quickSelect(arr, 0, len(arr)-1, len(arr)-k)
 }
