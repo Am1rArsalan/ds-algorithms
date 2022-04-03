@@ -6,3 +6,5 @@ characters
 
 
 2.check string is a valid palindrome or not  
+
+3.find the longest palindrome in a string
