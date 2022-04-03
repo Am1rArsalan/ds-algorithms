@@ -9,7 +9,6 @@ function checkPalindrome(str: string): boolean {
             isPalindrome = false;
             break;
         }
-
         L--;
         R++;
     }
