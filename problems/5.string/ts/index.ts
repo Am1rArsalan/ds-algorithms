@@ -11,3 +11,5 @@ export {
     isValidPalindrome3,
     isValidPalindrome2,
 } from './palindrome';
+
+export { convertZigzag } from './convert-zigzag';

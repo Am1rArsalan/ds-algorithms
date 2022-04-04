@@ -1,6 +1,5 @@
 export function isValidPalindrome(text: string) {
     text = text.replaceAll(/[^a-zA-Z\d]/g, '').toLowerCase();
-
     let left = 0;
     let right = text.length - 1;
     let isPalindrome = true;
