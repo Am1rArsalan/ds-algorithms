@@ -11,8 +11,8 @@ func TestFindMinCost(t *testing.T) {
 	expectedResult := 20
 
 	if !reflect.DeepEqual(result, expectedResult) {
-		t.Errorf("Expected (%v) is not same as"+
-			"actual (%v)", expectedResult, result)
+		t.Errorf("Expected (%v) but got:"+
+			"(%v)", expectedResult, result)
 	}
 }
 
