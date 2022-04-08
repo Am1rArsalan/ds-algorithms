@@ -26,7 +26,6 @@ export class PriorityQueueImpl implements PriorityQueue {
     }
 
     public remove(index: number) {
-        this.heap[index];
         this.heap = this.heap.filter((_, idx: number) => idx !== index);
         this.heapifyDown(index);
     }

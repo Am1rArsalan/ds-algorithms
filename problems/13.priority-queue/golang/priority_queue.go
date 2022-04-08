@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"math"
 )
 
@@ -64,7 +65,6 @@ func (p *PriorityQueue) heapifyDown(idx int) {
 		target = leftChildIndex
 	}
 
-	//if p.heap[idx] > p.heap[target] {
 	if p.competitor(p.heap[idx], p.heap[target]) {
 		temp := p.heap[idx]
 		p.heap[idx] = p.heap[target]
@@ -85,9 +85,35 @@ func (p *PriorityQueue) isEmpty() bool {
 	return len(p.heap) == 0
 }
 
-//export interface PriorityQueue {
-//getSize: () => number;
-//peek: () => number;
-//remove: (index: number) => void;
-//pop: () => number | undefined;
-//}
+func (p *PriorityQueue) getSize() int {
+	return len(p.heap)
+}
+
+func (p *PriorityQueue) peek() (int, error) {
+	if p.isEmpty() {
+		return 0.0, errors.New("Empty heap")
+	}
+
+	root := p.heap[0]
+	poppedValue := p.heap[len(p.heap)-1]
+	p.heap = p.heap[:len(p.heap)-1]
+	p.heap[0] = poppedValue
+	p.heapifyDown(0)
+
+	return root, nil
+}
+
+func (p *PriorityQueue) remove(idx int) {
+	p.heap[idx] = p.heap[len(p.heap)-1]
+	p.heap = p.heap[:len(p.heap)-1]
+	p.heapifyDown(idx)
+}
+
+func (p *PriorityQueue) pop() (int, error) {
+	if p.isEmpty() {
+		return 0.0, errors.New("Empty heap")
+	}
+	removed := p.heap[len(p.heap)-1]
+	p.remove(len(p.heap) - 1)
+	return removed, nil
+}
