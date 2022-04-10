@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"math"
+	"reflect"
 )
 
 type PriorityQueue struct {
@@ -59,18 +60,21 @@ func rightChild(idx int) int {
 func (p *PriorityQueue) heapifyDown(idx int) {
 	leftChildIndex := leftChild(idx)
 	rightChildIndex := rightChild(idx)
-	target := rightChildIndex
+	targetIndex := rightChildIndex
 
-	if p.heap[leftChildIndex] < p.heap[rightChildIndex] {
-		target = leftChildIndex
+	//[35,25 40 15 20 10] // idx = 0
+	if leftChildIndex < p.getSize() && rightChildIndex < p.getSize() {
+		if p.competitor(leftChildIndex, rightChildIndex) {
+			targetIndex = leftChildIndex
+		}
+
+		if p.competitor(p.heap[idx], p.heap[targetIndex]) {
+			swapperFn := reflect.Swapper(p.heap)
+			swapperFn(targetIndex, idx)
+			p.heapifyDown(targetIndex)
+		}
 	}
 
-	if p.competitor(p.heap[idx], p.heap[target]) {
-		temp := p.heap[idx]
-		p.heap[idx] = p.heap[target]
-		p.heap[target] = temp
-		p.heapifyDown(target)
-	}
 }
 
 func parent(index int) int {
@@ -93,11 +97,12 @@ func (p *PriorityQueue) peek() (int, error) {
 	if p.isEmpty() {
 		return 0.0, errors.New("Empty heap")
 	}
+	//[50 25 40 15 20 10 35]
 
-	root := p.heap[0]
-	poppedValue := p.heap[len(p.heap)-1]
-	p.heap = p.heap[:len(p.heap)-1]
-	p.heap[0] = poppedValue
+	root := p.heap[0]                    // 50
+	poppedValue := p.heap[len(p.heap)-1] // 35
+	p.heap = p.heap[:len(p.heap)-1]      //[50,25 40 15 20 10 ];
+	p.heap[0] = poppedValue              //[35,25 40 15 20 10]
 	p.heapifyDown(0)
 
 	return root, nil
