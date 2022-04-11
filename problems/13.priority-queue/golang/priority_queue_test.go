@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 )
 
-// min Heap
+// Min Heap
 func TestPriorityQueue1(t *testing.T) {
 	competitor := func(a, b int) bool { return a > b }
 	priorityQueue := NewPriorityQueue([]int{}, competitor)
@@ -114,7 +113,6 @@ func TestPriorityQueuePeek2(t *testing.T) {
 		insert(50).
 		insert(40)
 
-	fmt.Println(priorityQueue.getHeap())
 	root, _ := priorityQueue.peek()
 
 	if root != 50 {
@@ -122,10 +120,8 @@ func TestPriorityQueuePeek2(t *testing.T) {
 			"(%v)", 50, root)
 	}
 
-	fmt.Println(priorityQueue.getHeap())
-
-	if !reflect.DeepEqual(priorityQueue.getHeap(), []int{15, 20, 40, 35, 25, 50}) {
+	if !reflect.DeepEqual(priorityQueue.getHeap(), []int{40, 25, 35, 15, 20, 10}) {
 		t.Errorf(" Expected (%v) but got"+
-			"(%v)", []int{15, 20, 40, 35, 25, 50}, priorityQueue.getHeap())
+			"(%v)", []int{40, 25, 35, 15, 20, 10}, priorityQueue.getHeap())
 	}
 }

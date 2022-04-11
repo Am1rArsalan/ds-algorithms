@@ -40,7 +40,6 @@ func (p *PriorityQueue) heapifyUp(idx int) {
 	}
 	parentIndex := parent(idx)
 
-	//if p.heap[parentIndex] > p.heap[idx] {
 	if p.competitor(p.heap[parentIndex], p.heap[idx]) {
 		temp := p.heap[idx]
 		p.heap[idx] = p.heap[parentIndex]
@@ -60,19 +59,18 @@ func rightChild(idx int) int {
 func (p *PriorityQueue) heapifyDown(idx int) {
 	leftChildIndex := leftChild(idx)
 	rightChildIndex := rightChild(idx)
-	targetIndex := rightChildIndex
+	targetIndex := leftChildIndex
 
-	//[35,25 40 15 20 10] // idx = 0
-	if leftChildIndex < p.getSize() && rightChildIndex < p.getSize() {
-		if p.competitor(leftChildIndex, rightChildIndex) {
-			targetIndex = leftChildIndex
+	if rightChildIndex < p.getSize() {
+		if p.competitor(p.heap[leftChildIndex], p.heap[rightChildIndex]) {
+			targetIndex = rightChildIndex
 		}
+	}
 
-		if p.competitor(p.heap[idx], p.heap[targetIndex]) {
-			swapperFn := reflect.Swapper(p.heap)
-			swapperFn(targetIndex, idx)
-			p.heapifyDown(targetIndex)
-		}
+	if targetIndex < p.getSize() && p.competitor(p.heap[idx], p.heap[targetIndex]) {
+		swapperFn := reflect.Swapper(p.heap)
+		swapperFn(targetIndex, idx)
+		p.heapifyDown(targetIndex)
 	}
 
 }
@@ -97,12 +95,11 @@ func (p *PriorityQueue) peek() (int, error) {
 	if p.isEmpty() {
 		return 0.0, errors.New("Empty heap")
 	}
-	//[50 25 40 15 20 10 35]
 
-	root := p.heap[0]                    // 50
-	poppedValue := p.heap[len(p.heap)-1] // 35
-	p.heap = p.heap[:len(p.heap)-1]      //[50,25 40 15 20 10 ];
-	p.heap[0] = poppedValue              //[35,25 40 15 20 10]
+	root := p.heap[0]
+	poppedValue := p.heap[len(p.heap)-1]
+	p.heap = p.heap[:len(p.heap)-1]
+	p.heap[0] = poppedValue
 	p.heapifyDown(0)
 
 	return root, nil
