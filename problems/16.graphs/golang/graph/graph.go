@@ -1,4 +1,4 @@
-package graph
+package graph_algorithem
 
 import "fmt"
 
@@ -15,7 +15,7 @@ func NewGraph() Graph {
 }
 
 //FIXME
-func (g Graph) addVertex(vertex int) Graph {
+func (g Graph) AddVertex(vertex int) Graph {
 	g.vertices = append(g.vertices, vertex)
 
 	if len(g.edges) > vertex {
@@ -28,9 +28,7 @@ func (g Graph) addVertex(vertex int) Graph {
 	return g
 }
 
-// from = 0
-// to = 3
-func (g Graph) addEdge(from, to int) Graph {
+func (g Graph) AddEdge(from, to int) Graph {
 	g.edges[from] = append(g.edges[from], to)
 	g.edges[to] = append(g.edges[to], from)
 
