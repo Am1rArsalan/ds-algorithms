@@ -7,7 +7,7 @@ import (
 
 // Min Heap
 func TestPriorityQueue1(t *testing.T) {
-	competitor := func(a, b int) bool { return a > b }
+	competitor := func(a, b int) bool { return a < b }
 	priorityQueue := NewPriorityQueue([]int{}, competitor)
 
 	priorityQueue.
@@ -28,7 +28,7 @@ func TestPriorityQueue1(t *testing.T) {
 // min heap with initial slice of heap
 func TestPriorityQueue2(t *testing.T) {
 	competitor := func(a, b int) bool {
-		return a > b
+		return a < b
 	}
 	priorityQueue := NewPriorityQueue([]int{25, 40, 15, 20, 10, 50, 35}, competitor)
 
@@ -40,7 +40,7 @@ func TestPriorityQueue2(t *testing.T) {
 
 // Max Heap
 func TestPriorityQueue3(t *testing.T) {
-	competitor := func(a, b int) bool { return a < b }
+	competitor := func(a, b int) bool { return a > b }
 	priorityQueue := NewPriorityQueue([]int{}, competitor)
 
 	priorityQueue.
@@ -61,7 +61,7 @@ func TestPriorityQueue3(t *testing.T) {
 // Max heap with initial slice of heap
 func TestPriorityQueue4(t *testing.T) {
 	competitor := func(a, b int) bool {
-		return a < b
+		return a > b
 	}
 
 	priorityQueue := NewPriorityQueue([]int{25, 40, 15, 20, 10, 50, 35}, competitor)
@@ -72,10 +72,9 @@ func TestPriorityQueue4(t *testing.T) {
 	}
 }
 
-// min heap peak
+// min heap peek
 func TestPriorityQueuePeek1(t *testing.T) {
-	competitor := func(a, b int) bool { return a > b }
-	priorityQueue := NewPriorityQueue([]int{}, competitor)
+	priorityQueue := NewPriorityQueue([]int{}, func(a, b int) bool { return a < b })
 
 	priorityQueue.
 		insert(15).
@@ -93,15 +92,15 @@ func TestPriorityQueuePeek1(t *testing.T) {
 			"(%v)", 10, root)
 	}
 
-	if !reflect.DeepEqual(priorityQueue.getHeap(), []int{15, 20, 40, 35, 25, 50}) {
+	if !reflect.DeepEqual(priorityQueue.getHeap(), []int{20, 35, 15, 40, 25, 50}) {
 		t.Errorf(" Expected (%v) but got"+
-			"(%v)", []int{15, 20, 40, 35, 25, 50}, priorityQueue.getHeap())
+			"(%v)", []int{20, 35, 15, 40, 25, 50}, priorityQueue.getHeap())
 	}
 }
 
 // max heap peek
 func TestPriorityQueuePeek2(t *testing.T) {
-	competitor := func(a, b int) bool { return a < b }
+	competitor := func(a, b int) bool { return a > b }
 	priorityQueue := NewPriorityQueue([]int{}, competitor)
 
 	priorityQueue.
@@ -120,8 +119,8 @@ func TestPriorityQueuePeek2(t *testing.T) {
 			"(%v)", 50, root)
 	}
 
-	if !reflect.DeepEqual(priorityQueue.getHeap(), []int{40, 25, 35, 15, 20, 10}) {
+	if !reflect.DeepEqual(priorityQueue.getHeap(), []int{35, 25, 40, 15, 20, 10}) {
 		t.Errorf(" Expected (%v) but got"+
-			"(%v)", []int{40, 25, 35, 15, 20, 10}, priorityQueue.getHeap())
+			"(%v)", []int{35, 25, 40, 15, 20, 10}, priorityQueue.getHeap())
 	}
 }

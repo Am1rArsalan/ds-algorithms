@@ -40,7 +40,7 @@ func (p *PriorityQueue) heapifyUp(idx int) {
 	}
 	parentIndex := parent(idx)
 
-	if p.competitor(p.heap[parentIndex], p.heap[idx]) {
+	if !p.competitor(p.heap[parentIndex], p.heap[idx]) {
 		temp := p.heap[idx]
 		p.heap[idx] = p.heap[parentIndex]
 		p.heap[parentIndex] = temp
@@ -56,9 +56,9 @@ func rightChild(idx int) int {
 	return idx*2 + 2
 }
 
-func (p *PriorityQueue) heapifyDown(idx int) {
-	leftChildIndex := leftChild(idx)
-	rightChildIndex := rightChild(idx)
+func (p *PriorityQueue) heapifyDown(parent int) {
+	leftChildIndex := leftChild(parent)
+	rightChildIndex := rightChild(parent)
 	targetIndex := leftChildIndex
 
 	if rightChildIndex < p.getSize() {
@@ -67,12 +67,11 @@ func (p *PriorityQueue) heapifyDown(idx int) {
 		}
 	}
 
-	if targetIndex < p.getSize() && p.competitor(p.heap[idx], p.heap[targetIndex]) {
+	if targetIndex < p.getSize() && !p.competitor(p.heap[parent], p.heap[targetIndex]) {
 		swapperFn := reflect.Swapper(p.heap)
-		swapperFn(targetIndex, idx)
+		swapperFn(targetIndex, parent)
 		p.heapifyDown(targetIndex)
 	}
-
 }
 
 func parent(index int) int {
