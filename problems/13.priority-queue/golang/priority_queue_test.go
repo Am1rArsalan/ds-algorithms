@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-// Min Heap
+// min Heap
 func TestPriorityQueue1(t *testing.T) {
 	competitor := func(a, b int) bool { return a < b }
 	priorityQueue := NewPriorityQueue([]int{}, competitor)
@@ -38,7 +38,7 @@ func TestPriorityQueue2(t *testing.T) {
 	}
 }
 
-// Max Heap
+// max Heap
 func TestPriorityQueue3(t *testing.T) {
 	competitor := func(a, b int) bool { return a > b }
 	priorityQueue := NewPriorityQueue([]int{}, competitor)
@@ -58,7 +58,7 @@ func TestPriorityQueue3(t *testing.T) {
 	}
 }
 
-// Max heap with initial slice of heap
+// max heap with initial slice of heap
 func TestPriorityQueue4(t *testing.T) {
 	competitor := func(a, b int) bool {
 		return a > b
