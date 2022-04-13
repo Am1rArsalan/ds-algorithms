@@ -46,7 +46,7 @@ func TestGraphAddVertexAndAddEdge(t *testing.T) {
 
 func TestBfs(t *testing.T) {
 	graph := createGraphForTest()
-	result := graph.BfsTraverse(graph.edges)
+	result := graph.BfsTraverse()
 
 	sort.Slice(result, func(i, j int) bool {
 		return result[i] < result[j]
@@ -59,7 +59,7 @@ func TestBfs(t *testing.T) {
 
 func TestDfs(t *testing.T) {
 	graph := createGraphForTest()
-	result := graph.DfsTraverse(graph.edges)
+	result := graph.DfsTraverse()
 
 	sort.Slice(result, func(i, j int) bool {
 		return result[i] < result[j]
