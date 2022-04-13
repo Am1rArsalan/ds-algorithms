@@ -26,7 +26,7 @@ describe('calculate minutes problem ( problem #3 )', () => {
         );
     });
 
-    it('calculate number of minutes (problem#3) solution 2', () => {
+    it('calculate number of minutes (problem#3) solution 3', () => {
         assert.equal(
             calculateNumberOfMinutes3(
                 8,
