@@ -9,6 +9,22 @@ func main() {
 	fmt.Println("hello world")
 }
 
+func BinarySearch(arr []int, target int, left, right int) int {
+	for left <= right {
+		mid := int(math.Floor(float64((left + right) / 2)))
+
+		if arr[mid] == target {
+			return mid
+		} else if arr[mid] > target {
+			right = mid - 1
+		} else {
+			left = mid + 1
+		}
+	}
+
+	return -1
+}
+
 func FindDomainForGivenTarget(arr []int, target int) (int, int) {
 	if len(arr) <= 0 {
 		return -1, -1
@@ -37,20 +53,4 @@ func FindDomainForGivenTarget(arr []int, target int) (int, int) {
 	end = temp2
 
 	return start, end
-}
-
-func BinarySearch(arr []int, target int, left, right int) int {
-	for left <= right {
-		mid := int(math.Floor(float64((left + right) / 2)))
-
-		if arr[mid] == target {
-			return mid
-		} else if arr[mid] > target {
-			right = mid - 1
-		} else {
-			left = mid + 1
-		}
-	}
-
-	return -1
 }
