@@ -1,7 +1,5 @@
 package graph
 
-import "fmt"
-
 type Graph struct {
 	vertices []int
 	edges    [][]int
