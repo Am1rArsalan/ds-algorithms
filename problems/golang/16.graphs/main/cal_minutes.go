@@ -1,5 +1,7 @@
 package main
 
+import "github.com/AmirAhmadzadeh/golang/graph-algo/utils"
+
 // solving problem with bfs
 func calculateMinutes1(managers, minutes []int, headId int) int {
 	delay := 0
@@ -12,44 +14,56 @@ func calculateMinutes1(managers, minutes []int, headId int) int {
 	}
 
 	queue := []int{headId}
+	queueLength := len(queue)
+	level := []int{minutes[headId]}
 	seen := make(map[int]bool, len(managers))
-	seen[4] = true
+	seen[headId] = true
 
 	for len(queue) > 0 {
 		vertex := queue[len(queue)-1]
 		queue = queue[:len(queue)-1]
+		queueLength -= 1
+
+		if queueLength == 0 {
+			levelDelay := utils.MaxInt(level)
+			delay += levelDelay
+			level = []int{}
+		}
+
 		connections := adjList[vertex]
 
 		for _, connection := range connections {
 			if !seen[connection] {
-				delay += minutes[connection]
 				seen[connection] = true
 				queue = append(queue, connection)
+				level = append(level, minutes[connection])
 			}
 		}
+
+		queueLength = len(queue)
 	}
 
 	return delay
 }
 
-func dfs(minutes []int, vertex int, adjList [][]int, seen map[int]bool, delay int) int {
-	seen[vertex] = true
-	delay += minutes[vertex]
+func findLevelDelay(adjList [][]int, minutes []int, vertex int) int {
+	if len(adjList[vertex]) == 0 {
+		return 0
+	}
+
 	connections := adjList[vertex]
+	levelDelay := 0
 
-	for _, connection := range connections {
-		if !seen[connection] {
-			return dfs(minutes, connection, adjList, seen, delay)
-		}
+	for _, conn := range connections {
+		levelDelay = utils.MaxInt([]int{levelDelay, findLevelDelay(adjList, minutes, conn)})
 	}
 
-	return delay
+	return levelDelay + minutes[vertex]
 }
 
-// solving problem with dfs
+// dfs
 func calculateMinutes2(managers, minutes []int, headId int) int {
 	adjList := make([][]int, len(managers))
-	seen := make(map[int]bool, len(managers))
 
 	for employeeId, manager := range managers {
 		if manager != -1 {
@@ -57,5 +71,5 @@ func calculateMinutes2(managers, minutes []int, headId int) int {
 		}
 	}
 
-	return dfs(minutes, headId, adjList, seen, 0)
+	return findLevelDelay(adjList, minutes, headId)
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/AmirAhmadzadeh/golang/graph-algo/priority_queue"
+	"github.com/AmirAhmadzadeh/golang/graph-algo/utils"
 	"math"
 )
 
@@ -44,7 +45,7 @@ func networkDelay1(times [][]int, k int, n int) int {
 		}
 	}
 
-	return int(Max(delays))
+	return int(utils.Max(delays))
 }
 
 func networkDelay2(times [][]int, k int, n int) int {
@@ -72,19 +73,9 @@ func networkDelay2(times [][]int, k int, n int) int {
 		}
 	}
 
-	if Max(delays) == math.Inf(1) {
+	if utils.Max(delays) == math.Inf(1) {
 		return -1
 	}
 
-	return int(Max(delays))
-}
-
-func Max(slice []float64) float64 {
-	max := slice[0]
-	for _, value := range slice {
-		if max < value {
-			max = value
-		}
-	}
-	return max
+	return int(utils.Max(delays))
 }
