@@ -45,3 +45,43 @@ func canFinishCourses(numOfCourses int, prerequisites [][]int) bool {
 
 	return isFinishable
 }
+
+// topological sort
+func canFinishCourses2(numOfCourses int, prerequisites [][]int) bool {
+	adjList := make([][]int, numOfCourses)
+	inDegrees := make([]int, numOfCourses)
+
+	for _, prerequisite := range prerequisites {
+		adjList[prerequisite[0]] = append(adjList[prerequisite[0]], prerequisite[1])
+		inDegrees[prerequisite[1]] += 1
+
+	}
+
+	stack := []int{}
+	count := 0
+	seen := make(map[int]bool, numOfCourses)
+
+	for vertex, value := range inDegrees {
+		if value == 0 {
+			stack = append(stack, vertex)
+		}
+	}
+
+	for len(stack) > 0 {
+		vertext := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		seen[vertext] = true
+		count += 1
+
+		connections := adjList[vertext]
+
+		for _, connection := range connections {
+			if !seen[connection] {
+				seen[connection] = true
+				stack = append(stack, connection)
+			}
+		}
+	}
+
+	return count == numOfCourses
+}

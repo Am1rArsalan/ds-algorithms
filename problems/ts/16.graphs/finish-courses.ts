@@ -49,7 +49,6 @@ export function canFinishCourses(
 }
 
 // solving problem with Topological sort
-
 export function canFinishCourses2(
     numberOfCourses: number,
     prerequisites: number[][]
