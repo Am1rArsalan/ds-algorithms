@@ -1,6 +1,10 @@
 import { Node } from './Node';
 
-export class BinaryTree<T> {
+export interface BinaryTree<T> {
+    insert(value: T): void;
+}
+
+export class BinaryTreeImpl<T> implements BinaryTree<T> {
     private root: Node<T> | null = null;
 
     constructor(root: Node<T>) {

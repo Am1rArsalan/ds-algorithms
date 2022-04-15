@@ -15,16 +15,14 @@ export class NodeImpl<T> implements Node<T> {
         if (value < this.value) {
             if (this.left) {
                 return this.left.insert(value);
-            } else {
-                return this.pushLeftLeaf(value);
             }
-        } else {
-            if (this.right) {
-                return this.right.insert(value);
-            } else {
-                return this.pushRightLeaf(value);
-            }
+            return this.pushLeftLeaf(value);
         }
+
+        if (this.right) {
+            return this.right.insert(value);
+        }
+        return this.pushRightLeaf(value);
     }
 
     pushLeftLeaf(value: T): Node<T> {
