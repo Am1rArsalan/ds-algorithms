@@ -1,7 +1,6 @@
 package binary_tree
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -15,7 +14,4 @@ func TestBinaryTree(t *testing.T) {
 		Insert(6).
 		Insert(7)
 
-	tree.Debug()
-
-	fmt.Println("binary tree", tree)
 }
