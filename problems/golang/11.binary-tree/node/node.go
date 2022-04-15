@@ -48,6 +48,18 @@ func (n *Node) Insert(value int) *Node {
 	return n.PushLeftLeaf(value)
 }
 
+func (n *Node) Right() *Node {
+	return n.right
+}
+
+func (n *Node) Left() *Node {
+	return n.left
+}
+
+func (n *Node) Value() int {
+	return n.value
+}
+
 func (n *Node) Debug() {
 	if n.left != nil {
 		n.left.Debug()
