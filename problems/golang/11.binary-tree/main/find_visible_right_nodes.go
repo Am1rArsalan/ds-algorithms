@@ -79,7 +79,3 @@ func findVisibleNodesFromRightSide2(tree *binary_tree.BinaryTree) []int {
 
 	return result
 }
-
-func main() {
-	////
-}
