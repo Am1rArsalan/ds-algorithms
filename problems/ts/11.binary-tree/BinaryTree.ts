@@ -2,6 +2,11 @@ import { Node } from './Node';
 
 export interface BinaryTree<T> {
     insert(value: T): void;
+    getRoot(): Node<T> | null;
+    insert(value: T): BinaryTree<T>;
+    findMaxDepth(node: Node<T> | null, max?: number): number;
+    findLevelOrderValues(): T[][];
+    findRightSideVisibleNodes(): T[];
 }
 
 export class BinaryTreeImpl<T> implements BinaryTree<T> {
@@ -60,7 +65,7 @@ export class BinaryTreeImpl<T> implements BinaryTree<T> {
         return result;
     }
 
-    public findLevelOrderValuesVisibleFromRight(): T[] {
+    public findRightSideVisibleNodes(): T[] {
         let result: T[][] = [];
         let temp = this.root;
 
