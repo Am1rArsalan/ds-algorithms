@@ -53,6 +53,12 @@ describe('binaryTree class', () => {
     });
 
     test('find visible nodes from right side problem', () => {
+        binaryTree = new BinaryTreeImpl<number>(new NodeImpl(1));
+        const root = binaryTree.getRoot() as Node<number>;
+        root.pushRightLeaf(3).pushRightLeaf(6);
+        const generatedNode = root.pushLeftLeaf(2);
+        generatedNode.pushRightLeaf(5);
+        generatedNode.pushLeftLeaf(4).pushRightLeaf(7).pushLeftLeaf(8);
         assert.deepEqual(
             binaryTree.findRightSideVisibleNodes(),
             [1, 3, 6, 7, 8]

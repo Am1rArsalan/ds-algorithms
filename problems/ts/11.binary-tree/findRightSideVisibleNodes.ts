@@ -1,27 +1,28 @@
 import { Node } from './';
 
 export function findRightSideVisibleNodes<T>(root: Node<T> | null): T[] {
-    let result: T[][] = [];
-    if (!root) return result.flat();
-
-    let queue = [[root]];
+    const result = [] as T[];
+    const temp = { ...root };
+    const queue = [temp];
 
     while (queue.length > 0) {
-        let current = queue.shift() as Node<T>[];
-        let level: Node<T>[] = [];
+        const level = [];
+        const queueLength = queue.length;
 
-        result.push(
-            current.map((node) => {
-                node.left && level.push(node.left);
-                node.right && level.push(node.right);
-                return node.value;
-            })
-        );
+        for (let i = 0; i < queueLength; i++) {
+            const vertex = queue.shift();
 
-        if (level.length > 0) queue.push(level);
+            if (level.length == 0) {
+                level.push(vertex?.value);
+            }
+            vertex?.right && queue.push(vertex.right);
+            vertex?.left && queue.push(vertex.left);
+        }
+
+        level.length > 0 && result.push(level[0] as T);
     }
 
-    return result.map((item: T[]) => [item[item.length - 1]]).flat();
+    return result;
 }
 
 export function dfs<T>(node: Node<T>, level: number, result: T[]) {

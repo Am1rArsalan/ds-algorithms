@@ -66,27 +66,28 @@ export class BinaryTreeImpl<T> implements BinaryTree<T> {
     }
 
     public findRightSideVisibleNodes(): T[] {
-        let result: T[][] = [];
-        let temp = this.root;
-
-        if (!temp) return result.flat();
-
-        let queue = [[temp]];
+        const result: T[] = [];
+        const temp = { ...this.root };
+        const queue = [temp];
 
         while (queue.length > 0) {
-            let current = queue.shift() as Node<T>[];
-            let level: Node<T>[] = [];
-            result.push(
-                current.map((node) => {
-                    node.left && level.push(node.left);
-                    node.right && level.push(node.right);
-                    return node.value;
-                })
-            );
+            const queueLength = queue.length;
+            const level = [];
 
-            if (level.length > 0) queue = [level];
+            for (let i = 0; i < queueLength; i++) {
+                const vertex = queue.shift() as Node<T>;
+
+                if (level.length === 0) {
+                    level.push(vertex?.value);
+                }
+
+                vertex.right && queue.push(vertex.right);
+                vertex.left && queue.push(vertex.left);
+            }
+
+            level.length > 0 && result.push(level[0] as T);
         }
 
-        return result.map((item: T[]) => [item[item.length - 1]]).flat();
+        return result;
     }
 }
