@@ -1,43 +1,35 @@
 package main
 
 import (
-	"fmt"
+	"math"
 
 	"github.com/AmirAhmadzadeh/problems/node"
 )
 
-func isBinarySearchTree(root *node.Node) bool {
-	queue := []*node.Node{root}
-	seen := make(map[int]bool)
-	isBinarySearch := true
-	result := []int{}
+func isBinarySearchTreeCall(node *node.Node, min float64, max float64) bool {
+	if node == nil {
+		return true
+	}
 
-	for len(queue) > 0 {
-		vertex := queue[0]
-		queue = queue[1:]
-		if !seen[vertex.Value()] {
-			seen[vertex.Value()] = true
-			result = append(result, vertex.Value())
-			if vertex.Left() != nil {
-				queue = append(queue, vertex.Left())
+	if float64(node.Value()) < min || float64(node.Value()) > max {
+		return false
+	}
 
-				if vertex.Left().Value() > vertex.Value() {
-					isBinarySearch = false
-					break
-				}
-			}
-
-			if vertex.Right() != nil {
-				queue = append(queue, vertex.Right())
-				if vertex.Right().Value() < vertex.Value() {
-					isBinarySearch = false
-					break
-				}
-			}
-
+	if node.Right() != nil {
+		if !isBinarySearchTreeCall(node.Right(), float64(node.Value()), max) {
+			return false
 		}
 	}
 
-	fmt.Println("result is", result)
-	return isBinarySearch
+	if node.Left() != nil {
+		if !isBinarySearchTreeCall(node.Left(), min, float64(node.Value())) {
+			return false
+		}
+	}
+
+	return true
+}
+
+func isBinarySearchTree(root *node.Node) bool {
+	return isBinarySearchTreeCall(root, math.Inf(-1), math.Inf(1))
 }

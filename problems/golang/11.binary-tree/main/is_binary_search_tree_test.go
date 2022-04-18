@@ -5,7 +5,6 @@ import (
 	"testing"
 )
 
-// fisrt test case
 func TestIsBinarySearchTree(t *testing.T) {
 	binaryTree := binary_tree.New(12)
 	root := binaryTree.GetRoot()
