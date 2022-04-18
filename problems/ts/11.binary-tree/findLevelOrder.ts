@@ -1,24 +1,24 @@
 import { Node } from './';
 
 export function findLevelOrderValues<T>(root: Node<T> | null): T[][] {
-    let result: T[][] = [];
-    if (!root) return result;
-
-    let queue = [[root]];
+    let result = [] as T[][];
+    let temp = { ...root };
+    let queue = [temp];
 
     while (queue.length > 0) {
-        let current = queue.shift() as Node<T>[];
-        let level: Node<T>[] = [];
+        let queueLength = queue.length;
+        let level = [];
 
-        result.push(
-            current.map((node) => {
-                node.left && level.push(node.left);
-                node.right && level.push(node.right);
-                return node.value;
-            })
-        );
+        for (let i = 0; i < queueLength; i++) {
+            let vertex = queue.shift() as Node<T>;
 
-        if (level.length > 0) queue.push(level);
+            level.push(vertex.value);
+
+            vertex.right && queue.push(vertex.right);
+            vertex.left && queue.push(vertex.left);
+        }
+
+        level.length > 0 && result.push(level);
     }
 
     return result;

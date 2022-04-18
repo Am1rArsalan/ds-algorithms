@@ -41,25 +41,22 @@ export class BinaryTreeImpl<T> implements BinaryTree<T> {
     }
 
     public findLevelOrderValues(): T[][] {
-        let result: T[][] = [];
-        let temp = this.root;
-
-        if (!temp) return result;
-
-        let queue = [[temp]];
+        let result = [] as T[][];
+        let temp = { ...this.root };
+        let queue = [temp];
 
         while (queue.length > 0) {
-            let current = queue.shift() as Node<T>[];
-            let level: Node<T>[] = [];
-            result.push(
-                current.map((node) => {
-                    node.left && level.push(node.left);
-                    node.right && level.push(node.right);
-                    return node.value;
-                })
-            );
+            let level = [];
+            let queueLength = queue.length;
+            for (let i = 0; i < queueLength; i++) {
+                let vertex = queue.shift() as Node<T>;
+                level.push(vertex.value);
 
-            if (level.length > 0) queue = [level];
+                vertex.right && queue.push(vertex.right);
+                vertex.left && queue.push(vertex.left);
+            }
+
+            level.length > 0 && result.push(level);
         }
 
         return result;

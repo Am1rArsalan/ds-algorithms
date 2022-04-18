@@ -45,8 +45,8 @@ describe('binaryTree class', () => {
 
         assert.deepEqual(binaryTree.findLevelOrderValues(), [
             [3],
-            [6, 1],
-            [9, 2, 4],
+            [1, 6],
+            [4, 2, 9],
             [5],
             [8],
         ]);

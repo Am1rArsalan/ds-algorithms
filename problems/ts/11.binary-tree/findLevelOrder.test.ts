@@ -1,7 +1,7 @@
 import { NodeImpl, Node, BinaryTreeImpl, findLevelOrderValues } from './';
 import { test, assert } from 'vitest';
 
-test('Find level order', () => {
+test('find level order', () => {
     let binaryTree = new BinaryTreeImpl<number>(new NodeImpl(3));
     const root = binaryTree.getRoot() as Node<number>;
     root.pushRightLeaf(1).pushRightLeaf(4);
@@ -11,8 +11,8 @@ test('Find level order', () => {
 
     assert.deepEqual(findLevelOrderValues<number>({ ...root }), [
         [3],
-        [6, 1],
-        [9, 2, 4],
+        [1, 6],
+        [4, 2, 9],
         [5],
         [8],
     ]);
