@@ -6,9 +6,12 @@ import (
 )
 
 func dfs(node *node.Node, level int, result *[]int) {
-	//kill condition
 	if node == nil {
 		return
+	}
+
+	if level >= len(*result) {
+		*result = append(*result, node.Value())
 	}
 
 	if node.Right() != nil {
