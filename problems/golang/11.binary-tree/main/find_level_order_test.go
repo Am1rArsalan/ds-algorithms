@@ -6,14 +6,30 @@ import (
 	"testing"
 )
 
-func TestFindLevelOrder(t *testing.T) {
+func TestFindLevelOrderBfs(t *testing.T) {
 	binaryTree := binary_tree.New(3)
 	root := binaryTree.GetRoot()
 	root.PushRightLeaf(1).PushRightLeaf(4)
 	generatedNode := root.PushLeftLeaf(6)
 	generatedNode.PushRightLeaf(2)
 	generatedNode.PushLeftLeaf(9).PushRightLeaf(5).PushLeftLeaf(8)
-	result := findLevelOrder(binaryTree)
+	result := findLevelOrderBfs(binaryTree)
+	expectedResult := [][]int{{3}, {6, 1}, {9, 2, 4}, {5}, {8}}
+
+	if !reflect.DeepEqual(expectedResult, result) {
+		t.Errorf("Expected (%v) is not same as"+
+			" actual string (%v)", expectedResult, result)
+	}
+}
+
+func TestFindLevelOrderDfs(t *testing.T) {
+	binaryTree := binary_tree.New(3)
+	root := binaryTree.GetRoot()
+	root.PushRightLeaf(1).PushRightLeaf(4)
+	generatedNode := root.PushLeftLeaf(6)
+	generatedNode.PushRightLeaf(2)
+	generatedNode.PushLeftLeaf(9).PushRightLeaf(5).PushLeftLeaf(8)
+	result := findLevelOrderDfs(binaryTree)
 	expectedResult := [][]int{{3}, {6, 1}, {9, 2, 4}, {5}, {8}}
 
 	if !reflect.DeepEqual(expectedResult, result) {

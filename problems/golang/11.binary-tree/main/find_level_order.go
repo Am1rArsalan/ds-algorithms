@@ -5,7 +5,37 @@ import (
 	"github.com/AmirAhmadzadeh/problems/node"
 )
 
-func findLevelOrder(tree *binary_tree.BinaryTree) [][]int {
+func findLevelOrderDfsCall(node *node.Node, level int, result *[][]int) {
+	if node == nil {
+		return
+	}
+
+	if len(*result) <= level {
+		*result = append(*result, []int{node.Value()})
+	} else {
+		(*result)[level] = append((*result)[level], node.Value())
+	}
+
+	if node.Left() != nil {
+		findLevelOrderDfsCall(node.Left(), level+1, result)
+	}
+
+	if node.Right() != nil {
+		findLevelOrderDfsCall(node.Right(), level+1, result)
+	}
+}
+
+func findLevelOrderDfs(tree *binary_tree.BinaryTree) [][]int {
+	result := [][]int{}
+	root := tree.GetRoot()
+
+	findLevelOrderDfsCall(root, 0, &result)
+
+	return result
+}
+
+//
+func findLevelOrderBfs(tree *binary_tree.BinaryTree) [][]int {
 	result := [][]int{}
 	root := tree.GetRoot()
 	queue := []*node.Node{root}
