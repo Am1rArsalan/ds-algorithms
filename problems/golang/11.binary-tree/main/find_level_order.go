@@ -34,7 +34,6 @@ func findLevelOrderDfs(tree *binary_tree.BinaryTree) [][]int {
 	return result
 }
 
-//
 func findLevelOrderBfs(tree *binary_tree.BinaryTree) [][]int {
 	result := [][]int{}
 	root := tree.GetRoot()
