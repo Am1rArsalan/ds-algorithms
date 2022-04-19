@@ -17,6 +17,10 @@ func TestMaxHeap(t *testing.T) {
 	heap.Insert(50)
 	heap.Insert(40)
 
-	reflect.DeepEqual(heap.GetHeap(), []int{50, 25, 40, 15, 20, 10, 35})
-	reflect.DeepEqual(heap2.GetHeap(), []int{50, 40, 35, 20, 10, 15, 25})
+	if !reflect.DeepEqual(heap.GetHeap(), []int{50, 40, 25, 35, 10, 20, 15}) {
+		t.Errorf("Expected %v, got %v", []int{50, 40, 25, 35, 10, 20, 15}, heap.GetHeap())
+	}
+	if !reflect.DeepEqual(heap2.GetHeap(), []int{50, 40, 35, 20, 10, 15, 25}) {
+		t.Errorf("Expected %v, got %v", []int{50, 25, 40, 15, 20, 10, 35}, heap.GetHeap())
+	}
 }

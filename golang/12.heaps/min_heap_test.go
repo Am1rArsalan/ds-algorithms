@@ -17,6 +17,11 @@ func TestMinHeap(t *testing.T) {
 	heap.Insert(50)
 	heap.Insert(40)
 
-	reflect.DeepEqual(heap.GetHeap(), []int{10, 20, 15, 35, 25, 50, 40})
-	reflect.DeepEqual(heap2.GetHeap(), []int{10, 20, 15, 25, 40, 50, 35})
+	if !reflect.DeepEqual(heap.GetHeap(), []int{10, 15, 20, 25, 35, 50, 40}) {
+		t.Errorf("Expected %v, got %v", []int{10, 15, 20, 25, 35, 50, 40}, heap.GetHeap())
+	}
+
+	if !reflect.DeepEqual(heap2.GetHeap(), []int{10, 20, 15, 25, 40, 50, 35}) {
+		t.Errorf("Expected %v, got %v", []int{10, 20, 15, 25, 40, 50, 35}, heap2.GetHeap())
+	}
 }

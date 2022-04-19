@@ -9,28 +9,27 @@ type MaxHeap struct {
 	heap []int
 }
 
-func NewMaxHeap(initialHeap []int) MaxHeap {
-	maxHeap := MaxHeap{
-		heap: []int{},
+func NewMaxHeap(initialHeap []int) *MaxHeap {
+	maxHeap := &MaxHeap{
+		heap: initialHeap,
 	}
-	maxHeap.buildHeap(initialHeap)
+	maxHeap.buildHeap()
 
 	return maxHeap
 }
 
-func (h MaxHeap) buildHeap(initialHeap []int) {
-	for _, value := range initialHeap {
-		h.heap = append(h.heap, value)
-		h.heapifyUp(len(h.heap) - 1)
+func (h *MaxHeap) buildHeap() {
+	for i := int(math.Floor(float64(len(h.heap) / 2))); i >= 0; i-- {
+		h.heapifyDown(i)
 	}
 }
 
-func (h MaxHeap) Insert(value int) {
+func (h *MaxHeap) Insert(value int) {
 	h.heap = append(h.heap, value)
 	h.heapifyUp(len(h.heap) - 1)
 }
 
-func (h MaxHeap) Peek() int {
+func (h *MaxHeap) Peek() int {
 	if len(h.heap) == 0 {
 		return math.MinInt32
 	}
@@ -44,11 +43,11 @@ func (h MaxHeap) Peek() int {
 	return max
 }
 
-func (h MaxHeap) GetHeap() []int {
+func (h *MaxHeap) GetHeap() []int {
 	return h.heap
 }
 
-func (h MaxHeap) heapifyDown(parentIndex int) {
+func (h *MaxHeap) heapifyDown(parentIndex int) {
 	leftChildIndex := 2*parentIndex + 1
 	rightChildIndex := 2*parentIndex + 2
 
@@ -69,11 +68,14 @@ func (h MaxHeap) heapifyDown(parentIndex int) {
 	}
 }
 
-func (h MaxHeap) heapifyUp(childIndex int) {
+func (h *MaxHeap) heapifyUp(childIndex int) {
+	if childIndex == 0 {
+		return
+	}
 	parentIndex := int(math.Floor(float64(childIndex) / 2))
 
-	if parentIndex > 0 && parentIndex < len(h.heap) {
-		if h.heap[parentIndex] < h.heap[childIndex] {
+	if parentIndex >= 0 && parentIndex < len(h.heap) {
+		if h.heap[childIndex] > h.heap[parentIndex] {
 			swapper := reflect.Swapper(h.heap)
 			swapper(parentIndex, childIndex)
 
