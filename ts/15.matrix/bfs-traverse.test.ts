@@ -6,6 +6,7 @@ test('traverse 2 dimensional arrays ( bfs )', () => {
         return Array.from({ length: 5 }, (_, j) => i + j + 1 + 4 * i);
     });
 
+    console.log('test case', testCase);
     const result = bfsTraverse<number>(testCase).sort((a, b) =>
         a > b ? 1 : -1
     );
