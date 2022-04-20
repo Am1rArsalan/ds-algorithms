@@ -1,6 +1,7 @@
 package matrix_dfs
 
 import (
+	"fmt"
 	"reflect"
 	"sort"
 	"testing"
@@ -21,6 +22,7 @@ func getTestCase() [4][5]int {
 func TestDfs(t *testing.T) {
 	matrix := getTestCase()
 
+	fmt.Println("test case matrix is", matrix)
 	result := DfsTraverseMatrix(matrix)
 
 	sort.Slice(result, func(i, j int) bool {
