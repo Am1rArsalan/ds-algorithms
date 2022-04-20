@@ -15,18 +15,17 @@ export function dfs<T>(
     if (row < 0 || col < 0 || row >= matrix.length || col >= matrix[0].length) {
         return;
     }
+
+    if (seen[row][col]) {
+        return;
+    }
+
     result.push(matrix[row][col]);
     seen[row][col] = true;
 
     for (let i = 0; i < directions.length; ++i) {
         const direction = directions[i];
-        if (
-            matrix[row + direction[0]] &&
-            matrix[row + direction[0]][col + direction[1]] &&
-            !seen[row + direction[0]][col + direction[1]]
-        ) {
-            dfs(matrix, row + direction[0], col + direction[1], seen, result);
-        }
+        dfs(matrix, row + direction[0], col + direction[1], seen, result);
     }
 }
 
