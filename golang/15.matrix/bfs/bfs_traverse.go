@@ -7,10 +7,17 @@ var directions = [][]int{
 	{0, -1},
 }
 
-func BfsTraverseMatrix(matrix [4][5]int) []int {
+func BfsTraverseMatrix(matrix [][]int) []int {
 	queue := [][]int{{0, 0}}
-	seen := [4][5]bool{}
+	seen := [][]bool{}
 	result := []int{}
+
+	for i := 0; i < len(matrix); i++ {
+		seen = append(seen, []bool{})
+		for j := 0; j < len(matrix[i]); j++ {
+			seen[i] = append(seen[i], false)
+		}
+	}
 
 	for len(queue) > 0 {
 		current := queue[0]

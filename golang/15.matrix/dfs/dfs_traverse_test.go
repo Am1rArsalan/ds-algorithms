@@ -1,18 +1,18 @@
 package matrix_dfs
 
 import (
-	"fmt"
 	"reflect"
 	"sort"
 	"testing"
 )
 
-func getTestCase() [4][5]int {
-	matrix := [4][5]int{}
+func getTestCase() [][]int {
+	matrix := [][]int{}
 
-	for i, value := range matrix {
-		for j := range value {
-			matrix[i][j] = i + j + 1 + 4*i
+	for i := 0; i < 4; i++ {
+		matrix = append(matrix, []int{})
+		for j := 0; j < 5; j++ {
+			matrix[i] = append(matrix[i], i+j+1+4*i)
 		}
 	}
 
@@ -22,7 +22,6 @@ func getTestCase() [4][5]int {
 func TestDfs(t *testing.T) {
 	matrix := getTestCase()
 
-	fmt.Println("test case matrix is", matrix)
 	result := DfsTraverseMatrix(matrix)
 
 	sort.Slice(result, func(i, j int) bool {
