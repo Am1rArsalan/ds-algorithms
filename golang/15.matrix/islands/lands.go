@@ -1,4 +1,4 @@
-package main
+package islands
 
 var directions = [][]int{
 	{-1, 0},
