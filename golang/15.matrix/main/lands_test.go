@@ -1,9 +1,16 @@
 package main
 
-import "testing"
+import (
+	"log"
+	"testing"
+	"time"
+)
 
 func TestCountDfsIslandsDfs(t *testing.T) {
+	start := time.Now()
 	result := countIslandsDfs([][]int{{1, 1, 1, 1, 0}, {1, 1, 0, 1, 0}, {1, 1, 0, 0, 1}, {0, 0, 0, 1, 1}})
+	timeOfExecution := time.Since(start)
+	log.Printf("(DFS) count islands took %s", timeOfExecution)
 
 	if result != 2 {
 		t.Errorf("Expected (%v) but got"+
@@ -42,7 +49,10 @@ func TestCountDfsIslandsDfs(t *testing.T) {
 }
 
 func TestCountBfsIslandsBfs(t *testing.T) {
+	start := time.Now()
 	result := countIslandsBfs([][]int{{1, 1, 1, 1, 0}, {1, 1, 0, 1, 0}, {1, 1, 0, 0, 1}, {0, 0, 0, 1, 1}})
+	timeOfExecution := time.Since(start)
+	log.Printf("(BFS) count islands took %s", timeOfExecution)
 
 	if result != 2 {
 		t.Errorf("Expected (%v) but got"+
