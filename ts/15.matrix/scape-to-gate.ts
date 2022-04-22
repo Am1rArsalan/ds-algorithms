@@ -9,7 +9,6 @@ const directions = [
     [0, -1],
 ];
 
-// dfs
 export function calculateStepsToGate(
     matrix: number[][],
     row: number,
@@ -44,7 +43,6 @@ export function calculateStepsToGate(
     }
 }
 
-// bfs
 export function scapeToGate(matrix: number[][]) {
     const initialRow = Math.ceil((matrix.length - 1) / 2);
     const initialCol = Math.ceil((matrix[0].length - 1) / 2);
