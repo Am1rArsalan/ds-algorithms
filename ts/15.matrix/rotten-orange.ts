@@ -49,9 +49,9 @@ export function findRottenOrangesAndCountFresh(matrix: number[][]) {
 export function timeTakeToRotten(matrix: number[][]) {
     if (matrix.length === 0) return 0;
 
-    let queue = findRottenOrangesAndCountFresh(matrix).q;
-    let numberOfFreshOranges =
-        findRottenOrangesAndCountFresh(matrix).numberOfFreshOranges;
+    let { q: queue, numberOfFreshOranges } =
+        findRottenOrangesAndCountFresh(matrix);
+
     let minutes = 0;
     let queueLength = queue.length;
     while (queue.length > 0) {
@@ -59,6 +59,7 @@ export function timeTakeToRotten(matrix: number[][]) {
         let coordinate = queue.shift() as [number, number];
         let row = coordinate[0];
         let col = coordinate[1];
+
         for (let i = 0; i < directions.length; i++) {
             let direction = directions[i];
             if (
