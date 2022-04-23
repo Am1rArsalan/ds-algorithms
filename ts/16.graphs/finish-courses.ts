@@ -59,8 +59,10 @@ export function canFinishCourses2(
     const inDegrees = Array.from({ length: numberOfCourses }, () => 0);
     for (let i = 0; i < prerequisites.length; ++i) {
         const pair = prerequisites[i];
-        inDegrees[pair[0]]++;
-        adjList[pair[1]].push(pair[0]);
+        const course = pair[0];
+        const prerequisite = pair[1];
+        inDegrees[course]++;
+        adjList[prerequisite].push(course);
     }
     const stack = [];
     for (let i = 0; i < inDegrees.length; ++i) {
