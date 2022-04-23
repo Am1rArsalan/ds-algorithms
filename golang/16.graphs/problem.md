@@ -23,7 +23,7 @@
   There are a total of n courses to take, labeled from 0 to n - 1. 
   Some courses have prerequisite courses. This is expressed as pair 
   i.e. [1,0] which indicates you must take course 0 before taking  
-  course 1. 
+  course 1.Does anyone could finish all courses ?
 
 #problem-5
   There are N label nodes labelled 1 to N.

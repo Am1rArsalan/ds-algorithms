@@ -100,9 +100,10 @@ export function levelMinutes(
     let current = adjList[currentId];
 
     for (let i = 0; i < current.length; ++i) {
+        const connection = current[i];
         max = Math.max.apply(null, [
             max,
-            levelMinutes(current[i], adjList, informTime),
+            levelMinutes(connection, adjList, informTime),
         ]);
     }
 
