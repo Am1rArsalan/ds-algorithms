@@ -1,4 +1,4 @@
-const knightMovements = [
+const KnightMovements = [
     [-1, 2],
     [-2, 1],
     [-1, -2],
@@ -9,49 +9,85 @@ const knightMovements = [
     [2, -1],
 ];
 
-function checkExistence(num: number, n: number) {
-    return num < n && num >= 0;
-}
-
-export function calculateStepProperty(r: number, c: number, n: number) {
-    let count = 0;
-    for (let i = 0; i < knightMovements.length; i++) {
-        const direction = knightMovements[i];
-        let row = r + direction[0];
-        let col = c + direction[1];
-        if (checkExistence(row, n) && checkExistence(col, n)) {
-            count += 1;
-        }
+function memoizedKp(
+    k: number,
+    r: number,
+    c: number,
+    n: number,
+    memoizedData: number[][][]
+) {
+    if (r >= n || r < 0 || c >= n || c < 0) {
+        return 0;
+    } else if (k == 0) {
+        return 1;
+    } else if (memoizedData[k][r][c] != -1) {
+        return memoizedData[k][r][c];
     }
 
-    return count / n;
+    let count = 0;
+
+    for (let i = 0; i < KnightMovements.length; i++) {
+        count += memoizedKp(
+            k - 1,
+            KnightMovements[i][0] + r,
+            KnightMovements[i][1] + c,
+            n,
+            memoizedData
+        );
+    }
+
+    memoizedData[k][r][c] = count / 8;
+
+    return memoizedData[k][r][c];
 }
 
-// k : number of knight moves
+export function memoizedCalculateProbability(
+    n: number,
+    k: number,
+    r: number,
+    c: number
+): number {
+    return memoizedKp(
+        k,
+        r,
+        c,
+        n,
+        Array(k + 1)
+            .fill(-1)
+            .map(() =>
+                Array(n)
+                    .fill(-1)
+                    .map(() => Array(n).fill(-1))
+            )
+    );
+}
+
+function kp(k: number, r: number, c: number, n: number) {
+    if (r >= n || r < 0 || c >= n || c < 0) {
+        return 0;
+    } else if (k == 0) {
+        return 1;
+    }
+
+    let count = 0;
+
+    for (let i = 0; i < KnightMovements.length; i++) {
+        count += kp(
+            k - 1,
+            KnightMovements[i][0] + r,
+            KnightMovements[i][1] + c,
+            n
+        );
+    }
+
+    return count / 8;
+}
+
 export function calculateProbability(
     n: number,
     k: number,
     r: number,
     c: number
 ): number {
-    let p = 0;
-    const probabilities = [];
-
-    for (let j = 0; j < k; j++) {
-        for (let i = 0; i < knightMovements.length; i++) {
-            const direction = knightMovements[i];
-            let row = r + direction[0];
-            let col = c + direction[1];
-
-            if (checkExistence(row, n) && checkExistence(col, n)) {
-                probabilities.push(calculateStepProperty(row, col, n));
-            }
-        }
-    }
-
-    p = probabilities.reduce((prev, curr) => {
-        return prev + curr;
-    }, 0);
-
-    return p / 8;
+    return kp(k, r, c, n);
 }
