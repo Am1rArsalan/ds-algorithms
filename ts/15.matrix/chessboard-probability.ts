@@ -9,6 +9,7 @@ const KnightMovements = [
     [2, -1],
 ];
 
+/// top down
 function memoizedKp(
     k: number,
     r: number,
@@ -89,3 +90,43 @@ export function calculateProbability(
 ): number {
     return kp(k, r, c, n);
 }
+
+// bottom up ( iterative )
+//function calculateProbabilityTopDown(
+//k: number,
+//r: number,
+//c: number,
+//n: number
+//) {
+//const memoizedData = Array(k + 1)
+//.fill(-1)
+//.map(() =>
+//Array(n)
+//.fill(-1)
+//.map(() => Array(n).fill(-1))
+//);
+
+//const queue = [[r, c]];
+
+//while (k > 0) {
+//while (queue.length > 0) {
+//const current = queue.shift() as [number, number];
+//const row = current[0];
+//const col = current[1];
+
+//for (let j = 0; j < KnightMovements.length; j++) {
+//const dr = KnightMovements[j][0] + row;
+//const dc = KnightMovements[j][1] + col;
+
+//if (dr >= 0 && dr < n && dc >= 0 && dc < n) {
+//if (memoizedData[k][dr][dc] == -1) {
+//memoizedData[k][dr][dc] =
+//}
+//}
+//}
+//}
+//k--;
+//}
+
+//return memoizedData[k][r][c];
+//}
