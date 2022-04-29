@@ -24,19 +24,20 @@ function memoizedKp(
         return memoizedData[k][r][c];
     }
 
-    let count = 0;
+    let p = 0;
 
     for (let i = 0; i < KnightMovements.length; i++) {
-        count += memoizedKp(
-            k - 1,
-            KnightMovements[i][0] + r,
-            KnightMovements[i][1] + c,
-            n,
-            memoizedData
-        );
+        p +=
+            memoizedKp(
+                k - 1,
+                KnightMovements[i][0] + r,
+                KnightMovements[i][1] + c,
+                n,
+                memoizedData
+            ) / 8;
     }
 
-    memoizedData[k][r][c] = count / 8;
+    memoizedData[k][r][c] = p;
 
     return memoizedData[k][r][c];
 }
@@ -69,18 +70,15 @@ function kp(k: number, r: number, c: number, n: number) {
         return 1;
     }
 
-    let count = 0;
+    let p = 0;
 
     for (let i = 0; i < KnightMovements.length; i++) {
-        count += kp(
-            k - 1,
-            KnightMovements[i][0] + r,
-            KnightMovements[i][1] + c,
-            n
-        );
+        p +=
+            kp(k - 1, KnightMovements[i][0] + r, KnightMovements[i][1] + c, n) /
+            8;
     }
 
-    return count / 8;
+    return p;
 }
 
 export function calculateProbability(
