@@ -30,7 +30,6 @@ export function solveSudoku(matrix: number[][]) {
 
     recursive(matrix, rows, cols, boxes, 0, 0);
 
-    console.log(matrix);
     return matrix;
 }
 
