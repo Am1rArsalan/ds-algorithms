@@ -2,15 +2,19 @@ export interface MonarchyNode {
     insertChild: (childName: string) => void;
     getValue: () => string;
     getChildren: () => MonarchyNode[];
+    death: () => void;
+    isAlive: () => boolean;
 }
 
-export class MonarchyNodeImpl {
+export class MonarchyNodeImpl implements MonarchyNode {
     private value: string;
     private children: MonarchyNode[];
+    private _isAlive: boolean;
 
     constructor(value: string) {
         this.value = value;
         this.children = [];
+        this._isAlive = true;
     }
 
     public insertChild(child: string) {
@@ -23,6 +27,14 @@ export class MonarchyNodeImpl {
 
     public getChildren() {
         return this.children;
+    }
+
+    public death() {
+        this._isAlive = false;
+    }
+
+    public isAlive() {
+        return this._isAlive;
     }
 }
 
@@ -59,41 +71,26 @@ export class MonarchyImpl implements Monarchy {
     }
 
     public death(name: string): void {
-        if (
-            this.monarchy.getValue() == name &&
-            this.monarchy.getChildren().length > 0
-        ) {
-            const kingChildren = this.monarchy.getChildren();
-            const otherChildren = kingChildren.slice(1);
-            const nextKing = kingChildren[0];
-            this.monarchy = nextKing;
-
-            for (let i = 0; i < otherChildren.length; i++) {
-                this.monarchy.insertChild(otherChildren[i].getValue());
-            }
-
+        if (this.monarchy.getValue() == name) {
+            this.monarchy.death();
             return;
         }
 
         let children = this.monarchy.getChildren();
         for (let i = 0; i < children.length; i++) {
-            let child = children[i];
-            if (child.getValue() == name) {
-                const nodeChildren = child.getChildren();
-                const otherNodeChildren = nodeChildren.slice(1);
-                child = nodeChildren[0];
-
-                for (let i = 0; i < otherNodeChildren.length; i++) {
-                    child.insertChild(otherNodeChildren[i].getValue());
-                }
+            let childNode = children[i];
+            if (childNode.getValue() == name) {
+                childNode.death();
+                return;
             }
+            children = [...children, ...childNode.getChildren()];
         }
     }
 
     private dfs(node: MonarchyNode, order: string[]) {
         if (!node) return;
 
-        order.push(node.getValue());
+        node.isAlive() && order.push(node.getValue());
         const children = node.getChildren();
 
         for (let i = 0; i < children.length; i++) {
