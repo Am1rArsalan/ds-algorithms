@@ -52,38 +52,38 @@ export class MonarchyImpl implements Monarchy {
     }
 
     public birth(child: string, parent: string) {
-        if (this.monarchy.getValue() == parent) {
-            this.monarchy.insertChild(child);
-            return;
-        }
+        let queue = [this.monarchy];
 
-        let children = this.monarchy.getChildren();
-        for (let i = 0; i < children.length; i++) {
-            let childNode = children[i];
+        while (queue.length > 0) {
+            let vertex = queue.shift() as MonarchyNode;
 
-            if (childNode.getValue() == parent) {
-                childNode.insertChild(child);
+            if (vertex.getValue() == parent) {
+                vertex.insertChild(child);
                 return;
             }
 
-            children = [...children, ...childNode.getChildren()];
+            let children = vertex.getChildren();
+            for (let i = 0; i < children.length; i++) {
+                const childNode = children[i];
+                queue.push(childNode);
+            }
         }
     }
 
     public death(name: string): void {
-        if (this.monarchy.getValue() == name) {
-            this.monarchy.death();
-            return;
-        }
+        let queue = [this.monarchy];
 
-        let children = this.monarchy.getChildren();
-        for (let i = 0; i < children.length; i++) {
-            let childNode = children[i];
-            if (childNode.getValue() == name) {
-                childNode.death();
+        while (queue.length > 0) {
+            let vertex = queue.shift() as MonarchyNode;
+
+            if (vertex.getValue() == name) {
+                vertex.death();
                 return;
             }
-            children = [...children, ...childNode.getChildren()];
+
+            for (let i = 0; i < vertex.getChildren().length; i++) {
+                queue.push(vertex.getChildren()[i]);
+            }
         }
     }
 
@@ -105,10 +105,5 @@ export class MonarchyImpl implements Monarchy {
         this.dfs(this.monarchy, order);
 
         return order;
-    }
-
-    // REMOVE: delete this after debug
-    public getMonarchy() {
-        return this.monarchy;
     }
 }
