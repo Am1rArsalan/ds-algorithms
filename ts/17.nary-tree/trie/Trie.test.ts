@@ -1,5 +1,5 @@
 import { assert, test } from 'vitest';
-import { TrieImpl } from './main';
+import { TrieImpl } from './TrieImpl';
 
 test('test trie implementation', () => {
     const trie = new TrieImpl();
