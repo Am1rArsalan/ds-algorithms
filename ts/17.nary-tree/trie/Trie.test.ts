@@ -5,21 +5,21 @@ test('test trie implementation', () => {
     const trie = new TrieImpl();
 
     trie.insert('apple');
-    let result = trie.search('dog'); // false
+    let result = trie.search('dog');
     assert.equal(result, false);
 
     trie.insert('dog');
-    trie.search('dog'); // true
+    trie.search('dog');
     result = trie.search('dog');
     assert.equal(result, true);
 
-    result = trie.startsWith('app'); // true
+    result = trie.startsWith('app');
     assert.equal(result, true);
 
-    result = trie.search('app'); // false;
-    //assert.equal(result, false);
+    result = trie.search('app');
+    assert.equal(result, false);
 
     trie.insert('app');
-    result = trie.search('app'); // true
-    //assert.equal(result, false);
+    result = trie.search('app');
+    assert.equal(result, true);
 });
