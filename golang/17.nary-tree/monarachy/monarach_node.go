@@ -1,4 +1,4 @@
-package main
+package monarchy
 
 // monarchy node
 type MonarchyNode struct {
