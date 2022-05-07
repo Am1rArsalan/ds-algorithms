@@ -8,20 +8,25 @@ test('test trie implementation', () => {
     trie.insert('apple');
     let result = trie.search('dog');
 
-    //assert.equal(result, false);
+    assert.equal(result, false);
 
-    //trie.insert('dog');
-    //trie.search('dog');
-    //result = trie.search('dog');
-    //assert.equal(result, true);
+    trie.insert('dog');
+    result = trie.search('dog');
+    assert.equal(result, true);
 
-    //result = trie.startsWith('app');
-    //assert.equal(result, true);
+    result = trie.search('baset')
+    assert.equal(result, false);
+    trie.insert('baset');
+    result = trie.search('baset');
+    assert.equal(result, true);
 
-    //result = trie.search('app');
-    //assert.equal(result, false);
+    result = trie.startsWith('app');
+    assert.equal(result, true);
 
-    //trie.insert('app');
-    //result = trie.search('app');
-    //assert.equal(result, true);
+    result = trie.search('app');
+    assert.equal(result, false);
+
+    trie.insert('app');
+    result = trie.search('app');
+    assert.equal(result, true);
 });
