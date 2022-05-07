@@ -27,34 +27,11 @@ export class NodeImpl implements Node {
         return this.value;
     }
 
-    public insert(word: string) {
-        //this.children.set(node);
-        //return node;
+    public setChild(key: string, value: Node) {
+        this.children.set(key, value);
     }
 
     public getChildren() {
         return this.children;
     }
-}
-
-export function buildNodeFromWord(word: string) {
-    //"pple
-    const node = NodeImpl.newNode(word[0]);
-    // node : { value : p , children : Map{} } ;
-    let temp = node;
-    word = word.slice(1);
-    // word :ple
-
-    for (let i = 0; i < word.length && temp; i++) {
-        const newNode = NodeImpl.newNode(word[0]);
-        // newNode = { value : p , children : Map{}}
-        temp.insertChild(word[0], newNode);
-        // newNode = { value : p , children : Map{}}
-        temp = newNode;
-        word = word.slice(1);
-    }
-
-    console.log(JSON.stringify(node, null, 2));
-
-    return node;
 }
