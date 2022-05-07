@@ -1,5 +1,7 @@
 export interface Node {
-    insertChild: (value: string) => Node | null;
     getValue: () => string;
-    getChild: () => Node | null;
+    getChildren: () => Map<string, Node>;
+    insert: (word: string) => Node;
+    setTerminal: (value: boolean) => void;
+    isTerminal: () => boolean;
 }
