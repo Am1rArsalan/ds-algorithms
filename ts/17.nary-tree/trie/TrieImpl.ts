@@ -28,10 +28,10 @@ export class TrieImpl implements Trie {
         }
 
         const newNode = NodeImpl.newNode(key);
-        node.setChild(key, newNode);
         if (word.length === 1) {
             newNode.setTerminal(true);
         }
+        node.setChild(key, newNode);
 
         if (word.slice(1).length > 0) {
             this._insert(word.slice(1), newNode);
