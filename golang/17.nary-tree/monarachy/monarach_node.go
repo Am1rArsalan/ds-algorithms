@@ -1,6 +1,5 @@
 package monarchy
 
-// monarchy node
 type MonarchyNode struct {
 	value    string
 	children []*MonarchyNode
