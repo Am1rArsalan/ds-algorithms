@@ -18,13 +18,24 @@ export class TrieImpl implements Trie {
 
     private _insert(word: string, node: Node) {
         const key = word[0];
+
+        if (node.getChildren().has(key) && word.length > 0) {
+            if (word.length == 1) {
+                (node.getChildren().get(key) as Node).setTerminal(true);
+            }
+            this._insert(word.slice(1), node.getChildren().get(key) as Node);
+            return;
+        }
+
         const newNode = NodeImpl.newNode(key);
-        if (word.length == 1) {
+        node.setChild(key, newNode);
+        if (word.length === 1) {
             newNode.setTerminal(true);
         }
-        node.setChild(key, newNode);
+
         if (word.slice(1).length > 0) {
             this._insert(word.slice(1), newNode);
+            return;
         }
     }
 
@@ -40,7 +51,10 @@ export class TrieImpl implements Trie {
             return (node.getChildren().get(word) as Node).isTerminal();
         }
         if (node.getChildren().has(word[0])) {
-            return this._search(word.slice(1), node.getChildren().get(word[0]) as Node)
+            return this._search(
+                word.slice(1),
+                node.getChildren().get(word[0]) as Node
+            );
         }
         return false;
     }
@@ -57,7 +71,10 @@ export class TrieImpl implements Trie {
             return node.getChildren().has(word);
         }
         if (node.getChildren().has(word[0])) {
-            return this._startsWith(word.slice(1), node.getChildren().get(word[0]) as Node)
+            return this._startsWith(
+                word.slice(1),
+                node.getChildren().get(word[0]) as Node
+            );
         }
         return false;
     }

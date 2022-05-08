@@ -7,14 +7,13 @@ test('test trie implementation', () => {
 
     trie.insert('apple');
     let result = trie.search('dog');
-
     assert.equal(result, false);
 
     trie.insert('dog');
     result = trie.search('dog');
     assert.equal(result, true);
 
-    result = trie.search('baset')
+    result = trie.search('baset');
     assert.equal(result, false);
     trie.insert('baset');
     result = trie.search('baset');
