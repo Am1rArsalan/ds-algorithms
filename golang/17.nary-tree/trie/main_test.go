@@ -1,7 +1,6 @@
 package main
 
 import (
-	//"fmt"
 	"testing"
 )
 
@@ -25,6 +24,7 @@ func TestFindSumTargetIndexes(t *testing.T) {
 	if result != false {
 		t.Errorf("Expected false, got %v", result)
 	}
+
 	trie.Insert("baset")
 	result = trie.Search("baset")
 	if result != true {
@@ -42,8 +42,8 @@ func TestFindSumTargetIndexes(t *testing.T) {
 	}
 
 	trie.Insert("app")
-	//result = trie.Search("app")
-	//if result != true {
-	//t.Errorf("Expected true, got %v", result)
-	//}
+	result = trie.Search("app")
+	if result != true {
+		t.Errorf("Expected true, got %v", result)
+	}
 }

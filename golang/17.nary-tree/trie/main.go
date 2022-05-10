@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type Node struct {
 	value      string
 	isTerminal bool
@@ -39,8 +37,11 @@ func (t *Trie) Insert(word string) {
 }
 
 func insert(node *Node, word string) {
+	if len(word) == 0 {
+		return
+	}
+
 	key := string(word[0])
-	// word : "app"
 
 	if value, ok := node.children[key]; ok && len(word) > 0 {
 		if len(word) == 1 {
@@ -97,7 +98,6 @@ func (t *Trie) StartsWith(word string) bool {
 
 func startsWith(node *Node, word string) bool {
 	if len(word) == 1 {
-		fmt.Println("the last letter", word, node)
 		if _, ok := node.children[string(word)]; ok {
 			return true
 		}
