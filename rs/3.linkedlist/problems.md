@@ -14,8 +14,6 @@ reverse a part of linked list
 
 ```ts
 export interface LinkedList<T> {
-    getHead: () => NodeType<T> | null;
-    getListLength: () => number;
     push: (value: T) => NodeType<T>;
     pop: () => NodeType<T>;
     shift: () => T | undefined;
