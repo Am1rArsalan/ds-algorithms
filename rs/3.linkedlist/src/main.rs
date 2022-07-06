@@ -1,31 +1,31 @@
-
-
-
 fn main() {
-    let list = LinkedList<i32> { 
-        head : Node { 
-            value, 
-            next : None ,
+    let my_list = LinkedList::new(&Node::new("head_value"));
+}
+
+struct Node {
+    value: String,
+    next: Box<Option<Node>>,
+}
+
+impl Node {
+    fn new(t: &str) -> Self {
+        Self {
+            value: t.to_owned(),
+            next: Box::new(None),
         }
     }
 }
 
-
-struct Node<T> {
-    value: T,
-    next : Option<Node<T>>
+struct LinkedList {
+    head: Node,
 }
 
-struct LinkedList<T> {
-    head: Node<T>,
-}
+impl LinkedList {
+    fn new(head: &Node) {
+        todo!();
+    }
 
-impl LinkedList<T> {
     fn push() {
         todo!();
     }
 }
-
-
-
-
