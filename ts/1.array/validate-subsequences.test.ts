@@ -7,4 +7,9 @@ describe('validate subsequences', () => {
         const innerArr = [1, 6, -1, 10];
         assert.equal(validateSubsequences(arr, innerArr), true);
     });
+    test('second test case', () => {
+        const arr = [5, 1, 22, 25, 6, -1, 8, 10];
+        const innerArr = [1, 6, 10, -1];
+        assert.equal(validateSubsequences(arr, innerArr), false);
+    });
 });
