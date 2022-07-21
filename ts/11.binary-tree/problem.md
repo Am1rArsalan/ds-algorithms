@@ -15,4 +15,8 @@ of the nodes you can see ordered from top to bottom .
 4.Given a complete binary tree, count the number of
 nodes
 
-4.Given a tree detect that is binary search tree or not;
+5.Given a tree detect that is binary search tree or not;
+
+6.Given a binary search tree and a number that is not 
+in the binary tree that you got... find the closest value
+in the tree.
