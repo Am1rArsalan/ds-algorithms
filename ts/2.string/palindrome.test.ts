@@ -2,7 +2,7 @@ import {
     isValidPalindrome,
     isValidPalindrome2,
     isValidPalindrome3,
-} from './index';
+} from './palindrome';
 import { describe, it, assert } from 'vitest';
 
 describe('check string is palindrome or not', () => {

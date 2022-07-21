@@ -1,4 +1,4 @@
-import { compareTwoString, generateString } from './index';
+import { compareTwoString } from './compare-hash-strings';
 import { describe, it, assert } from 'vitest';
 
 describe('problem 4', () => {

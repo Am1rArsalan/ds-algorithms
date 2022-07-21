@@ -1,4 +1,4 @@
-import { convertZigzag } from './index';
+import { convertZigzag } from './convert-zigzag';
 import { describe, it, assert } from 'vitest';
 
 describe('zigzag problem', () => {

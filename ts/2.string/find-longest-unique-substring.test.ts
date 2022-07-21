@@ -3,7 +3,7 @@ import {
     solution2,
     optimizedSolution,
     optimizedSolution2,
-} from './index';
+} from './find-longest-unique-substring';
 import { describe, it, assert } from 'vitest';
 
 describe('find length of longest substring without repeating characters', () => {
