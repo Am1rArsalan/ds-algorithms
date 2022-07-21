@@ -26,3 +26,9 @@ Your first step can either be the first or second step
 
 #problem-5
 validate subsequence 
+
+#problem-6
+squared sorted array 
+
+#problem-7
+non constructible change
