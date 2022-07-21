@@ -1,5 +1,5 @@
 import { describe, assert, it } from 'vitest';
-import { findTrappedArea, findTrappedArea2 } from './index';
+import { findTrappedArea, findTrappedArea2 } from './find-trapped-area';
 
 describe('finding the trapped area between in given head', () => {
     describe('max trapped water question problem', () => {

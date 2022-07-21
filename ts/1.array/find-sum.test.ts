@@ -1,4 +1,4 @@
-import { calSolution, calSolution2 } from './index';
+import { calSolution, calSolution2 } from './find-sum';
 import { describe, assert, it, test } from 'vitest';
 
 describe('problem', () => {

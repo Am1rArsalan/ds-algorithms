@@ -11,7 +11,6 @@ fn find_max_trapped_area(arr: Vec<i32>) -> i32 {
 
     while current < arr.len() {
         let mut max_right = 0;
-
         for i in current..arr.len() {
             if arr[i] > max_right {
                 max_right = arr[i];
@@ -19,7 +18,6 @@ fn find_max_trapped_area(arr: Vec<i32>) -> i32 {
         }
 
         let mut max_left = 0;
-
         for i in (0..current).rev() {
             if arr[i] > max_left {
                 max_left = arr[i];

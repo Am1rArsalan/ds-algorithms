@@ -2,10 +2,9 @@ import { describe, assert, it } from 'vitest';
 import {
     costToFinalStep,
     costToFinalStep2,
-    findMinimumCost,
     findMinimumCost2,
     findMinimumCost3,
-} from './index';
+} from './final-step-cost';
 
 describe('cost to final step', () => {
     it('finding cost with memoizing(top down)', () => {
