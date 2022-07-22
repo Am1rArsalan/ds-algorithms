@@ -6,12 +6,11 @@ export function sumDepth(tree: BinaryTree<number>) {
     let sumDepth = 0;
 
     while (queue.length > 0) {
-        const { node, depth } = queue.shift() as {
-            node: Node<number>;
-            depth: number;
-        };
+        const vertex = queue.shift();
 
-        if (!node) continue;
+        if (!vertex) continue;
+
+        const { depth, node } = vertex;
 
         sumDepth += depth;
 
@@ -23,11 +22,11 @@ export function sumDepth(tree: BinaryTree<number>) {
 }
 
 function dfs(node: Node<number> | null, depth: number): number {
-    if (!node) return depth;
+    if (!node) return 0;
 
     return depth + dfs(node.left, depth + 1) + dfs(node.right, depth + 1);
 }
 
 export function sumDepthDfs(tree: BinaryTree<number>) {
-    return dfs(tree.getRoot() as Node<number>, 0);
+    return dfs(tree.getRoot(), 0);
 }
