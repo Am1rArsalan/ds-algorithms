@@ -1,13 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
-
-func main() {
-	fmt.Println("hello world")
-}
+import "math"
 
 func findMaxArea(arr []int) int {
 	maxArea := 0

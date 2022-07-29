@@ -10,6 +10,7 @@ func findMinCost(costs []int) int {
 	memoizedCosts[0] = costs[0]
 	memoizedCosts[1] = costs[1]
 	result := int(math.Min(float64(findMin(costs, n-1, memoizedCosts)), float64(findMin(costs, n-2, memoizedCosts))))
+
 	return result
 }
 
