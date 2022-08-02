@@ -17,13 +17,4 @@ describe('sorted squared array', () => {
         const sol = [0, 1, 4, 16, 36];
         assert.deepEqual(sortedSquared(arr), sol);
     });
-
-    //result is [
-    //0,  4,  9, 25,
-    //36, 64, 81
-    //]
-
-    //result is [ 0, 4, 9, 25, 100 ]
-
-    //result is [ 0, 1, 4, 16, 36 ]
 });
