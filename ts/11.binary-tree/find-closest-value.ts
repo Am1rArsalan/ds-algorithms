@@ -30,7 +30,6 @@ function dfs(
 ): number {
     if (!node) return closest;
 
-    // do stuff with target
     if (Math.abs(target - node.value) < Math.abs(target - closest)) {
         closest = node.value;
     }
