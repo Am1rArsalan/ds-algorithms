@@ -13,5 +13,4 @@ func TestBinaryTree(t *testing.T) {
 		Insert(5).
 		Insert(6).
 		Insert(7)
-
 }

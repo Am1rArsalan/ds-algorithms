@@ -1,9 +1,8 @@
 package main
 
 import (
-	"math"
-
 	"github.com/AmirAhmadzadeh/problems/node"
+	"math"
 )
 
 func isBinarySearchTreeCall(node *node.Node, min float64, max float64) bool {

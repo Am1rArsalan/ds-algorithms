@@ -1,6 +1,6 @@
 package binary_tree
 
-import "github.com/AmirAhmadzadeh/problems/node"
+import "github.com/AmirAhmadzadeh/binary_tree/node"
 
 type BinaryTree struct {
 	root *node.Node

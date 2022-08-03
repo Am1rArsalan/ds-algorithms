@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/AmirAhmadzadeh/problems/binary_tree"
+	"github.com/AmirAhmadzadeh/binary_tree/binary_tree"
 	"testing"
 )
 
