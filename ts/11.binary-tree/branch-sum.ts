@@ -29,15 +29,15 @@ export function branchSum(tree: BinaryTree<number>) {
 function dfs(node: Node<number> | null, runningSum: number, sums: number[]) {
     if (!node) return sums;
 
-    let newRunningSum = node.value + runningSum;
+    runningSum = node.value + runningSum;
 
     if (!node.left && !node.right) {
-        sums.push(newRunningSum);
-        return;
+        sums.push(runningSum);
+        return sums;
     }
 
-    node?.left && dfs(node.left, newRunningSum, sums);
-    node?.right && dfs(node.right, newRunningSum, sums);
+    node.left && dfs(node.left, runningSum, sums);
+    node.right && dfs(node.right, runningSum, sums);
 }
 
 export function branchSumDfs(tree: BinaryTree<number>) {
