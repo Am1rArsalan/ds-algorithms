@@ -35,10 +35,10 @@ func TestClosestValueDfs(t *testing.T) {
 	right.PushRightLeaf(22)
 	right.PushLeftLeaf(13).PushRightLeaf(14)
 
-	result := findClosestValueInBinaryTree(binaryTree, 12)
+	result := findClosestValueInBinaryTreeDfs(binaryTree, 12)
 
 	if result != float64(13) {
 		t.Errorf("** dfs version ** Expected (%v) is not same as"+
-			" actual (%v)", 13, result)
+			"(%v)", 13, result)
 	}
 }
