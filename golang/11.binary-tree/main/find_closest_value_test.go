@@ -20,7 +20,7 @@ func TestClosestValue(t *testing.T) {
 
 	if result != float64(13) {
 		t.Errorf("** first test case ** Expected (%v) is not same as"+
-			" actual (%v)", 13, result)
+			"(%v)", 13, result)
 	}
 }
 
