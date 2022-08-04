@@ -52,8 +52,16 @@ func (n *Node) Right() *Node {
 	return n.right
 }
 
+func (n *Node) HasRightChild() bool {
+	return n.right != nil
+}
+
 func (n *Node) Left() *Node {
 	return n.left
+}
+
+func (n *Node) HasLeftChild() bool {
+	return n.left != nil
 }
 
 func (n *Node) Value() int {
