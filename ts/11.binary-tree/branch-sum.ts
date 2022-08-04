@@ -2,25 +2,22 @@ import { BinaryTree } from './BinaryTree';
 import { Node } from './Node';
 
 export function branchSum(tree: BinaryTree<number>) {
-    let root = tree.getRoot() as Node<number>;
+    let root = tree.getRoot();
 
-    if (!root) return [];
-    const sums = [];
-    let runningSum = 0;
-
+    if (!root) return;
     let queue = [root];
+    let prev = 0;
+    let sums: number[] = [];
+    while (queue.length) {
+        let vertex = queue.shift();
 
-    while (queue.length > 0) {
-        let node = queue.shift() as Node<number>;
-
-        runningSum = node.value + runningSum;
-
-        if (!node.left && !node.right) {
-            sums.push(runningSum);
+        if (vertex) {
+            prev = vertex.value + prev;
         }
 
-        node.left && queue.push(node.left);
-        node.right && queue.push(node.right);
+        vertex && !vertex.left && !vertex.right && sums.push(prev);
+        vertex && vertex.left && queue.push(vertex.left);
+        vertex && vertex.right && queue.push(vertex.right);
     }
 
     return sums;
@@ -33,7 +30,7 @@ function dfs(node: Node<number> | null, runningSum: number, sums: number[]) {
 
     if (!node.left && !node.right) {
         sums.push(runningSum);
-        return sums;
+        return;
     }
 
     node.left && dfs(node.left, runningSum, sums);
