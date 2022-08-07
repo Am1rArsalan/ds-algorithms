@@ -1,7 +1,7 @@
 import { test, assert, describe, beforeEach } from 'vitest';
 import { BinaryTreeImpl, NodeImpl } from '.';
 import { Node } from './Node';
-import { sumDepth, sumDepthDfs } from './sum-depth';
+import { sumDepth, sumDepth2, sumDepthDfs } from './sum-depth';
 
 describe('sum of bt node depths', () => {
     let bt = new BinaryTreeImpl<number>(new NodeImpl(1));
@@ -18,8 +18,11 @@ describe('sum of bt node depths', () => {
         left.pushRightLeaf(9);
     });
 
-    test('bfs', () => {
+    test('bfs1', () => {
         assert.equal(sumDepth(bt), expectedResult);
+    });
+    test('bfs2', () => {
+        assert.equal(sumDepth2(bt), expectedResult);
     });
     test('dfs', () => {
         assert.equal(sumDepthDfs(bt), expectedResult);
