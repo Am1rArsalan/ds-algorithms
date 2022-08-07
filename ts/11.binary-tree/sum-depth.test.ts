@@ -18,10 +18,10 @@ describe('sum of bt node depths', () => {
         left.pushRightLeaf(9);
     });
 
-    test('first test case (bfs)', () => {
+    test('bfs', () => {
         assert.equal(sumDepth(bt), expectedResult);
     });
-    test('first test case (dfs)', () => {
+    test('dfs', () => {
         assert.equal(sumDepthDfs(bt), expectedResult);
     });
 });
