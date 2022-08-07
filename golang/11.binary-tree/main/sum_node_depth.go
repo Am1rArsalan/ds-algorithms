@@ -20,7 +20,8 @@ func calculateSumOfDepth(bt *binary_tree.BinaryTree) int {
 func calculateSumOfDepthBfs(bt *binary_tree.BinaryTree) int {
 	queue := []*node.Node{bt.GetRoot()}
 	queueLength := len(queue)
-	sumOfDepths := 0
+	sum := 0
+	depth := 0
 
 	for len(queue) > 0 {
 		vertex := queue[0]
@@ -35,13 +36,14 @@ func calculateSumOfDepthBfs(bt *binary_tree.BinaryTree) int {
 			if vertex.HasRightChild() {
 				queue = append(queue, vertex.Right())
 			}
-		}
 
-		if queueLength == 0 {
-			sumOfDepths += 1
-			queueLength = len(queue)
+			sum += depth
+			if queueLength == 0 {
+				depth += 1
+				queueLength = len(queue)
+			}
 		}
 	}
 
-	return sumOfDepths
+	return sum
 }
