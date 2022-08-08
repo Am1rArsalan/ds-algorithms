@@ -1,7 +1,7 @@
 use regex::Regex;
 
 fn main() {
-    println!("hello world");
+    todo!();
 }
 
 fn parse_text(text: &str) -> String {
@@ -38,10 +38,6 @@ fn is_palindrome3(text: &str) -> bool {
     if left_part.len() != right_part.len() {
         palindrome = false;
     }
-    //***
-    println!("left part {:?} ", left_part);
-    println!("right part {:?} ", right_part);
-    //***
 
     let mut index = 0;
     while index < left_part.len() {

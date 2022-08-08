@@ -62,7 +62,6 @@ fn find_longest_substring(text: &str) -> usize {
             return *maximum;
         }
         _ => {
-            println!("max vec is empty");
             return 0;
         }
     }

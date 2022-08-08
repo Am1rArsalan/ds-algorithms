@@ -10,9 +10,6 @@ fn compare_two_string_with_regex(first: &str, second: &str) -> bool {
     let first = re.replace_all(first, "".to_string()).to_string();
     let second = re.replace_all(second, "".to_string()).to_string();
 
-    println!("first ,{:?}", first);
-    println!("second ,{:?}", second);
-
     return first.eq(&second);
 }
 
