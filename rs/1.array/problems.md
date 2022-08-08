@@ -23,3 +23,12 @@ cost indicates by a cost array.
 Once you pay cost for the step.you can either climb one or two  
 steps. find the minimum cost to reach the top of the staircase. 
 Your first step can either be the first or second step 
+
+###problem-5
+validate subsequence 
+
+###problem-6
+squared sorted array 
+
+###problem-7
+non constructible change
