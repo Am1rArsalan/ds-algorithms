@@ -92,9 +92,9 @@ func (list *LinkedList) ReversePartOfList(start, end int) {
 	if end >= list.Length {
 		return
 	}
-	current := list.head       
-	var startNode *Node = nil 
-	counter := 0             
+	current := list.head
+	var startNode *Node = nil
+	counter := 0
 
 	for counter < start {
 		startNode = current
@@ -125,9 +125,9 @@ func (list *LinkedList) ReversePartOfList(start, end int) {
 		tail.Next = current
 	}
 
-    if start == 0 { 
-        list.head = prev
-    }
+	if start == 0 {
+		list.head = prev
+	}
 }
 
 func (list *LinkedList) AddCycle(cycleIndex int) {
