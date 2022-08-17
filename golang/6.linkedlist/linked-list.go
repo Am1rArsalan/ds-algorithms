@@ -2,20 +2,20 @@ package main
 
 import "fmt"
 
-type LinkedList struct {
-	head   *Node
+type LinkedList[T any] struct {
+	head   *Node[T]
 	Length int
 }
 
-func NewLinkedList() *LinkedList {
-	return &LinkedList{}
+func NewLinkedList[T any]() *LinkedList[T] {
+	return &LinkedList[T]{}
 }
 
-func (list *LinkedList) GetHead() *Node {
+func (list *LinkedList[T]) GetHead() *Node[T] {
 	return list.head
 }
 
-func (list *LinkedList) Insert(value int) *LinkedList {
+func (list *LinkedList[T]) Insert(value T) *LinkedList[T] {
 	if list.head == nil {
 		list.head = NewNode(value)
 		list.Length++
@@ -29,7 +29,7 @@ func (list *LinkedList) Insert(value int) *LinkedList {
 	return list
 }
 
-func (list *LinkedList) Push(value int) *LinkedList {
+func (list *LinkedList[T]) Push(value T) *LinkedList[T] {
 	if list.head == nil {
 		list.head = NewNode(value)
 		list.Length++
@@ -44,7 +44,7 @@ func (list *LinkedList) Push(value int) *LinkedList {
 	return list
 }
 
-func (list *LinkedList) Pop() Node {
+func (list *LinkedList[T]) Pop() Node[T] {
 	temp := list.GetHead()
 	for temp.Next.Next != nil {
 		temp = temp.Next
@@ -55,7 +55,7 @@ func (list *LinkedList) Pop() Node {
 	return removedNode
 }
 
-func (list *LinkedList) Shift() Node {
+func (list *LinkedList[T]) Shift() Node[T] {
 	removedNode := *list.head
 	list.head = list.head.Next
 	list.Length--
@@ -63,7 +63,7 @@ func (list *LinkedList) Shift() Node {
 	return removedNode
 }
 
-func (list *LinkedList) Display() {
+func (list *LinkedList[T]) Display() {
 	temp := list.head
 
 	for temp != nil {
@@ -73,10 +73,10 @@ func (list *LinkedList) Display() {
 	fmt.Println("\n---------------------------------")
 }
 
-func (list *LinkedList) Reverse() {
+func (list *LinkedList[T]) Reverse() {
 	temp := list.head
-	var prev *Node = nil
-	var next *Node = nil
+	var prev *Node[T] = nil
+	var next *Node[T] = nil
 
 	for temp != nil {
 		next = temp.Next
@@ -88,12 +88,12 @@ func (list *LinkedList) Reverse() {
 	list.head = prev
 }
 
-func (list *LinkedList) ReversePartOfList(start, end int) {
+func (list *LinkedList[T]) ReversePartOfList(start, end int) {
 	if end >= list.Length {
 		return
 	}
 	current := list.head
-	var startNode *Node = nil
+	var startNode *Node[T] = nil
 	counter := 0
 
 	for counter < start {
@@ -102,8 +102,8 @@ func (list *LinkedList) ReversePartOfList(start, end int) {
 		counter += 1
 	}
 
-	var next *Node = nil
-	var prev *Node = nil
+	var next *Node[T] = nil
+	var prev *Node[T] = nil
 	tail := current
 
 	for counter <= end {
@@ -130,14 +130,14 @@ func (list *LinkedList) ReversePartOfList(start, end int) {
 	}
 }
 
-func (list *LinkedList) AddCycle(cycleIndex int) {
+func (list *LinkedList[T]) AddCycle(cycleIndex int) {
 	//reverse logic
 }
 
-func (list *LinkedList) DetectAndResolveCycle() {
+func (list *LinkedList[T]) DetectAndResolveCycle() {
 	//reverse logic
 }
 
-func (list *LinkedList) FindCycleNode() *Node {
-	return &Node{Value: 10, Next: nil}
-}
+//func (list *LinkedList[T]) FindCycleNode() *Node[T] {
+//return &Node[T]{Value: 10, Next: nil}
+//}

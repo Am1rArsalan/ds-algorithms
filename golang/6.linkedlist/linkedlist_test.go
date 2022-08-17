@@ -6,7 +6,7 @@ import (
 )
 
 func TestPushOperationOnList(t *testing.T) {
-	list := NewLinkedList()
+	list := NewLinkedList[int]()
 	list.Push(1).Push(2).Push(3).Push(4).Push(5).Push(6).Push(7)
 
 	if list.head.Value != 1 {
@@ -21,7 +21,7 @@ func TestPushOperationOnList(t *testing.T) {
 }
 
 func TestInsertOperationOnList(t *testing.T) {
-	list := NewLinkedList()
+	list := NewLinkedList[int]()
 	list.Push(1).Push(2).Push(3).Push(4).Push(5).Push(6).Push(7)
 	list.Insert(0)
 
@@ -37,7 +37,7 @@ func TestInsertOperationOnList(t *testing.T) {
 }
 
 func TestPop(t *testing.T) {
-	list := NewLinkedList()
+	list := NewLinkedList[int]()
 	list.Push(1).Push(2).Push(3).Push(4).Push(5).Push(6).Push(7)
 	removedNode := list.Pop()
 
@@ -53,7 +53,7 @@ func TestPop(t *testing.T) {
 }
 
 func TestShift(t *testing.T) {
-	list := NewLinkedList()
+	list := NewLinkedList[int]()
 	list.Push(1).Push(2).Push(3).Push(4).Push(5).Push(6).Push(7)
 	removedNode := list.Shift()
 
@@ -69,7 +69,7 @@ func TestShift(t *testing.T) {
 }
 
 func TestReverseList(t *testing.T) {
-	list := NewLinkedList()
+	list := NewLinkedList[int]()
 	list.Push(1).Push(2).Push(3).Push(4).Push(5).Push(6).Push(7)
 
 	if list.Length != 7 {
@@ -79,7 +79,7 @@ func TestReverseList(t *testing.T) {
 
 	list.Reverse()
 
-	reversedList := NewLinkedList()
+	reversedList := NewLinkedList[int]()
 	reversedList.Push(7).Push(6).Push(5).Push(4).Push(3).Push(2).Push(1)
 
 	if !reflect.DeepEqual(*reversedList, *list) {
@@ -89,7 +89,7 @@ func TestReverseList(t *testing.T) {
 }
 
 func TestReversePartOfList(t *testing.T) {
-	list := NewLinkedList()
+	list := NewLinkedList[int]()
 	list.Push(1).Push(2).Push(3).Push(4).Push(5).Push(6).Push(7)
 
 	if list.Length != 7 {
@@ -99,7 +99,7 @@ func TestReversePartOfList(t *testing.T) {
 
 	list.ReversePartOfList(2, 5)
 
-	reversedList := NewLinkedList()
+	reversedList := NewLinkedList[int]()
 	reversedList.Push(1).Push(2).Push(6).Push(5).Push(4).Push(3).Push(7)
 
 	if !reflect.DeepEqual(*reversedList, *list) {
@@ -110,7 +110,7 @@ func TestReversePartOfList(t *testing.T) {
 }
 
 func TestReversePartOfList2(t *testing.T) {
-	list := NewLinkedList()
+	list := NewLinkedList[int]()
 	list.Push(1).Push(2).Push(3).Push(4).Push(5).Push(6).Push(7)
 
 	if list.Length != 7 {
@@ -121,7 +121,7 @@ func TestReversePartOfList2(t *testing.T) {
 	list.ReversePartOfList(0, 6)
 	list.Display()
 
-	reversedList := NewLinkedList()
+	reversedList := NewLinkedList[int]()
 	reversedList.Push(7).Push(6).Push(5).Push(4).Push(3).Push(2).Push(1)
 
 	if !reflect.DeepEqual(*reversedList, *list) {

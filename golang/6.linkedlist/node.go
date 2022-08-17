@@ -1,12 +1,12 @@
 package main
 
-type Node struct {
-	Value int
-	Next  *Node
+type Node[T any] struct {
+	Value T
+	Next  *Node[T]
 }
 
-func NewNode(value int) *Node {
-	return &Node{
+func NewNode[T any](value T) *Node[T] {
+	return &Node[T]{
 		Value: value,
 		Next:  nil,
 	}
