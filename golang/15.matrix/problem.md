@@ -19,7 +19,6 @@
      How many minutes must pass until all oranges are
      rotten
 
-
 ###problem-3 :
     Given a 2d array containing -1( walls ) , 0's 
     (gates),and INF's (empty room). Fill each empty 
@@ -27,3 +26,16 @@
     gate.if it's impossible to reach to a gate, leave
     INF as the value.INF is equal to 2147483647
 
+###problem-4 :
+   on a given nxn chessboard, a knight piece will 
+   start at the r-th row and c-th column. The knight
+   will attempt to make ke moves. 
+   A knight can move in 8 possible ways. Each move 
+   will choose one of these 8 at random. The Knight
+   continues moving until it finishes k moves or it 
+   moves off the chessboard. Return the probability 
+   that the knight is on the chessboard after it 
+   finishes moving.
+
+###problem-5 : 
+   maze 
