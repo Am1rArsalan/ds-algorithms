@@ -15,3 +15,4 @@ func TestCompareString(t *testing.T) {
 			"actual (%v)", false, false)
 	}
 }
+

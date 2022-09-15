@@ -3,3 +3,4 @@ export {
     findDomainForGivenTarget,
     findDomainForGivenTargetWithoutBinarySearch,
 } from './findDomain';
+export { crystalBalls } from "./crystalBalls"; 

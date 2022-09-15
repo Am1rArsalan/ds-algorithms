@@ -1,13 +1,6 @@
-package main
+package main 
 
-import (
-	"fmt"
-	"regexp"
-)
-
-func main() {
-	fmt.Println("hello world")
-}
+import "regexp"
 
 func compareTwoString(str1, str2 string) bool {
 	reg := regexp.MustCompile(".#")

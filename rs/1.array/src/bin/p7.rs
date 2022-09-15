@@ -24,6 +24,7 @@ mod tests {
 
     #[test]
     fn validate_subsequence_test_1() {
+        let x = 10; 
         let mut arr = vec![5, 7, 1, 1, 2, 3, 22];
         let result = find_non_constructible_change(&mut arr);
         assert_eq!(result, 20);
