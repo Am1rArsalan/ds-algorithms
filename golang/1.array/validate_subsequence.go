@@ -1,14 +1,15 @@
 package main
 
-func validateSubsequences(arr, innerArr []int) bool {
-	innerArrayIndex := 0
+func validateSubsequences(arr, subArr []int) bool {
+    // subArrayIndex
+	SI := 0
 
-	for arrIndex := 0; arrIndex < len(arr); arrIndex++ {
+	for i := 0; i < len(arr); i++ {
 
-		if arr[arrIndex] == innerArr[innerArrayIndex] {
-			innerArrayIndex += 1
+		if arr[i] == subArr[SI] {
+			SI += 1
 		}
 	}
 
-	return innerArrayIndex == len(innerArr)
+	return SI == len(subArr)
 }

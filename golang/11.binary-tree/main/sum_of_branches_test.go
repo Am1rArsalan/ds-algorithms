@@ -25,7 +25,7 @@ func TestSumOfBranchesDfs(t *testing.T) {
 	bt := generateBinaryTreeForTestCases()
 	expectedResult := []float64{15, 16, 18, 10, 11}
 
-	result := calculateSumOfBranches(bt)
+    result := sumOfBranches(bt)
 
 	if !reflect.DeepEqual(result, expectedResult) {
 		t.Errorf("Expected (%v) is not same as"+
@@ -33,14 +33,3 @@ func TestSumOfBranchesDfs(t *testing.T) {
 	}
 }
 
-func TestSumOfBranchesBfs(t *testing.T) {
-	bt := generateBinaryTreeForTestCases()
-	expectedResult := []float64{15, 16, 18, 10, 11}
-
-	result := calculateSumOfBranchesBfs(bt)
-
-	if !reflect.DeepEqual(result, expectedResult) {
-		t.Errorf("Expected (%v) is not same as"+
-			" actual (%v)", expectedResult, result)
-	}
-}

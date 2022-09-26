@@ -23,7 +23,7 @@ func generateTestCase() *binary_tree.BinaryTree {
 
 func TestCalculateSumOfNodeDepthDfs(t *testing.T) {
 	expectedResult := 16
-	result := calculateSumOfDepth(generateTestCase())
+	result := sumOfDepthDfs(generateTestCase())
 	if result != expectedResult {
 		t.Errorf("** first test case ** Expected (%v) but got"+
 			"(%v)", expectedResult, result)
@@ -32,7 +32,7 @@ func TestCalculateSumOfNodeDepthDfs(t *testing.T) {
 
 func TestCalculateSumOfNodeDepthBfs(t *testing.T) {
 	expectedResult := 16
-	result := calculateSumOfDepthBfs(generateTestCase())
+	result := sumOfDepthBfs(generateTestCase())
 	if result != expectedResult {
 		t.Errorf("** first test case ** Expected (%v) but got"+
 			"(%v)", expectedResult, result)

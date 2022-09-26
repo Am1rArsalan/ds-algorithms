@@ -2,6 +2,7 @@ import { BinaryTree } from '.';
 import { Node } from './Node';
 
 // bfs1 : using different model for storing data in the queue
+// bad approach
 export function sumDepth(tree: BinaryTree<number>) {
     const queue = [{ node: tree.getRoot() as Node<number>, depth: 0 }];
     let sumDepth = 0;
@@ -24,40 +25,37 @@ export function sumDepth(tree: BinaryTree<number>) {
 
 // bfs2
 export function sumDepth2(tree: BinaryTree<number>) {
-    const queue = [tree.getRoot()];
-    let sum = 0;
-    let depth = 0;
-    let queueLength = queue.length;
+    const q = [tree.getRoot()] ; 
+    let ql = q.length ;
+    let d = 0 ;
+    let s = 0;
 
-    while (queue.length) {
-        const vertex = queue.shift();
-        --queueLength;
+    while(q.length > 0) { 
+        const v = q.shift() as Node<number>; 
+        ql-- ;
 
-        if (vertex) {
-            if (vertex.left) {
-                queue.push(vertex.left);
-            }
-            if (vertex.right) {
-                queue.push(vertex.right);
-            }
-            sum += depth;
-        }
+        v.left && q.push(v.left); 
+        v.right && q.push(v.right); 
 
-        if (queueLength == 0) {
-            queueLength = queue.length;
-            ++depth;
+        s += d ;
+
+        if (ql == 0) { 
+            ql = q.length ;
+            d++; 
         }
     }
-
-    return sum;
+    
+    return s ;
 }
 
-function dfs(node: Node<number> | null, depth: number): number {
-    if (!node) return 0;
+function dfs(n: Node<number> | null, d: number) :number { 
+    if (!n) {
+        return 0;
+    }
 
-    return depth + dfs(node.left, depth + 1) + dfs(node.right, depth + 1);
+    return d + dfs(n.left, d + 1) + dfs(n.right , d + 1) ;
 }
 
-export function sumDepthDfs(tree: BinaryTree<number>) {
-    return dfs(tree.getRoot(), 0);
+export function sumDepthDfs(bt : BinaryTree<number>) : number { 
+    return dfs(bt.getRoot() , 0); 
 }

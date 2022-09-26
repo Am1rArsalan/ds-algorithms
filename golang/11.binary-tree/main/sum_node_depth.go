@@ -5,45 +5,45 @@ import (
 	"github.com/AmirAhmadzadeh/binary_tree/node"
 )
 
-func calculateSumOfDepthCall(vertex *node.Node, depth int) int {
+func sumOfDepthDfsRecurse(vertex *node.Node, depth int) int {
 	if vertex != nil {
-		return depth + calculateSumOfDepthCall(vertex.Left(), depth+1) + calculateSumOfDepthCall(vertex.Right(), depth+1)
+		return depth + sumOfDepthDfsRecurse(vertex.Left(), depth+1) + sumOfDepthDfsRecurse(vertex.Right(), depth+1)
 	}
 
 	return 0
 }
 
-func calculateSumOfDepth(bt *binary_tree.BinaryTree) int {
-	return calculateSumOfDepthCall(bt.GetRoot(), 0)
+func sumOfDepthDfs(bt *binary_tree.BinaryTree) int {
+	return sumOfDepthDfsRecurse(bt.GetRoot(), 0)
 }
 
-func calculateSumOfDepthBfs(bt *binary_tree.BinaryTree) int {
-	queue := []*node.Node{bt.GetRoot()}
-	queueLength := len(queue)
-	sum := 0
-	depth := 0
+func sumOfDepthBfs(bt *binary_tree.BinaryTree) int {
+    q := []*node.Node{bt.GetRoot()} 
+    s := 0 
+    d := 0 
+    ql := len(q) 
 
-	for len(queue) > 0 {
-		vertex := queue[0]
-		queue = queue[1:]
-		queueLength = queueLength - 1
+    for len(q) > 0 { 
+        v := q[0] 
+        q = q[1:] 
+        ql-- 
 
-		if vertex != nil {
-			if vertex.HasLeftChild() {
-				queue = append(queue, vertex.Left())
-			}
+        if v.HasLeftChild() { 
+            q = append(q,v.Left()); 
+        }
 
-			if vertex.HasRightChild() {
-				queue = append(queue, vertex.Right())
-			}
+        if v.HasRightChild() { 
+            q = append(q,v.Right()); 
+        }
 
-			sum += depth
-			if queueLength == 0 {
-				depth += 1
-				queueLength = len(queue)
-			}
-		}
-	}
+        s += d  
 
-	return sum
+        if ql == 0 { 
+            d++; 
+            ql = len(q); 
+        }
+
+    }
+
+    return s;
 }

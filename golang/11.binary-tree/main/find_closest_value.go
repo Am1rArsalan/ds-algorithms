@@ -7,44 +7,48 @@ import (
 	"github.com/AmirAhmadzadeh/binary_tree/node"
 )
 
-func findClosestValueInBinaryTree(tree *binary_tree.BinaryTree, target int) float64 {
-	result := math.Inf(+1)
-	queue := []*node.Node{tree.GetRoot()}
+func findClosestValueInBinaryTree(tree *binary_tree.BinaryTree, T int) float64 {
+    C := math.Inf(+1) ;
+    q := []*node.Node{tree.GetRoot()}
 
-	for len(queue) > 0 {
-		vertex := queue[0]
-		queue = queue[1:]
-		if math.Abs(float64(vertex.Value()-target)) <= math.Abs(result-float64(target)) {
-			result = float64(vertex.Value())
-		}
-		if vertex.Left() != nil && target < vertex.Value() {
-			queue = append(queue, vertex.Left())
-		}
-		if vertex.Right() != nil && target > vertex.Value() {
-			queue = append(queue, vertex.Right())
-		}
-	}
 
-	return result
+    for len(q) > 0 { 
+        v := q[0]; 
+        q = q[1:];
+
+        if v.Left() != nil { 
+            q = append(q, v.Left()) ;
+        }
+
+        if v.Right() != nil { 
+            q = append(q, v.Right()) ;
+        }
+
+        if math.Abs(C - float64(v.Value()))  < math.Abs(float64(T) - float64(v.Value())) { 
+            C = float64(v.Value()); 
+        }
+    }
+
+    return C; 
 }
 
-func findClosestValueInBinaryTreeDfsCall(vertex *node.Node, target float64, closest float64) float64 {
-	if vertex == nil {
-		return closest
+func findClosestValueInBinaryTreeDfsCall(V *node.Node, T float64, C float64) float64 {
+	if V == nil {
+		return C
 	}
-	if math.Abs(target-float64(vertex.Value())) < math.Abs(target-closest) {
-		closest = float64(vertex.Value())
-	}
-
-	if vertex.Right() != nil && target > float64(vertex.Value()) {
-		return findClosestValueInBinaryTreeDfsCall(vertex.Right(), target, closest)
-	} else if vertex.Left() != nil && target < float64(vertex.Value()) {
-		return findClosestValueInBinaryTreeDfsCall(vertex.Left(), target, closest)
+	if math.Abs(T-float64(V.Value())) < math.Abs(T-C) {
+		C = float64(V.Value())
 	}
 
-	return closest
+	if V.Right() != nil && T > float64(V.Value()) {
+		return findClosestValueInBinaryTreeDfsCall(V.Right(), T, C)
+	} else if V.Left() != nil && T < float64(V.Value()) {
+		return findClosestValueInBinaryTreeDfsCall(V.Left(), T, C)
+	}
+
+	return C
 }
 
-func findClosestValueInBinaryTreeDfs(binaryTree *binary_tree.BinaryTree, target float64) float64 {
-	return findClosestValueInBinaryTreeDfsCall(binaryTree.GetRoot(), target, math.Inf(1))
+func findClosestValueInBinaryTreeDfs(binaryTree *binary_tree.BinaryTree, T float64) float64 {
+	return findClosestValueInBinaryTreeDfsCall(binaryTree.GetRoot(), T, math.Inf(1))
 }
