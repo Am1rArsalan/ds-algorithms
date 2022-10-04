@@ -2,25 +2,23 @@ import { BinaryTree } from './BinaryTree';
 import { Node } from './Node';
 
 export function findClosestNumber(bt: BinaryTree<number>, target: number) {
-    let queue = [bt.getRoot()];
-    let seen = new Map<number, boolean>();
-    let closest = Infinity;
+    let q = [bt.getRoot()] ;
+    let dist = Infinity ; 
 
-    while (queue.length > 0) {
-        const node = queue.shift() as Node<number>;
 
-        node.left && target < node.value && queue.push(node.left);
-        node.right && target > node.value && queue.push(node.right);
+    while(q.length > 0) { 
+        const v = q.shift() as Node<number>; 
 
-        if (!seen.get(node.value)) {
-            seen.set(node.value, true);
-            if (Math.abs(node.value - target) < Math.abs(closest - target)) {
-                closest = node.value;
-            }
+        v.left && q.push(v.left) ;
+        v.right && q.push(v.right) ;
+
+
+        if (Math.abs(target - v.value) < Math.abs(target - dist)) { 
+            dist = v.value; 
         }
     }
 
-    return closest;
+    return dist ;
 }
 
 function dfs(
