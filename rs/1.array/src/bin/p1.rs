@@ -8,6 +8,7 @@ fn find_indexes(arr: Vec<i32>, target: i32) -> Vec<i32> {
     let mut map: HashMap<&i32, i32> = HashMap::new();
     let mut result: Vec<i32> = vec![-1, -1];
 
+
     if arr.len() == 1 && arr[0] == target {
         return vec![0];
     }
@@ -27,7 +28,7 @@ fn find_indexes(arr: Vec<i32>, target: i32) -> Vec<i32> {
         };
     });
 
-    return result;
+    result
 }
 
 #[cfg(test)]
