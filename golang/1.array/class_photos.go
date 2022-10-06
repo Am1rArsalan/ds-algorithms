@@ -6,15 +6,16 @@ func ClassPhotos(b, r []int) bool {
     canTakePhoto := true
     sort.Ints(b)
     sort.Ints(r)
+    LI := len(r) - 1;
 
     br := 'b' 
 
-    if r[len(r) - 1] > b[len(b) - 1] { 
+    if r[LI] > b[LI] { 
         br = 'r' 
     }
 
 
-    for i:=len(r) - 1 ; i > -1 ; i-- { 
+    for i:=LI ; i > -1 ; i-- { 
         mr := r[i] 
         mb := b[i]
 
