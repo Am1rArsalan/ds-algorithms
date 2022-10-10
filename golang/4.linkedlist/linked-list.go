@@ -73,6 +73,7 @@ func (list *LinkedList[T]) Display() {
 	fmt.Println("\n---------------------------------")
 }
 
+
 func (list *LinkedList[T]) Reverse() {
 	temp := list.head
 	var prev *Node[T] = nil
@@ -132,18 +133,31 @@ func (list *LinkedList[T]) ReversePartOfList(start, end int) {
 
 
 
+func DisplayWithGivenHead[T any](head *Node[T]) {
+	temp := head
+
+	for temp != nil {
+		fmt.Print(" -> ", temp.Value)
+		temp = temp.Next
+	}
+
+	fmt.Println("\n---------------------------------")
+}
+
 func (list *LinkedList[T]) RemoveDuplicateElements() { 
     seen := make(map[any]bool) 
-    temp := list.head 
+    node := list.head 
     var prev *Node[T] = nil 
 
-    for temp != nil { 
-        if _,ok := seen[temp.Value]; ok && prev != nil { 
-            prev.Next = temp.Next;
-            temp = prev.Next;
+
+    for node != nil { 
+        if _,ok := seen[node.Value]; ok && prev != nil { 
+            prev.Next = node.Next
+            node = prev.Next
         } else { 
-            prev = temp 
-            temp = temp.Next
+            seen[node.Value] = true 
+            prev = node 
+            node = node.Next
         }
     }
 }
@@ -155,11 +169,11 @@ func (list *LinkedList[T]) HasDuplicateElement() bool {
 
 
 func (list *LinkedList[T]) AddCycle(cycleIndex int) {
-	//reverse logic
+    //
 }
 
 func (list *LinkedList[T]) DetectAndResolveCycle() {
-	//reverse logic
+    //
 }
 
 //func (list *LinkedList[T]) FindCycleNode() *Node[T] {
