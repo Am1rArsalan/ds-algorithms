@@ -130,6 +130,30 @@ func (list *LinkedList[T]) ReversePartOfList(start, end int) {
 	}
 }
 
+
+
+func (list *LinkedList[T]) RemoveDuplicateElements() { 
+    seen := make(map[any]bool) 
+    temp := list.head 
+    var prev *Node[T] = nil 
+
+    for temp != nil { 
+        if _,ok := seen[temp.Value]; ok && prev != nil { 
+            prev.Next = temp.Next;
+            temp = prev.Next;
+        } else { 
+            prev = temp 
+            temp = temp.Next
+        }
+    }
+}
+
+func (list *LinkedList[T]) HasDuplicateElement() bool { 
+    hasDuplicateElement := false 
+    return hasDuplicateElement
+}
+
+
 func (list *LinkedList[T]) AddCycle(cycleIndex int) {
 	//reverse logic
 }
