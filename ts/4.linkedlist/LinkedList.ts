@@ -6,7 +6,7 @@ export type NodeType<T> = {
 export interface LinkedList<T> {
     getHead: () => NodeType<T> | null;
     getListLength: () => number;
-    push: (value: T) => NodeType<T>;
+    push: (value: T) => LinkedListImpl<T>;
     pop: () => NodeType<T>;
     shift: () => T | undefined;
     reverse: () => NodeType<T> | null;
@@ -37,7 +37,7 @@ export class LinkedListImpl<T> implements LinkedList<T> {
         this.length++;
         if (!this.head) {
             this.head = this.generateNode(value);
-            return this.head;
+            return this
         }
         let temp = this.head;
 
@@ -48,7 +48,7 @@ export class LinkedListImpl<T> implements LinkedList<T> {
         temp.next = this.generateNode(value);
         temp = temp.next;
 
-        return temp;
+        return this;
     }
 
     public pop() {
