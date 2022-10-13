@@ -17,7 +17,7 @@ export interface LinkedList<T> {
 }
 
 export class LinkedListImpl<T> implements LinkedList<T> {
-    private length: number = 0;
+    private length = 0;
     private head: NodeType<T> | null = null;
 
     public getHead() {
@@ -37,7 +37,7 @@ export class LinkedListImpl<T> implements LinkedList<T> {
         this.length++;
         if (!this.head) {
             this.head = this.generateNode(value);
-            return this
+            return this;
         }
         let temp = this.head;
 
@@ -65,7 +65,7 @@ export class LinkedListImpl<T> implements LinkedList<T> {
 
     public shift() {
         this.checkHead();
-        let headValue = this.head?.value;
+        const headValue = this.head?.value;
         if (this.head?.next) this.head = this.head?.next;
         this.length--;
         return headValue;
@@ -79,7 +79,7 @@ export class LinkedListImpl<T> implements LinkedList<T> {
 
         for (; temp !== null; ) {
             if (!temp) break;
-            let next: NodeType<T> | null = temp?.next;
+            const next: NodeType<T> | null = temp?.next;
             temp.next = prev;
             prev = temp;
             temp = next;
@@ -100,8 +100,8 @@ export class LinkedListImpl<T> implements LinkedList<T> {
             ++currentPosition;
         }
 
-        let tail = current,
-            prev = null,
+        const tail = current;
+        let prev = null,
             next = null;
 
         while (
@@ -141,7 +141,7 @@ export class LinkedListImpl<T> implements LinkedList<T> {
 
     public detectAndResolveCycle() {
         let temp = this.head;
-        let seenNodes = new Set<NodeType<T>>();
+        const seenNodes = new Set<NodeType<T>>();
         let prev = null;
 
         while (temp) {
@@ -159,7 +159,7 @@ export class LinkedListImpl<T> implements LinkedList<T> {
     }
 
     public findCycleNode() {
-        let seenNodes = new Set<NodeType<T>>();
+        const seenNodes = new Set<NodeType<T>>();
         let currentNode = this.head;
         while (!seenNodes.has(currentNode as NodeType<T>) && currentNode) {
             if (currentNode.next === null) {
