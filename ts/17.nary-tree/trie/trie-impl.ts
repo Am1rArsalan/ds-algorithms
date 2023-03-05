@@ -1,6 +1,6 @@
-import { Node } from './Node';
-import { Trie } from './Trie';
-import { NodeImpl } from './NodeImpl';
+import { Node } from './node';
+import { Trie } from './trie';
+import { NodeImpl } from './node-impl';
 
 export class TrieImpl implements Trie {
     private root: Node;

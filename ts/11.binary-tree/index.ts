@@ -1,11 +1,11 @@
-export { BinaryTree, BinaryTreeImpl } from './BinaryTree';
-export { NodeImpl } from './NodeImpl';
-export { Node } from './Node';
-export { countNodes } from './countNodes';
-export { findMaxDepth } from './findMaxDepth';
-export { findLevelOrderValues } from './findLevelOrder';
+export { BinaryTree, BinaryTreeImpl } from './binary-tree';
+export { NodeImpl } from './node-impl';
+export { Node } from './node';
+export { countNodes } from './count-nodes';
+export { findMaxDepth } from './find-max-depth';
+export { findLevelOrderValues } from './find-level-order';
 export {
     findRightSideVisibleNodes,
     rightView,
-} from './findRightSideVisibleNodes';
-export { isBinarySearchTree } from './isBinarySearchTree';
+} from './find-right-side-visible-nodes';
+export { isBinarySearchTree } from './is-binary-search-tree';

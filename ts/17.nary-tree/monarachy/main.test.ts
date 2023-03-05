@@ -2,7 +2,7 @@ import { MonarchyImpl, MonarchyNodeImpl } from './main';
 import { assert, test } from 'vitest';
 
 test('test monarchy implementation', () => {
-    let monarchy = new MonarchyImpl(new MonarchyNodeImpl('Jake'));
+    const monarchy = new MonarchyImpl(new MonarchyNodeImpl('Jake'));
     monarchy.birth('Catherine', 'Jake');
     monarchy.birth('Jane', 'Catherine');
     monarchy.birth('Farah', 'Jane');

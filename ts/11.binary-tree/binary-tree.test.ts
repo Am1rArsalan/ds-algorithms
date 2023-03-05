@@ -4,7 +4,7 @@ import { describe, beforeEach, test, assert } from 'vitest';
 describe('binaryTree class', () => {
     let binaryTree: BinaryTree<number>;
     beforeEach(() => {
-        binaryTree = new BinaryTreeImpl<number>(new NodeImpl(1));
+            binaryTree = new BinaryTreeImpl<number>(new NodeImpl(1));
     });
 
     test('[best test case] find maximum depth of a given binary tree', () => {
@@ -21,12 +21,12 @@ describe('binaryTree class', () => {
     });
 
     test('find the max depth of the binary tree which only root node', () => {
-        let root = binaryTree.getRoot() as Node<number>;
+        const root = binaryTree.getRoot() as Node<number>;
         assert.equal(binaryTree.findMaxDepth({ ...root }), 1);
     });
 
     test('[worst test case] find the max depth of the binary tree', () => {
-        let root = binaryTree.getRoot() as Node<number>;
+        const root = binaryTree.getRoot() as Node<number>;
         root.pushRightLeaf(2)
             .pushRightLeaf(3)
             .pushRightLeaf(4)

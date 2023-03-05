@@ -1,9 +1,9 @@
-import { Node } from './Node';
+import { Node } from './node';
 
 export class NodeImpl implements Node {
     private value: string;
     private children: Map<string, Node>;
-    private terminal: boolean = false;
+    private terminal = false;
 
     private constructor(value: string) {
         this.value = value;

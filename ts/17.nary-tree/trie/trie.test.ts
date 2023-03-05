@@ -1,6 +1,6 @@
 import { assert, test } from 'vitest';
-import { NodeImpl } from './NodeImpl';
-import { TrieImpl } from './TrieImpl';
+import { NodeImpl } from './node-impl';
+import { TrieImpl } from './trie-impl';
 
 test('test trie implementation', () => {
     const trie = new TrieImpl(NodeImpl.newNode(''));

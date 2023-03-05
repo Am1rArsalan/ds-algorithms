@@ -22,13 +22,13 @@ fn find_max_trapped_area(arr: Vec<usize>) -> usize {
         }
 
         if arr[right] > arr[left] {
-            left = left + 1;
+            left = &left + 1;
         } else {
-            right = right - 1;
+            right = &right - 1;
         }
     }
 
-    return max;
+    max
 }
 
 #[cfg(test)]

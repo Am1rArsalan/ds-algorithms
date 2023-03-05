@@ -1,7 +1,7 @@
 import { LinkedList, NodeType } from './LinkedList';
 
 export function removeDuplicateElementsOnLinkedList<T>(list: LinkedList<T>) {
-    let h = list.getHead();
+    const h = list.getHead();
     let n = h;
     let prev: NodeType<T> | null = null;
     const seen = new Map<T, boolean>();
