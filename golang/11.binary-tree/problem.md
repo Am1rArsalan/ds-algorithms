@@ -23,4 +23,7 @@ in the tree.
 
 
 7. sum of branches 
+
 8. sum of node depths
+
+9. comparet two binary trees 
