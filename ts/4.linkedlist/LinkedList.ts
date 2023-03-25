@@ -187,6 +187,7 @@ export class LinkedListImpl<T> implements LinkedList<T> {
                 R = R.next;
             }
             if (R === T) break;
+            // eslint-disable-next-line no-constant-condition
         } while (true);
 
         let MN = R;
@@ -226,6 +227,7 @@ export class LinkedListImpl<T> implements LinkedList<T> {
         };
     }
 
+    // TODO: fix any
     static renderGivenHead(startNode: NodeType<any> | null) {
         if (startNode) {
             let temp = { ...startNode };
