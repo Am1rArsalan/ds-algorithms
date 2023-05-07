@@ -1,10 +1,10 @@
-#problems
+# problems description
 
 
-##problem 1: 
+## problem 1: 
 design api for linked list 
 
-##problem 2: 
+## problem 2: 
 reverse a given linked list 
 
 
@@ -12,7 +12,7 @@ reverse a given linked list
 reverse a part of linked list
 
 
-```ts
+``` ts
 export interface LinkedList<T> {
     push: (value: T) => NodeType<T>;
     pop: () => NodeType<T>;
