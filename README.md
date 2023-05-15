@@ -11,7 +11,32 @@ Whether you're a beginner or an experienced programmer, this repository is a gre
 
 So, if you're looking to improve your understanding of data structures and algorithms in different programming languages and want to ensure that you truly understand what you learn, this repository is the perfect place to start.
 
+---
+### Here are some tips to help you develop the mindset and confidence you need to solve algorithm problems:
 
+#### Practice regularly: 
+The more you practice solving algorithm problems, the more comfortable and confident you will become. Set aside time each day or each week to work on algorithm problems, and try to challenge yourself with increasingly difficult problems over time.
+
+#### Break the problem down: 
+When faced with a complex algorithm problem, it can be helpful to break it down into smaller, more manageable sub-problems. This can make the problem easier to understand and solve, and can also help you identify and address any issues more quickly.
+
+#### Use examples and test cases: 
+Before diving into a solution, it can be helpful to work through some examples and test cases to ensure you fully understand the problem and what is being asked. This can also help you identify any edge cases or special situations that you may need to handle in your solution.
+
+#### Don't be afraid to ask for help: 
+If you're struggling with a particular problem or concept, don't be afraid to ask for help. Reach out to peers, mentors, or online communities for guidance and support, and use resources like textbooks, online tutorials, and coding forums to supplement your learning.
+
+#### Stay persistent and don't give up: 
+Algorithm problems can be challenging and require a lot of persistence and perseverance to solve. Don't give up if you encounter setbacks or obstacles, and keep working through the problem until you find a solution. Remember that every problem you solve is an opportunity to learn and grow as a programmer.
+
+By following these tips and approaches, you can develop the mindset and confidence you need to tackle algorithm problems with ease and success.
+
+learn more about [problem-solving strategies](https://opentext.wsu.edu/psych105/chapter/7-4-problem-solving/) 
+
+finally, take is easy and have fun with solving problems
+
+---
+### Table of contents
 |     | DS & Algos         | Solutions                                                                                                                                                                                 | References                                                                                                                                                                                                                                                                    |
 |-----|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1   | Arrays             | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/1.array), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/1.array)                                | [Wikipedia](https://en.wikipedia.org/wiki/Array_(data_structure)), [What is An Array? - Great Learning](https://www.mygreatlearning.com/blog/what-is-an-array-learn-more-in-one-read/)                                                                                        |
