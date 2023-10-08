@@ -34,10 +34,10 @@ export class MinHeap {
 
     private heapifyUp(index: number) {
         if (index === 0) return;
-        let parentIndex = Math.floor((index - 1) / 2); // 0
+        const parentIndex = Math.floor((index - 1) / 2); // 0
 
         if (this.heap[parentIndex] > this.heap[index]) {
-            let temp = this.heap[parentIndex];
+            const temp = this.heap[parentIndex];
             this.heap[parentIndex] = this.heap[index];
             this.heap[index] = temp;
             this.heapifyUp(parentIndex);
@@ -45,15 +45,15 @@ export class MinHeap {
     }
 
     private heapifyDown(index: number) {
-        let leftIndex = index * 2 + 1;
-        let rightIndex = index * 2 + 2;
-        let left = this.heap[leftIndex];
-        let right = this.heap[rightIndex];
+        const leftIndex = index * 2 + 1;
+        const rightIndex = index * 2 + 2;
+        const left = this.heap[leftIndex];
+        const right = this.heap[rightIndex];
 
-        let minChildIndex = left < right ? leftIndex : rightIndex;
+        const minChildIndex = left < right ? leftIndex : rightIndex;
 
         if (this.heap[index] > this.heap[minChildIndex]) {
-            let temp = this.heap[index];
+            const temp = this.heap[index];
             this.heap[index] = this.heap[minChildIndex];
             this.heap[minChildIndex] = temp;
             this.heapifyDown(minChildIndex);
