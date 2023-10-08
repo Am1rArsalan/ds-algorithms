@@ -76,7 +76,7 @@ export class PriorityQueueImpl implements PriorityQueue {
     }
 
     private swap(index: number, itemToSwapIndex: number) {
-        let temp = this.heap[index];
+        const temp = this.heap[index];
         this.heap[index] = this.heap[itemToSwapIndex];
         this.heap[itemToSwapIndex] = temp;
     }
