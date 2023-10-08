@@ -1,7 +1,7 @@
 export function convertZigzag(str: string, numRows: number) {
     let result = '';
     let step = numRows;
-    let cols = [];
+    const cols = [];
 
     let counter = 0;
     //numRows = 3
@@ -24,7 +24,7 @@ export function convertZigzag(str: string, numRows: number) {
 
     for (let j = 0; j < numRows; j++) {
         for (let i = 0; i < cols.length; i++) {
-            let char = cols[i][j];
+            const char = cols[i][j];
             if (char && char !== -1) {
                 result += char;
             }
