@@ -39,17 +39,31 @@ finally, take is easy and have fun with solving problems
 ### Table of contents
 |     | DS & Algos         | Solutions                                                                                                                                                                                 
 |-----|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| 1   | Arrays             | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/1.array), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/1.array)                                
-| 2   | String             | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/2.string), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/2.string)                              
- | 3   | Binary Search      | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/3.search(binary-search)) [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/3.search(binary-search))
-| 4   | Linked List        | [TS](), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/4.linkedlist)                                                                                               
-| 5   | Doubly Linked List | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/5.doublly-linkedlist), Go                                                                                               
-| 6   | Stack, Queue       | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/6.stack-qeueue), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/6.stack-qeueue)                  
-| 7   | Sort               | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/7.sort), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/7.sort)                                  
-| 8   | Binary Tree        | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/11.binary-tree), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/11.binary-tree)                  
-| 9   | Heaps              | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/12.heaps), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/11.binary-tree)                        
-| 10  | Priority Queues    | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/13.priority-queue), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/13.priority-queue)            
-| 11  | Matrix             | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/15.matrix), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang)                                      
-| 12  | Graphs             | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/16.graphs), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/16.graphs)                            
-| 13  | N-ary Tree         | [TS](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/ts/17.nary-tree), [Go](https://github.com/AmirAhmadzadeh/ds-algorithms/tree/main/golang/17.nary-tree)                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                               |
+| 1   | Arrays             | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/1.array), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/1.array)                                
+| 2   | String             | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/2.string), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/2.string)                              
+ | 3   | Binary Search      | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/3.search(binary-search)) [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/3.search(binary-search))
+| 4   | Linked List        | [TS](), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/4.linkedlist)                                                                                               
+| 5   | Doubly Linked List | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/5.doublly-linkedlist), Go                                                                                               
+| 6   | Stack, Queue       | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/6.stack-qeueue), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/6.stack-qeueue)                  
+| 7   | Sort               | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/7.sort), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/7.sort)                                  
+| 8   | Binary Tree        | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/11.binary-tree), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/11.binary-tree)                  
+| 9   | Heaps              | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/12.heaps), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/11.binary-tree)                        
+| 10  | Priority Queues    | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/13.priority-queue), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/13.priority-queue)            
+| 11  | Matrix             | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/15.matrix), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang)                                      
+| 12  | Graphs             | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/16.graphs), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/16.graphs)                            
+| 13  | N-ary Tree         | [TS](https://github.com/Am1rArsalan/ds-algorithms/tree/main/ts/17.nary-tree), [Go](https://github.com/Am1rArsalan/ds-algorithms/tree/main/golang/17.nary-tree)                                                                                                                             
 
+
+
+
+## Contributors ✨
+
+<!---
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/Am1rArsalan"><img src="[[https://avatars0.githubusercontent.com/u/1427885?v=4?s=100](https://avatars.githubusercontent.com/u/41959666?s=400&u=221730ad9dfa9afe5deb66528d2dab5daf678ea3&v=4)](https://avatars.githubusercontent.com/u/41959666?s=400&u=221730ad9dfa9afe5deb66528d2dab5daf678ea3&v=4)" width="100px;" alt=""/><br /><sub><b>Amir</b></sub></a><br /><a href="#example-zelenin" title="Examples">💡</a></td>
+  </tr>
+</table>
+
+--->
