@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/AmirAhmadzadeh/problems/binary_search"
 )
 
@@ -33,8 +32,4 @@ func FindDomainForGivenTarget(arr []int, target int) (int, int) {
 
 	end = temp2
 	return start, end
-}
-
-func main() {
-	fmt.Println("main func in main package")
 }

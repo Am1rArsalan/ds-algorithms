@@ -1,6 +1,6 @@
 package binary_search
 
-import "math"
+import "math" 
 
 func BinarySearch(arr []int, target int, left, right int) int {
     index := -1; 
@@ -20,6 +20,26 @@ func BinarySearch(arr []int, target int, left, right int) int {
 	}
 
 	return index;  
+}
+
+
+func BinarySearch2(arr []int, target int) int {
+	index:= -1; 
+    left := 0
+    right := len(arr) - 1
+    for left <= right {
+        mid := left + (right-left)/2
+        if arr[mid] == target {
+			index = mid;
+			break
+        } else if arr[mid] < target {
+            left = mid + 1
+        } else {
+            right = mid - 1
+        }
+    }
+
+    return index;
 }
 
 
