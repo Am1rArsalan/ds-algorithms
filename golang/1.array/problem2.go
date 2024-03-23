@@ -24,3 +24,26 @@ func findMaxArea(arr []int) int {
 
 	return maxArea
 }
+
+func FindMaxArea(a []int) int {
+	A := 0
+
+	R := len(a) - 1
+	L := 0
+
+	for L < R {
+		S := (R - L) * int(math.Min(float64(a[R]), float64(a[L])))
+
+		if S > A {
+			A = S
+		}
+
+		if a[R] > a[L] {
+			L++
+		} else {
+			R--
+		}
+	}
+
+	return A
+}
