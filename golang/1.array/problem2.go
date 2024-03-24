@@ -28,11 +28,11 @@ func findMaxArea(arr []int) int {
 func FindMaxArea(a []int) int {
 	A := 0
 
-	R := len(a) - 1
 	L := 0
+	R := len(a) - 1
 
 	for L < R {
-		S := (R - L) * int(math.Min(float64(a[R]), float64(a[L])))
+		S := int(math.Min(float64(a[R]), float64(a[L]))) * (R - L)
 
 		if S > A {
 			A = S
