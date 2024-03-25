@@ -80,5 +80,29 @@
 ---
 
 ### Problem 11
+( sliding window ) 
 https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1
 
+---
+
+
+### Problem 12
+( two pointer ) 
+https://www.geeksforgeeks.org/problems/count-the-triplets4615/1
+
+---
+
+### Problem 13
+(dp)
+( maximum subarray sum ) 
+( kadane algorithm ) 
+
+https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
+
+
+### Problem #14
+(dp)
+
+**Description:** Given a staircase where each step has a non-negative cost, and you can climb one or two steps at a time, find the minimum cost to reach the top of the staircase.
+
+**Example:** If the costs of the steps are [10, 15, 20], the minimum cost to reach the top is 15, achieved by taking the first and third steps.
