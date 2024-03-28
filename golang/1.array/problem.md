@@ -81,6 +81,7 @@
 
 ### Problem 11
 ( sliding window ) 
+sub-array with given sum 
 https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1
 
 ---
@@ -88,12 +89,12 @@ https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1
 
 ### Problem 12
 ( two pointer ) 
+count the triplets 
 https://www.geeksforgeeks.org/problems/count-the-triplets4615/1
 
 ---
 
 ### Problem 13
-(dp)
 ( maximum subarray sum ) 
 ( kadane algorithm ) 
 
@@ -106,3 +107,42 @@ https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
 **Description:** Given a staircase where each step has a non-negative cost, and you can climb one or two steps at a time, find the minimum cost to reach the top of the staircase.
 
 **Example:** If the costs of the steps are [10, 15, 20], the minimum cost to reach the top is 15, achieved by taking the first and third steps.
+
+
+### problem #15
+
+( find missing number in array ) 
+
+https://www.geeksforgeeks.org/problems/missing-number-in-array1416/1
+
+
+
+### problem #16
+(merge without extra space) 
+
+https://www.geeksforgeeks.org/problems/merge-two-sorted-arrays-1587115620/1
+
+
+### problem #17 
+(rearrange-array-alternately)
+
+https://www.geeksforgeeks.org/problems/-rearrange-array-alternately-1587115620/1
+
+### problem #18
+(number of pairs)
+
+https://www.geeksforgeeks.org/problems/number-of-pairs-1587115620/1
+
+
+### problem #19
+(inversion-of-array)
+
+https://www.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
+
+### problem #20
+(sort-an-array-of-0s-1s-and-2s)
+
+https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1
+
+
+
