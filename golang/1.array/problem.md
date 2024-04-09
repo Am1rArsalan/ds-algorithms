@@ -90,6 +90,8 @@ https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1
 ### Problem 12
 ( two pointer ) 
 count the triplets 
+
+a + b = c 
 https://www.geeksforgeeks.org/problems/count-the-triplets4615/1
 
 ---
