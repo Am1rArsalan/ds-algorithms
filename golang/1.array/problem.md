@@ -148,3 +148,13 @@ https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1
 
 
 
+### problem #21
+
+Equilibrium point 
+
+https://www.geeksforgeeks.org/problems/equilibrium-point-1587115620/1
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(1)
+
+
