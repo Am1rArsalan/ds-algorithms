@@ -110,6 +110,7 @@ https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
 
 **Example:** If the costs of the steps are [10, 15, 20], the minimum cost to reach the top is 15, achieved by taking the first and third steps.
 
+---
 
 ### problem #15
 
@@ -117,36 +118,42 @@ https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
 
 https://www.geeksforgeeks.org/problems/missing-number-in-array1416/1
 
-
+---
 
 ### problem #16
 (merge without extra space) 
 
 https://www.geeksforgeeks.org/problems/merge-two-sorted-arrays-1587115620/1
 
+---
 
 ### problem #17 
 (rearrange-array-alternately)
 
 https://www.geeksforgeeks.org/problems/-rearrange-array-alternately-1587115620/1
 
+---
+
 ### problem #18
 (number of pairs)
 
 https://www.geeksforgeeks.org/problems/number-of-pairs-1587115620/1
 
+---
 
 ### problem #19
 (inversion-of-array)
 
 https://www.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
 
+---
+
 ### problem #20
 (sort-an-array-of-0s-1s-and-2s)
 
 https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1
 
-
+---
 
 ### problem #21
 
