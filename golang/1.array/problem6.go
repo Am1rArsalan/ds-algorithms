@@ -1,31 +1,28 @@
 package main
 
-import "math"
+import (
+	"log"
+	"math"
+)
 
 func SquaredStoredArray(a []int) []int {
-	S := []int{}
+	s := make([]int, len(a))
 
-	for i := 0; i < len(a); i++ {
-		S[i] = 0
-	}
-
-	R := len(a) - 1
-	C := R
-	L := 0
-
-	for L < R && C >= 0 {
-
-		if math.Abs(float64(a[L])) > math.Abs(float64(a[R])) {
-			S[C] = int(math.Pow(float64(a[L]), 2))
-			L++
+	l := 0
+	r := len(a) - 1
+	ce := len(a) - 1
+	for ce >= 0 {
+		if math.Abs(float64(a[l])) >= math.Abs(float64(a[r])) {
+			s[ce] = int(math.Pow(float64(a[l]), 2))
+			l++
 		} else {
-			S[C] = int(math.Pow(float64(a[R]), 2))
-			R--
+			s[ce] = int(math.Pow(float64(a[r]), 2))
+			r--
 		}
-
-		C--
-
+		ce--
 	}
 
-	return S
+	log.Printf("what is s: %+v", s)
+
+	return s
 }

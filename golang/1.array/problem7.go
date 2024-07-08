@@ -3,23 +3,22 @@ package main
 import "sort"
 
 func FindNonConstructibleChange(arr []int) int {
-	sort.Ints(arr) 
+	sort.Ints(arr)
 	ncc := false
 
 	C := 0
 
-
 	for _, V := range arr {
 		if C+1 < V {
 			ncc = true
-			break 
+			break
 		}
 
-		C += V; 
+		C += V
 	}
 
-	if ncc { 
-		C = C + 1 
+	if ncc {
+		C = C + 1
 	}
 
 	return C

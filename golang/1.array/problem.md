@@ -24,6 +24,7 @@
 
 **Example:** If you have a sequence of rectangles with heights [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1], you can trap a total of 6 units of water within them.
 
+---
 
 ### Problem #5
 
