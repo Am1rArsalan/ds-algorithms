@@ -165,4 +165,14 @@ https://www.geeksforgeeks.org/problems/equilibrium-point-1587115620/1
 Expected Time Complexity: O(n)
 Expected Auxiliary Space: O(1)
 
+---- 
 
+
+### problem #22
+
+Array leaders
+
+https://www.geeksforgeeks.org/problems/leaders-in-an-array-1587115620/1
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(n)
