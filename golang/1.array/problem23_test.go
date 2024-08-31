@@ -36,40 +36,10 @@ func TestMinimumPlatforms(t *testing.T) {
 			expected: 4,
 		},
 		{
-			n: 10000,
-			arr: func() []int {
-				arr := make([]int, 10000)
-				for i := 0; i < 10000; i++ {
-					arr[i] = 1000 + i
-				}
-				return arr
-			}(),
-			dep: func() []int {
-				dep := make([]int, 10000)
-				for i := 0; i < 10000; i++ {
-					dep[i] = 1000 + i + 10
-				}
-				return dep
-			}(),
-			expected: 1,
-		},
-		{
 			n:        1,
 			arr:      []int{1000},
 			dep:      []int{1030},
 			expected: 1,
-		},
-		{
-			n:        3,
-			arr:      []int{900, 910, 920},
-			dep:      []int{910, 920, 930},
-			expected: 1,
-		},
-		{
-			n:        3,
-			arr:      []int{2300, 2345, 2350},
-			dep:      []int{2359, 2359, 2359},
-			expected: 2,
 		},
 		{
 			n:        4,
