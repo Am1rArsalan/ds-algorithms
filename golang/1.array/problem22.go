@@ -5,6 +5,7 @@ func FindLeaders2(arr []int) []int {
 
 	rmx := make([]int, len(arr))
 
+	// find right max element for each item
 	for i := len(arr) - 1; i >= 0; i-- {
 		if i == len(arr)-1 {
 			rmx[i] = arr[i]

@@ -31,9 +31,9 @@ func TestInversionCount(t *testing.T) {
 	}
 }
 
-func TestMergeSort2(t *testing.T) {
+func TestMergeSort(t *testing.T) {
 	a := []int{2, 4, 1, 3, 5}
-	r := MergeSort2(a)
+	r := MergeSort(a)
 	er := []int{1, 2, 3, 4, 5}
 
 	if !reflect.DeepEqual(r, er) {

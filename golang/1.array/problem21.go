@@ -12,6 +12,7 @@ func FindEquilibriumPoint2(arr []int) int {
 		return T
 	}
 
+	// cache sum of elements before each item
 	prs := []int{} // prefix sum arr
 	for i := 0; i < len(arr); i++ {
 		v := arr[i]
@@ -22,8 +23,8 @@ func FindEquilibriumPoint2(arr []int) int {
 		prs = append(prs, v+prs[len(prs)-1])
 	}
 
+	// cache sum of elements after each item
 	pos := []int{} // postfix sum arr
-
 	for i := len(arr) - 1; i >= 0; i-- {
 		v := arr[i]
 		if len(pos) == 0 {
@@ -50,6 +51,7 @@ func FindEquilibriumPoint2(arr []int) int {
 	return T + 1
 }
 
+// O(n^2)
 func FindEquilibriumPoint(arr []int) int {
 	T := -1
 	c := 0

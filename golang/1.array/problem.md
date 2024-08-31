@@ -18,7 +18,7 @@
 ---
 
 ### Problem #3
-( max - area ) 
+( max-area ) 
 
 **Description:** You have a list of rectangles, each with a height of 1, and you want to determine how much water can be trapped within these rectangles.
 
@@ -30,7 +30,7 @@
 
 **Description:** Determine whether a given sequence of numbers (subsequence) can be derived from a larger sequence by deleting some or none of the items without changing their order.
 
-**Example:** If you have the main sequence [1, 2, 3, 4, 5, 6] and the subsequence [2, 4, 6], the subsequence is valid because you can obtain it by removing the elements 1, 3, and 5 from the main sequence.
+**Example:** If you have the main sequence [1, 2, 3, 4, 5, 6] and the subsequence [2, 4, 6], the subsequence is valid because you can get it by removing the elements 1, 3, and 5 from the main sequence.
 
 ---
 
@@ -44,7 +44,7 @@
 
 ### Problem #7
 
-(non constructible change)
+(non-constructible change)
 
 **Description:** Find the smallest amount of change that cannot be created using a given set of coin denominations.
 
@@ -175,4 +175,15 @@ Array leaders
 https://www.geeksforgeeks.org/problems/leaders-in-an-array-1587115620/1
 
 Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(n)
+
+
+
+--- 
+
+### problem #23 
+
+https://www.geeksforgeeks.org/problems/minimum-platforms-1587115620/1
+
+Expected Time Complexity: O(nLogn)
 Expected Auxiliary Space: O(n)

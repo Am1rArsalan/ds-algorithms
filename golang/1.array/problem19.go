@@ -31,11 +31,13 @@ func merge(l, r []int) ([]int, int) {
 	i, j := 0, 0
 
 	for i < len(l) || j < len(r) {
-
 		if i < len(l) && j < len(r) {
 			if l[i] > r[j] {
+				// i < j  a[i] > a[j]
 				res = append(res, r[j])
 				j++
+				// because it's sorted then all the elements on the
+				// left array are greater that right ones.
 				c += len(l) - i
 			} else {
 				res = append(res, l[i])
@@ -53,15 +55,15 @@ func merge(l, r []int) ([]int, int) {
 	return res, c
 }
 
-func MergeSort2(arr []int) []int {
-	if len(arr) <= 1 {
-		return arr
+func MergeSort(a []int) []int {
+	if len(a) <= 1 {
+		return a
 	}
 
-	m := len(arr) / 2
+	m := len(a) / 2
 
-	l := MergeSort2(arr[:m])
-	r := MergeSort2(arr[m:])
+	l := MergeSort(a[m:])
+	r := MergeSort(a[:m])
 
 	return merge2(l, r)
 }
@@ -72,17 +74,17 @@ func merge2(l, r []int) []int {
 
 	for li < len(l) || ri < len(r) {
 		if li < len(l) && ri < len(r) {
-			if l[li] > r[ri] {
-				res = append(res, r[ri])
-				ri++
-			} else {
+			if l[li] < r[ri] {
 				res = append(res, l[li])
 				li++
+			} else {
+				res = append(res, r[ri])
+				ri++
 			}
 		} else if li < len(l) {
 			res = append(res, l[li])
 			li++
-		} else {
+		} else if ri < len(r) {
 			res = append(res, r[ri])
 			ri++
 		}
