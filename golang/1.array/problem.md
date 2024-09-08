@@ -187,3 +187,48 @@ https://www.geeksforgeeks.org/problems/minimum-platforms-1587115620/1
 
 Expected Time Complexity: O(nLogn)
 Expected Auxiliary Space: O(n)
+
+
+--- 
+### problem #24
+
+https://www.geeksforgeeks.org/problems/reverse-array-in-groups0255/1
+
+Expected Time Complexity: O(n)
+Expected Auxiliary Space: O(1)
+
+
+
+---
+
+### problem #25
+
+KTH the smallest element
+
+Expected Time Complexity: O(n+(max_element) )
+Expected Auxiliary Space: O(max_element)
+
+
+https://www.geeksforgeeks.org/problems/kth-smallest-element5635/1
+
+
+---
+### problem #26
+
+
+Expected Time Complexity: O(N)
+Expected Auxiliary Space: O(N) 
+
+https://www.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1
+
+
+
+---
+### problem #27
+
+
+Expected Time Complexity: O(n+max(Arr[i])2)
+Expected Auxiliary Space: O(max(Arr[i])) 
+
+https://www.geeksforgeeks.org/problems/pythagorean-triplet3018/1
+
