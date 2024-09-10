@@ -115,14 +115,14 @@ https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
 
 ### problem #15
 
-( find missing number in array ) 
+*** ( find missing number in array ) ***
 
 https://www.geeksforgeeks.org/problems/missing-number-in-array1416/1
 
 ---
 
 ### problem #16
-(merge without extra space) 
+*** (merge without extra space)  ***
 
 https://www.geeksforgeeks.org/problems/merge-two-sorted-arrays-1587115620/1
 
@@ -150,7 +150,7 @@ https://www.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
 ---
 
 ### problem #20
-(sort-an-array-of-0s-1s-and-2s)
+(sort-an-array-of-0s-1s-and-2s) => Dutch sort
 
 https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1
 
