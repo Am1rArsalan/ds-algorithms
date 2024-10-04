@@ -39,3 +39,22 @@
 ## Stack
 
 **Description:** A stack is a data structure that stores elements and allows for two main operations: push (add an element to the top) and pop (remove and return the element from the top). It follows the Last-In-First-Out (LIFO) principle.
+
+
+
+
+
+
+### problem-4:  
+
+Find the nearest smaller element to the right of each element in an array. If there is no smaller element, return -1. 
+
+
+Time Complexity: O(n)
+
+
+### problem-5: 
+
+Find the largest rectangle area in a histogram.
+
+Time Complexity: O(n)
