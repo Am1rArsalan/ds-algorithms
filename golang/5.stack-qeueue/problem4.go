@@ -1,7 +1,5 @@
 package main
 
-import "log"
-
 func FindNearestSmallerElementFromRight(a []int) []int {
 	res := make([]int, len(a))
 	stk := []int{}
