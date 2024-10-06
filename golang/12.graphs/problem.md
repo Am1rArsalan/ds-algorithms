@@ -45,3 +45,9 @@ The DFS traversal starting from node 0 is `[0, 1, 4, 5, 2, 3]`.
 - `N = 4`, `times = [[2,1,1],[2,3,1],[3,4,1]]`, `k = 2`. It takes `2` units of time for all nodes to receive the signal.
 - `N = 4`, `times = [[1,2,1],[2,3,7],[1,4,2],[2,4,3]]`, `k = 1`. It takes `6` units of time for all nodes to receive the signal.
 - `N = 4`, `times = [[1,2,1],[2,3,7],[1,4,2],[2,4,3]]`, `k = 3`. It is impossible to send the signal to all nodes.
+
+
+
+# problem-6: 
+
+https://codeforces.com/problemset/problem/94/B
