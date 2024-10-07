@@ -51,3 +51,8 @@ The DFS traversal starting from node 0 is `[0, 1, 4, 5, 2, 3]`.
 # problem-6: 
 
 https://codeforces.com/problemset/problem/94/B
+
+
+# problem-7 
+
+https://codeforces.com/problemset/problem/707/B
