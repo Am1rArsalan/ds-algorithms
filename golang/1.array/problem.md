@@ -397,6 +397,12 @@ W  1  0  G
 
 https://leetcode.com/problems/rotting-oranges/description/
 
+---  
+
+### Problem 44: max profit  
+
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
 
 
 
