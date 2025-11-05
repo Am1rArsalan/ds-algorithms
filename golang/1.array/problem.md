@@ -124,7 +124,7 @@ https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
 ### problem #15
 
 *** ( find missing number in array ) ***
-
+https://leetcode.com/problems/missing-number/
 https://www.geeksforgeeks.org/problems/missing-number-in-array1416/1
 
 ---
@@ -325,6 +325,7 @@ https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-numb
 
 https://leetcode.com/problems/minimum-time-visiting-all-points/
 
+
 ---
 
 ### Problem #37: 
@@ -350,7 +351,7 @@ bfs in matrix
 
 
 ### problem 40:
-
+islands
 https://leetcode.com/problems/number-of-islands/description/
 
 
@@ -402,6 +403,7 @@ https://leetcode.com/problems/rotting-oranges/description/
 ### Problem 44: max profit  
 
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+
 
 
 

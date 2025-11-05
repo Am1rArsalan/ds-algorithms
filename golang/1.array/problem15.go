@@ -1,7 +1,7 @@
 package main
 
 func FindMissingNumber(a []int) int {
-	n := len(a) + 1
+	n := len(a)
 	s := (n) * (n + 1) * 1 / 2
 
 	sum := 0

@@ -28,3 +28,21 @@ func minTimeToVisitAllPoints(points [][]int) (m int) {
 
 	return m
 }
+
+func minTimeToVisitAllPoints2(p [][]int) (m int) {
+	x1 := p[0][0]
+	y1 := p[0][1]
+	p = p[1:]
+	for len(p) > 0 {
+		x2 := p[0][0]
+		y2 := p[0][1]
+		p = p[1:]
+
+		m += int(math.Max(math.Abs(float64(x2-x1)), math.Abs(float64(y2-y1))))
+
+		x1 = x2
+		y1 = y2
+	}
+
+	return m
+}

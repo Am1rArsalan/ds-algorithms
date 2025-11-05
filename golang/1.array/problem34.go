@@ -10,8 +10,8 @@ func FindDisappearedNumbers(nums []int) []int {
 	}
 
 	for i := 1; i <= n; i++ {
-		_, exsits := s[i]
-		if !exsits {
+		_, e := s[i]
+		if !e {
 			mn = append(mn, i)
 		}
 	}
