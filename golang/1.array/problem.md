@@ -100,8 +100,9 @@ https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1
 ( two pointer ) 
 count the triplets 
 
-a + b = c 
+
 https://www.geeksforgeeks.org/problems/count-the-triplets4615/1
+https://leetcode.com/problems/3sum/
 
 ---
 
@@ -249,6 +250,8 @@ will be 0
 a + b + c  = 0 
 
 Tag: two pointer
+
+https://leetcode.com/problems/3sum/
 
 ---- 
 
@@ -405,9 +408,12 @@ https://leetcode.com/problems/rotting-oranges/description/
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 
+---
 
 
+### problem 45: longest mountain array
 
+https://leetcode.com/problems/longest-mountain-in-array/description/
 
 
 

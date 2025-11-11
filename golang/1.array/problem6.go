@@ -1,25 +1,23 @@
 package main
 
-import (
-	"math"
-)
-
-func SquaredStoredArray(a []int) []int {
-	s := make([]int, len(a))
-
+func SortedSquares(nums []int) []int {
 	l := 0
-	r := len(a) - 1
-	ce := len(a) - 1
-	for ce >= 0 {
-		if math.Abs(float64(a[l])) >= math.Abs(float64(a[r])) {
-			s[ce] = int(math.Pow(float64(a[l]), 2))
-			l++
-		} else {
-			s[ce] = int(math.Pow(float64(a[r]), 2))
+	r := len(nums) - 1
+	res := make([]int, len(nums))
+
+	i := len(nums) - 1
+	for l <= r && i >= 0 {
+		R := nums[r] * nums[r]
+		L := nums[l] * nums[l]
+		if R >= L {
+			res[i] = R
 			r--
+		} else {
+			res[i] = L
+			l++
 		}
-		ce--
+		i--
 	}
 
-	return s
+	return res
 }

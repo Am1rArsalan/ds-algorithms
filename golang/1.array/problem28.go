@@ -4,15 +4,15 @@ import (
 	"sort"
 )
 
-//example: -1 2 -2 1 -1 2
+// example: -1 2 -2 1 -1 2
 
 // a + b + c = 0
 func Problem28(arr []int) (res [][]int) {
 	sort.Ints(arr)
 
-	//arr: -2 -1 -1 1 2 2
+	// arr: -2 -1 -1 1 2 2
 	for i, _ := range arr {
-		/// one other optimization:
+		// one other optimization:
 		if arr[i] > 0 {
 			break
 		}

@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func maxProfit(p []int) (mp int) {
 	l, r := 0, 1
 
@@ -18,8 +16,4 @@ func maxProfit(p []int) (mp int) {
 	}
 
 	return mp
-}
-
-func main() {
-	fmt.Print(maxProfit([]int{7, 1, 5, 3, 6, 4}))
 }
